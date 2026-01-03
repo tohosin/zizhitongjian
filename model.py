@@ -1,71 +1,24 @@
+"""
+资治通鉴数据处理脚本
+
+从Markdown文件中提取和构建书籍结构数据。
+使用 model.book_structure 中定义的数据模型。
+"""
+
 import re
 import json
 import os
-from dataclasses import dataclass, field, asdict
+from dataclasses import asdict
 from typing import List
 from glob import glob
 from pprint import pformat
 
 from tqdm import tqdm
 
-PARA_IDX_PAT = re.compile("\[(\d+)\]")
+from model.book_structure import Book, Chapter, TimeSegment, CmpStr, PARA_IDX_PAT
 
 files = glob("chapters/*.md")
 cur_file = None
-
-
-@dataclass
-class CmpStr:
-    original: str = field(default="")
-    translated: str = field(default="")
-    line_num: int = -1
-
-    def check(self, **args):
-        found = re.findall(PARA_IDX_PAT, self.original)
-        if found:
-            found_trans = re.findall(PARA_IDX_PAT, self.translated)
-            assert (
-                ("[todo]" in self.translated)
-                or found_trans
-                and (found[0] == found_trans[0])
-            ), pformat([args, self, f"{cur_file}:{self.line_num}"])
-
-        return True
-
-
-@dataclass
-class TimeSegment:
-    start_time: CmpStr = field(default_factory=CmpStr)
-    sentences: List[CmpStr] = field(default_factory=list)
-
-    def check(self):
-        assert re.findall("\d+", self.start_time.original) and re.findall(
-            "\d+", self.start_time.translated
-        ), pformat(self.start_time)
-
-        for s in self.sentences:
-            s.check(time=self.start_time)
-
-    def __str__(self):
-        return f"小节-起始时间 {self.start_time.translated.split(' ')[-1]}，包含 {len(self.sentences)} 句"
-
-
-@dataclass
-class Chapter:
-    index: int = field(default=-1)
-    title: str = field(default="")
-    segments: List[TimeSegment] = field(default_factory=list)
-
-    def check(self):
-        assert "卷" in self.title, pformat(self.title)
-
-    def __str__(self):
-        return f"{self.title}（包含{len(self.segments)}小节）"
-
-
-@dataclass
-class Book:
-    chapters: List[Chapter] = field(default_factory=list)
 
 
 # Load the JSON file and convert back to Python objects

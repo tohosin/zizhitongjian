@@ -1,2 +1,8 @@
 .ipynb_checkpoints/
 .virtual_documents/
+**/__pycache__/
+**/node_modules/
+inter/
+debug_logs/
+.python-version
+*.db
