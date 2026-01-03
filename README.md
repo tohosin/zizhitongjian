@@ -1,5 +1,17 @@
 # 资治通鉴-文白对照数据-人工智能辅助理解
 
+> 🚀 **在线体验：<https://zztj.wawuyu.cn>**
+
+## 效果预览（阶段性成果）
+
+| 主界面（时间轴） | 核心能力：人物关系网 |
+| --- | --- |
+| ![主界面与时间轴](https://github.com/JY0284/zizhitongjian/blob/main/demo/main_page_and_events_timeline.png) | ![关系网络](https://github.com/JY0284/zizhitongjian/blob/main/demo/relation_network_1.png) |
+
+- **时间轴**：事件密集时自动聚类；支持缩放/平移/搜索
+- **人物关系网**：点击人物/关系查看详情与交互事件（体现结构化的核心成果）
+- **地点**：地点列表与详情，串起相关人物与事件
+
 ## 文白对照阅读
 [阅读书籍点击](https://jy0284.github.io/zizhitongjian/chapters/001_资治通鉴第一卷(周纪).html)
 
@@ -43,8 +55,6 @@ chapters
 结构化数据已由`model.py`生成，其中的数据结构及生成过程可见于`model.py`。结构化数据保存于`data.json`（[结构化数据文件](https://github.com/JY0284/zizhitongjian/blob/main/data.json)）。数据读取和使用样例请见`data_usage_demo_visualization.ipynb`（[结构化数据使用样例](https://github.com/JY0284/zizhitongjian/blob/main/data_usage_demo_visualization.ipynb)）。
 
 ## 资治通鉴数据应用样例：交互式历史可视化系统
-
-🚀 **在线体验地址：[http://zztj.wawuyu.cn](http://zztj.wawuyu.cn)**
 
 本项目新增了基于 React + D3.js 的现代化交互式可视化系统，位于 `visualization` 目录下。该系统提供了更加流畅、直观的历史数据探索体验，帮助读者从时间、空间、人物关系等多个维度深入理解《资治通鉴》。
 
