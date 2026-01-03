@@ -1,0 +1,7325 @@
+{
+  "1-1-1": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 1,
+    "chunk_end_index": 2,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "臣司马光曰：我知道天子的职责中最重要的是维护礼教，礼教中最重要的是区分地位，区分地位中最重要的是匡正名分。什么是礼教？就是法纪。什么是区分地位？就是君臣有别。什么是名分？就是公、侯、卿、大夫等官爵。"
+    ],
+    "entities": [
+      {
+        "name": "司马光",
+        "alias": [
+          "臣司马光"
+        ],
+        "original_description_in_book": "",
+        "description": "北宋著名政治家、史学家，主持编纂《资治通鉴》。",
+        "power": "北宋",
+        "sentence_indexes_in_segment": [
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周威烈王",
+        "alias": [
+          "天子",
+          "威烈王",
+          "姬午"
+        ],
+        "original_description_in_book": "初次分封晋国大夫魏斯、赵籍、韩虔为诸侯国君。",
+        "description": "东周时期周天子，在位期间发生了标志性的“三家分晋”事件，即正式册封韩、赵、魏三家为诸侯。",
+        "power": "周朝",
+        "sentence_indexes_in_segment": [
+          0,
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏斯",
+        "alias": [
+          "魏国",
+          "魏"
+        ],
+        "original_description_in_book": "晋国大夫",
+        "description": "战国初期魏国开国君主，即魏文侯。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵籍",
+        "alias": [
+          "赵国",
+          "赵"
+        ],
+        "original_description_in_book": "晋国大夫",
+        "description": "战国初期赵国开国君主，即赵烈侯。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩虔",
+        "alias": [
+          "韩国",
+          "韩"
+        ],
+        "original_description_in_book": "晋国大夫",
+        "description": "战国初期韩国开国君主，即韩景侯。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "周威烈王"
+        ],
+        "to_roles": [
+          "魏斯",
+          "赵籍",
+          "韩虔"
+        ],
+        "action": "分封",
+        "context": "周威烈王正式册封晋国三位大夫为诸侯国君。",
+        "result": "魏、赵、韩三国正式成为诸侯国",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "司马光"
+        ],
+        "to_roles": [
+          "周威烈王"
+        ],
+        "action": "评论",
+        "context": "司马光针对周威烈王分封三家为诸侯一事发表议论。",
+        "result": "天子的职责中最重要的是维护礼教，礼教中最重要的是区分地位，区分地位中最重要的是匡正名分。礼教就是法纪。区分地位就是君臣有别。名分就是公、侯、卿、大夫等官爵。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:54:26.556159",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2058,
+    "completion_tokens": 719,
+    "total_tokens": 2777
+  },
+  "1-1-0": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 0,
+    "chunk_end_index": 1,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "周威烈王姬午初次分封晋国大夫魏斯、赵籍、韩虔为诸侯国君。"
+    ],
+    "entities": [
+      {
+        "name": "周威烈王",
+        "alias": [
+          "姬午"
+        ],
+        "original_description_in_book": "初次分封晋国大夫魏斯、赵籍、韩虔为诸侯国君",
+        "description": "东周君主，周威烈王姬午，在位期间承认了韩、赵、魏三家为诸侯，标志着战国七雄格局的正式形成。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏斯",
+        "alias": [],
+        "original_description_in_book": "晋国大夫",
+        "description": "即魏文侯，战国初期魏国开国君主，任用李悝变法，使魏国成为战国初期最强大的国家。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵籍",
+        "alias": [],
+        "original_description_in_book": "晋国大夫",
+        "description": "即赵烈侯，战国初期赵国开国君主。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩虔",
+        "alias": [],
+        "original_description_in_book": "晋国大夫",
+        "description": "即韩景侯，战国初期韩国开国君主。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "晋国",
+        "alias": [],
+        "type": "国家",
+        "description": "春秋时期主要诸侯国之一，后被韩、赵、魏三家瓜分。",
+        "modern_name": "今山西及周边地区",
+        "coordinates": null,
+        "related_entities": [
+          "魏斯",
+          "赵籍",
+          "韩虔"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "三家分晋",
+        "time": "威烈王二十三年（前403年）",
+        "location": "晋国",
+        "participants": [
+          "周威烈王",
+          "魏斯",
+          "赵籍",
+          "韩虔"
+        ],
+        "description": "周威烈王正式册封晋国大夫魏斯、赵籍、韩虔为诸侯国君，标志着韩、赵、魏三家正式取代晋国，成为独立的诸侯国。",
+        "background": "春秋末期，晋国政权被韩、赵、魏、智、范、中行六卿把持，后经过内部兼并，韩、赵、魏三家最终瓜分了晋国领土。周威烈王的册封是对这一既成事实的官方承认。",
+        "significance": "这一事件被司马光《资治通鉴》作为开篇，标志着战国时代的正式开始，周王室礼制彻底崩坏。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403年）",
+        "from_roles": [
+          "周威烈王"
+        ],
+        "to_roles": [
+          "魏斯",
+          "赵籍",
+          "韩虔"
+        ],
+        "action": "分封",
+        "context": "周威烈王作为天下共主，对实际已掌控晋国土地的韩、赵、魏三家领袖进行正式册封。",
+        "result": "魏斯、赵籍、韩虔成为诸侯国君",
+        "event_name": "三家分晋",
+        "location": "晋国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:54:29.689156",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 1988,
+    "completion_tokens": 816,
+    "total_tokens": 2804
+  },
+  "1-1-7": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 7,
+    "chunk_end_index": 8,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "呜呼！君臣之间的礼纪既然崩坏，于是天下便开始以智慧、武力互相争雄，使当年受周先王分封而成为诸侯国君的圣贤后裔，江山相继沦亡，周朝先民的子孙灭亡殆尽，岂不哀伤！"
+    ],
+    "entities": [
+      {
+        "name": "周威烈王",
+        "alias": [
+          "天子",
+          "周王"
+        ],
+        "original_description_in_book": "",
+        "description": "周朝君主，周威烈王姬午，在位期间发生了三家分晋并被周王室正式承认的事件，标志着周朝礼制的彻底崩坏。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周先王",
+        "alias": [
+          "周文王",
+          "周武王"
+        ],
+        "original_description_in_book": "当年受周先王分封而成为诸侯国君的圣贤后裔",
+        "description": "指周朝的开国和早期君主，如周文王、周武王等，他们分封诸侯，建立了以礼制为核心的封建秩序。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "诸侯国君",
+        "alias": [
+          "诸侯"
+        ],
+        "original_description_in_book": "当年受周先王分封而成为诸侯国君的圣贤后裔",
+        "description": "周朝分封制度下的地方统治者，名义上服从周天子，是周朝封建体系的重要组成部分。",
+        "power": "各诸侯国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周先民",
+        "alias": [],
+        "original_description_in_book": "周朝先民的子孙",
+        "description": "指周朝建立之初的功臣、贵族及其后代，他们是周朝统治的基础。",
+        "power": "周王室及诸侯国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [
+      {
+        "name": "君臣礼纪崩坏",
+        "time": "周威烈王时期（前403年后）",
+        "location": null,
+        "participants": [
+          "周威烈王",
+          "诸侯国君"
+        ],
+        "description": "周威烈王正式承认晋国韩、赵、魏三家大夫为诸侯，破坏了天子与诸侯之间严格的等级名分和礼制秩序。",
+        "background": "春秋战国时期，周王室日益衰微，诸侯国势力崛起，不断挑战和破坏周朝的礼乐制度。前403年，周威烈王册封晋国三家大夫为诸侯，是礼制崩坏的标志性事件。",
+        "significance": "标志着周朝以礼制为核心的封建秩序彻底瓦解，开启了以智慧和武力争雄的战国时代，导致大量旧有诸侯国灭亡。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "周威烈王时期",
+        "from_roles": [
+          "周威烈王"
+        ],
+        "to_roles": [
+          "诸侯国君"
+        ],
+        "action": "破坏礼纪",
+        "context": "周威烈王承认三家分晋，破坏了天子册封诸侯的礼制原则，导致君臣名分混乱。",
+        "result": "天下以智慧、武力互相争雄，圣贤后裔江山沦亡",
+        "event_name": "君臣礼纪崩坏",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "周威烈王时期后",
+        "from_roles": [
+          "天下（各方势力）"
+        ],
+        "to_roles": [
+          "诸侯国君",
+          "周先民"
+        ],
+        "action": "争雄、导致灭亡",
+        "context": "由于君臣礼纪崩坏，原有的封建秩序失效，天下进入弱肉强食的丛林法则时代。",
+        "result": "圣贤后裔的江山相继沦亡，周朝先民的子孙灭亡殆尽",
+        "event_name": "君臣礼纪崩坏",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "作者（司马光）"
+        ],
+        "to_roles": [
+          "君臣礼纪崩坏"
+        ],
+        "action": "哀叹评论",
+        "context": "作者对周朝礼制崩坏、天下大乱、古圣先贤后代灭亡的悲惨结局发出感慨。",
+        "result": "呜呼！...岂不哀伤！",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:54:36.034115",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3366,
+    "completion_tokens": 1015,
+    "total_tokens": 4381
+  },
+  "1-1-6": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 6,
+    "chunk_end_index": 7,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "有人认为当时周王室已经衰微，而晋国三家力量强盛，就算周王不想承认他们，又怎么能做得到呢！这种说法是完全错误的。晋国三家虽然强悍，但他们如果打算不顾天下的指责而公然侵犯礼义的话，就不会来请求周天子的批准，而是去自立为君了。不向天子请封而自立为国君，那就是叛逆之臣，天下如果有像齐桓公、晋文公那样的贤德诸侯，一定会尊奉礼义对他们进行征讨。现在晋国三家向天子请封，天子又批准了。他们就是奉天子命令而成为诸侯的，谁又能对他们加以讨伐呢！所以晋国三家大夫成为诸侯，并不是晋国三家破坏了礼教，正是周天子自已破坏了周朝的礼教啊！"
+    ],
+    "entities": [
+      {
+        "name": "周天子",
+        "alias": [
+          "天子",
+          "周王"
+        ],
+        "original_description_in_book": "批准晋国三家为诸侯的天子",
+        "description": "周朝的最高统治者，名义上的天下共主。在战国时期，周王室已严重衰微，但天子名分仍具一定政治象征意义。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "晋国三家",
+        "alias": [
+          "三家",
+          "三家大夫"
+        ],
+        "original_description_in_book": "向天子请封，天子又批准了。他们就是奉天子命令而成为诸侯的",
+        "description": "指瓜分晋国的韩、赵、魏三家卿大夫家族。他们通过政治和军事手段逐渐掌控晋国实权，最终被周威烈王正式册封为诸侯，标志着战国七雄格局的形成。",
+        "power": "韩、赵、魏（三家）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "齐桓公",
+        "alias": [],
+        "original_description_in_book": "像齐桓公、晋文公那样的贤德诸侯",
+        "description": "春秋时期齐国国君，春秋五霸之首。他以“尊王攘夷”为号召，多次会盟诸侯，维护周天子权威和华夏秩序。",
+        "power": "齐国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "晋文公",
+        "alias": [],
+        "original_description_in_book": "像齐桓公、晋文公那样的贤德诸侯",
+        "description": "春秋时期晋国国君，春秋五霸之一。他在城濮之战中击败楚国，并举行践土之盟，确立了晋国的霸主地位，也强调尊奉周室。",
+        "power": "晋国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [
+      {
+        "name": "三家分晋",
+        "time": "周威烈王二十三年（前403年）",
+        "location": null,
+        "participants": [
+          "晋国三家",
+          "周天子"
+        ],
+        "description": "韩、赵、魏三家卿大夫瓜分晋国，并正式获得周威烈王的册封，成为独立的诸侯国。",
+        "background": "春秋末期，晋国公室衰微，政权逐渐被韩、赵、魏、智、范、中行等六卿把持。经过长期内斗，韩、赵、魏三家最终消灭了其他卿族，共同瓜分了晋国领土。",
+        "significance": "这一事件被后世史家（如司马光）视为春秋与战国的分界线，标志着周朝礼乐制度的彻底崩坏和诸侯国完全无视周室权威时代的开始。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "周威烈王二十三年（前403年）",
+        "from_roles": [
+          "晋国三家"
+        ],
+        "to_roles": [
+          "周天子"
+        ],
+        "action": "请封",
+        "context": "晋国三家在瓜分晋国后，向周天子请求正式册封为诸侯。",
+        "result": "获得批准",
+        "event_name": "三家分晋",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "周威烈王二十三年（前403年）",
+        "from_roles": [
+          "周天子"
+        ],
+        "to_roles": [
+          "晋国三家"
+        ],
+        "action": "批准册封",
+        "context": "面对晋国三家的请封，周天子予以批准，正式承认其诸侯地位。",
+        "result": "晋国三家成为合法诸侯",
+        "event_name": "三家分晋",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "作者（司马光）"
+        ],
+        "to_roles": [
+          "周天子"
+        ],
+        "action": "批评",
+        "context": "针对周天子批准三家分晋的行为，作者（通过文中观点）提出批评。",
+        "result": "认为这是周天子自己破坏了周朝的礼教，导致礼制彻底崩溃。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "作者（司马光）"
+        ],
+        "to_roles": [
+          "晋国三家"
+        ],
+        "action": "分析",
+        "context": "作者（通过文中观点）分析晋国三家为何选择请封而非自立。",
+        "result": "认为他们如果自立，会成为天下共讨的叛逆之臣；而请封并获得批准后，就变成了奉天子之命的合法诸侯，无人能讨伐。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:54:41.751647",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3371,
+    "completion_tokens": 1181,
+    "total_tokens": 4552
+  },
+  "1-1-2": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 2,
+    "chunk_end_index": 3,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "四海之广，亿民之众，都受制于天子一人。尽管是才能超群、智慧绝伦的人，也不能不在天子足下为他奔走服务，这难道不是以礼作为礼纪朝纲的作用吗！所以，天子统率三公，三公督率诸侯国君，诸侯国君节制卿、大夫官员，卿、大夫官员又统治士人百姓。权贵支配贱民，贱民服从权贵。上层指挥下层就好像人的心腹控制四肢行动，树木的根和干支配枝和叶；下层服侍上层就好像人的四肢卫护心腹，树木的枝和叶遮护根和干，这样才能上下层互相保护，从而使国家得到长治久安。所以说，天子的职责没有比维护礼制更重要的了。"
+    ],
+    "entities": [
+      {
+        "name": "天子",
+        "alias": [],
+        "original_description_in_book": "四海之广，亿民之众，都受制于天子一人。",
+        "description": "中国古代对最高统治者的称谓，指周王或皇帝，是国家的最高领袖和权力的象征。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "三公",
+        "alias": [],
+        "original_description_in_book": "天子统率三公",
+        "description": "中国古代朝廷中最尊显的三个官职的合称，通常指太师、太傅、太保，是辅佐天子的最高官员。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "诸侯国君",
+        "alias": [
+          "诸侯"
+        ],
+        "original_description_in_book": "三公督率诸侯国君",
+        "description": "周代分封制度下，由周天子册封的各国统治者，对天子负有朝贡、述职、出兵等义务。",
+        "power": "各诸侯国",
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "卿",
+        "alias": [
+          "卿、大夫官员"
+        ],
+        "original_description_in_book": "诸侯国君节制卿、大夫官员",
+        "description": "周代及春秋战国时期诸侯国的高级官员，地位在大夫之上，负责国家重要政务。",
+        "power": "各诸侯国",
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "大夫",
+        "alias": [
+          "卿、大夫官员"
+        ],
+        "original_description_in_book": "诸侯国君节制卿、大夫官员",
+        "description": "周代及春秋战国时期诸侯国的中级官员，地位在卿之下、士之上，负责具体行政事务。",
+        "power": "各诸侯国",
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "士人",
+        "alias": [
+          "士人百姓"
+        ],
+        "original_description_in_book": "卿、大夫官员又统治士人百姓",
+        "description": "周代社会阶层之一，介于贵族与平民之间，多为低级官吏、武士或知识分子。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "百姓",
+        "alias": [
+          "士人百姓"
+        ],
+        "original_description_in_book": "卿、大夫官员又统治士人百姓",
+        "description": "泛指平民、庶民，是社会的主要生产者和被统治者。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "权贵",
+        "alias": [],
+        "original_description_in_book": "权贵支配贱民",
+        "description": "指掌握权力和地位的贵族、官员等上层阶级。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "贱民",
+        "alias": [],
+        "original_description_in_book": "贱民服从权贵",
+        "description": "指社会地位低下、没有特权的普通民众或奴隶。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "司马光",
+        "alias": [
+          "臣司马光"
+        ],
+        "original_description_in_book": "臣司马光曰：我知道天子的职责中最重要的是维护礼教...",
+        "description": "北宋著名政治家、史学家，主持编纂了《资治通鉴》。此处是他在《资治通鉴》开篇所加的评论。",
+        "power": "北宋",
+        "sentence_indexes_in_segment": [
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [],
+    "relations": [
+      {
+        "time": null,
+        "from_roles": [
+          "天子"
+        ],
+        "to_roles": [
+          "三公"
+        ],
+        "action": "统率",
+        "context": "阐述礼教等级制度中天子与三公的关系。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "三公"
+        ],
+        "to_roles": [
+          "诸侯国君"
+        ],
+        "action": "督率",
+        "context": "阐述礼教等级制度中三公与诸侯国君的关系。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "诸侯国君"
+        ],
+        "to_roles": [
+          "卿",
+          "大夫"
+        ],
+        "action": "节制",
+        "context": "阐述礼教等级制度中诸侯国君与卿、大夫官员的关系。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "卿",
+          "大夫"
+        ],
+        "to_roles": [
+          "士人",
+          "百姓"
+        ],
+        "action": "统治",
+        "context": "阐述礼教等级制度中卿、大夫官员与士人百姓的关系。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "权贵"
+        ],
+        "to_roles": [
+          "贱民"
+        ],
+        "action": "支配",
+        "context": "阐述礼教等级制度中权贵与贱民的关系。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "贱民"
+        ],
+        "to_roles": [
+          "权贵"
+        ],
+        "action": "服从",
+        "context": "阐述礼教等级制度中贱民对权贵的义务。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "司马光"
+        ],
+        "to_roles": [
+          "天子"
+        ],
+        "action": "评论",
+        "context": "司马光在《资治通鉴》开篇对周威烈王分封三家为诸侯一事发表长篇议论，阐述礼教的重要性。",
+        "result": "天子的职责没有比维护礼制更重要的了。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          1,
+          2
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:54:53.636515",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2228,
+    "completion_tokens": 1603,
+    "total_tokens": 3831
+  },
+  "1-1-3": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 3,
+    "chunk_end_index": 4,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "周文王演绎排列《易经》，以乾、坤为首位。孔子解释说：“天尊贵，地卑微，阳阴于是确定。由低至高排列有序，贵贱也就各得其位。”这是说君主和臣子之间的上下关系就像天和地一样不能互易。《春秋》一书贬低诸侯，尊崇周王室，尽管周王室的官吏地位不高，在书中排列顺序仍在诸侯国君之上，由此可见孔圣人对于君臣关系的关注。如果不是夏桀、商纣那样的暴虐昏君，对手又遇上商汤、周武王这样的仁德明主，使人民归心、上天赐命的话，君臣之间的名分只能是作臣子的恪守臣节，矢死不渝。所以如果商朝立贤明的微子为国君来取代纣王，成汤创立的商朝就可以永配上天；而吴国如果以仁德的季札做君主，开国之君太伯也可以永享祭祀。然而微子、季札二人宁肯国家灭亡也不愿做君主，实在是因为礼教的大节绝不可因此破坏。所以说，礼教中最重要的就是地位高下的区分。"
+    ],
+    "entities": [
+      {
+        "name": "周文王",
+        "alias": [],
+        "original_description_in_book": "演绎排列《易经》，以乾、坤为首位",
+        "description": "商朝末年周族领袖，姓姬名昌，被尊为周朝奠基者，以仁德著称，为武王伐纣奠定基础。",
+        "power": "周",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "孔子",
+        "alias": [
+          "孔圣人"
+        ],
+        "original_description_in_book": "解释说：“天尊贵，地卑微，阳阴于是确定。由低至高排列有序，贵贱也就各得其位。”",
+        "description": "春秋末期思想家、教育家，儒家学派创始人，其思想对中国及东亚文化影响深远。",
+        "power": "鲁国",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "夏桀",
+        "alias": [],
+        "original_description_in_book": "暴虐昏君",
+        "description": "夏朝最后一位君主，以暴虐荒淫著称，导致夏朝灭亡。",
+        "power": "夏朝",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "商汤",
+        "alias": [
+          "成汤"
+        ],
+        "original_description_in_book": "仁德明主",
+        "description": "商朝开国君主，推翻夏桀暴政，建立商朝，被视为贤明君主的典范。",
+        "power": "商朝",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "商纣",
+        "alias": [
+          "纣王"
+        ],
+        "original_description_in_book": "暴虐昏君",
+        "description": "商朝最后一位君主，以残暴荒淫著称，导致商朝灭亡。",
+        "power": "商朝",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周武王",
+        "alias": [],
+        "original_description_in_book": "仁德明主",
+        "description": "周朝开国君主，姓姬名发，领导诸侯推翻商纣王，建立周朝。",
+        "power": "周",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "微子",
+        "alias": [],
+        "original_description_in_book": "贤明的微子",
+        "description": "商纣王的庶兄，以贤德著称，商朝灭亡后受周朝分封，建立宋国。",
+        "power": "商朝",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "季札",
+        "alias": [],
+        "original_description_in_book": "仁德的季札",
+        "description": "春秋时期吴国公子，吴王寿梦第四子，以贤德和辞让君位著称。",
+        "power": "吴国",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "太伯",
+        "alias": [],
+        "original_description_in_book": "开国之君太伯",
+        "description": "周太王古公亶父长子，为让位给弟弟季历（周文王之父）而南奔荆蛮，成为吴国始祖。",
+        "power": "吴国",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "司马光",
+        "alias": [
+          "臣司马光"
+        ],
+        "original_description_in_book": "",
+        "description": "北宋著名政治家、史学家，主持编纂《资治通鉴》。",
+        "power": "北宋",
+        "sentence_indexes_in_segment": [],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "周王室",
+        "alias": [
+          "周室"
+        ],
+        "type": "国家",
+        "description": "周朝的王室，名义上的天下共主，但东周时期权力衰微。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "周文王",
+          "周武王",
+          "孔子"
+        ],
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "吴国",
+        "alias": [],
+        "type": "国家",
+        "description": "春秋时期诸侯国，位于长江下游，始祖为太伯。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "季札",
+          "太伯"
+        ],
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "商朝",
+        "alias": [
+          "商"
+        ],
+        "type": "国家",
+        "description": "中国历史上的第二个朝代，由商汤建立，被周武王所灭。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "商汤",
+          "商纣",
+          "微子"
+        ],
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [],
+    "relations": [
+      {
+        "time": null,
+        "from_roles": [
+          "孔子"
+        ],
+        "to_roles": [
+          "周文王"
+        ],
+        "action": "解释",
+        "context": "孔子对周文王演绎《易经》以乾坤为首的行为进行解释，阐述天尊地卑、贵贱有序的道理。",
+        "result": "“天尊贵，地卑微，阳阴于是确定。由低至高排列有序，贵贱也就各得其位。”",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "孔子"
+        ],
+        "to_roles": [
+          "周王室"
+        ],
+        "action": "尊崇",
+        "context": "在《春秋》一书中，孔子通过编排顺序，贬低诸侯而尊崇周王室。",
+        "result": "周王室的官吏在书中排列顺序仍在诸侯国君之上。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "微子"
+        ],
+        "to_roles": [
+          "商朝"
+        ],
+        "action": "不愿取代",
+        "context": "微子贤明，本可以取代暴君商纣成为国君。",
+        "result": "宁肯国家灭亡也不愿做君主，以维护礼教大节。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "季札"
+        ],
+        "to_roles": [
+          "吴国"
+        ],
+        "action": "不愿做君主",
+        "context": "季札仁德，本可以成为吴国君主。",
+        "result": "宁肯国家灭亡也不愿做君主，以维护礼教大节。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:54:53.719849",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2471,
+    "completion_tokens": 1600,
+    "total_tokens": 4071
+  },
+  "1-1-8": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 8,
+    "chunk_end_index": 9,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "当初，晋国的智宣子想以智瑶为继承人，族人智果说：“他不如智宵。智瑶有超越他人的五项长处，只有一项短处。美发高大是长处，精于骑射是长处，才艺双全是长处，能写善辩是长处，坚毅果敢是长处。虽然如此却很不仁厚。如果他以五项长处来制服别人而做不仁不义的恶事，谁能和他和睦相处？要是真的立智瑶为继承人，那么智氏宗族一定灭亡。”智宣子置之不理。智果便向太史请求脱离智族姓氏，另立为辅氏。"
+    ],
+    "entities": [
+      {
+        "name": "智宣子",
+        "alias": [],
+        "original_description_in_book": "晋国的智宣子想以智瑶为继承人",
+        "description": "春秋末期晋国六卿之一，智氏家族的领袖，智瑶（智伯）的父亲。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智瑶",
+        "alias": [
+          "智伯"
+        ],
+        "original_description_in_book": "智瑶有超越他人的五项长处，只有一项短处。美发高大是长处，精于骑射是长处，才艺双全是长处，能写善辩是长处，坚毅果敢是长处。虽然如此却很不仁厚。",
+        "description": "春秋末期晋国正卿，智氏家族领袖，史称智伯。以才能出众但为人不仁著称，其行为最终导致智氏家族灭亡。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智果",
+        "alias": [
+          "辅氏"
+        ],
+        "original_description_in_book": "族人智果说：“他不如智宵。智瑶有超越他人的五项长处，只有一项短处...要是真的立智瑶为继承人，那么智氏宗族一定灭亡。”智果便向太史请求脱离智族姓氏，另立为辅氏。",
+        "description": "智氏家族的族人，有远见，因预见智瑶将导致智氏灭亡而脱离智族，改姓辅氏。",
+        "power": "智氏家族（后脱离）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智宵",
+        "alias": [],
+        "original_description_in_book": "他不如智宵。",
+        "description": "智氏家族的成员，智宣子考虑的另一个继承人候选人。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "太史",
+        "alias": [],
+        "original_description_in_book": "智果便向太史请求脱离智族姓氏",
+        "description": "古代掌管史事、天文历法及姓氏谱牒的官员。",
+        "power": "周王室/晋国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "晋国",
+        "alias": [],
+        "type": "国家",
+        "description": "春秋时期的重要诸侯国，此时已由六卿（包括智氏）把持朝政，公室衰微。",
+        "modern_name": "山西及周边地区",
+        "coordinates": null,
+        "related_entities": [
+          "智宣子",
+          "智瑶",
+          "智果",
+          "智宵"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "智宣子"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "想立为继承人",
+        "context": "智宣子考虑智氏家族的继承人问题，倾向于选择智瑶。",
+        "result": "未立即决定，但倾向明显",
+        "event_name": null,
+        "location": "晋国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "智果"
+        ],
+        "to_roles": [
+          "智宣子"
+        ],
+        "action": "劝谏",
+        "context": "针对智宣子想立智瑶为继承人的想法，智果提出反对意见，认为智瑶不仁，会导致智氏灭亡，并推荐智宵。",
+        "result": "智宣子置之不理",
+        "event_name": null,
+        "location": "晋国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "智果"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "评价/预言",
+        "context": "智果分析智瑶的长处（美发高大、精于骑射、才艺双全、能写善辩、坚毅果敢）和短处（不仁厚），并预言若立他为继承人，智氏宗族必亡。",
+        "result": "预言智氏灭亡",
+        "event_name": null,
+        "location": "晋国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "智果"
+        ],
+        "to_roles": [
+          "太史"
+        ],
+        "action": "请求改姓",
+        "context": "因预见智氏将亡，智果为避祸，向太史请求脱离智族姓氏。",
+        "result": "另立为辅氏",
+        "event_name": null,
+        "location": "晋国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:04.725425",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3338,
+    "completion_tokens": 1207,
+    "total_tokens": 4545
+  },
+  "1-1-9": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 9,
+    "chunk_end_index": 10,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "赵国的大夫赵简子的儿子，长子叫伯鲁，幼子叫无恤。赵简子想确定继承人，不知立哪位好，于是把他的日常训诫言词写在两块竹简上，分别交给两个儿子，嘱咐说：“好好记住！”过了三年，赵简子问起两个儿子，大儿子伯鲁说不出竹简上的话；再问他的竹简，已丢失了。又问小儿子无恤，竟然背诵竹简训词很熟习；追问竹简，他便从袖子中取出献上。于是，赵简子认为无恤十分贤德，便立他为继承人。"
+    ],
+    "entities": [
+      {
+        "name": "赵简子",
+        "alias": [],
+        "original_description_in_book": "赵国的大夫",
+        "description": "春秋末期晋国赵氏领袖，名鞅，赵氏宗主，是赵国的奠基者之一。",
+        "power": "赵氏（晋国六卿之一）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "伯鲁",
+        "alias": [],
+        "original_description_in_book": "赵简子的长子",
+        "description": "赵简子的长子，因未能通过父亲的考验而未能成为继承人。",
+        "power": "赵氏（晋国六卿之一）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "无恤",
+        "alias": [
+          "赵襄子"
+        ],
+        "original_description_in_book": "赵简子的幼子",
+        "description": "赵简子的幼子，即后来的赵襄子，赵国的开国君主之一，以贤能著称，在晋阳之战中坚守并最终联合韩、魏灭掉智氏。",
+        "power": "赵氏（晋国六卿之一）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "赵国",
+        "alias": [
+          "赵"
+        ],
+        "type": "国家",
+        "description": "春秋末期晋国六卿之一赵氏的封地，后成为战国七雄之一。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "赵简子",
+          "伯鲁",
+          "无恤"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "赵简子择嗣",
+        "time": "春秋末期（具体年份不详）",
+        "location": "赵国",
+        "participants": [
+          "赵简子",
+          "伯鲁",
+          "无恤"
+        ],
+        "description": "赵简子为确定继承人，将训诫言词写在竹简上交给两个儿子伯鲁和无恤。三年后考察，伯鲁遗忘并丢失竹简，而无恤熟记并保存完好，因此赵简子立无恤为继承人。",
+        "background": "春秋时期，各卿大夫家族内部继承人的选择至关重要，关系到家族的兴衰。赵简子通过长期观察和考验来选择贤能的继承人，是当时贵族政治的一个缩影。",
+        "significance": "确立了赵襄子（无恤）的继承人地位，为后来赵氏在晋国的崛起和赵国的建立奠定了基础。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "春秋末期（具体年份不详）",
+        "from_roles": [
+          "赵简子"
+        ],
+        "to_roles": [
+          "伯鲁",
+          "无恤"
+        ],
+        "action": "考验",
+        "context": "赵简子想确定继承人，不知立哪位好，于是把他的日常训诫言词写在两块竹简上，分别交给两个儿子，嘱咐他们好好记住。",
+        "result": "无恤通过考验，被立为继承人",
+        "event_name": "赵简子择嗣",
+        "location": "赵国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "三年后",
+        "from_roles": [
+          "赵简子"
+        ],
+        "to_roles": [
+          "伯鲁"
+        ],
+        "action": "询问",
+        "context": "过了三年，赵简子问起大儿子伯鲁竹简上的话。",
+        "result": "伯鲁说不出竹简上的话，且竹简已丢失",
+        "event_name": "赵简子择嗣",
+        "location": "赵国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "三年后",
+        "from_roles": [
+          "赵简子"
+        ],
+        "to_roles": [
+          "无恤"
+        ],
+        "action": "询问",
+        "context": "赵简子又问小儿子无恤竹简上的话。",
+        "result": "无恤背诵竹简训词很熟习，并从袖子中取出竹简献上",
+        "event_name": "赵简子择嗣",
+        "location": "赵国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "三年后",
+        "from_roles": [
+          "赵简子"
+        ],
+        "to_roles": [
+          "无恤"
+        ],
+        "action": "立为继承人",
+        "context": "赵简子认为无恤十分贤德，便立他为继承人。",
+        "result": "无恤成为赵氏继承人",
+        "event_name": "赵简子择嗣",
+        "location": "赵国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:05.074579",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3231,
+    "completion_tokens": 1112,
+    "total_tokens": 4343
+  },
+  "1-1-10": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 10,
+    "chunk_end_index": 11,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "赵简子派尹铎去晋阳，临行前尹铎请示说：“您是打算让我去抽丝剥茧般地搜刮财富呢，还是作为保障之地？”赵简子说：“作为保障。”尹铎便少算居民户数，减轻赋税。赵简子又对儿子赵无恤说：“一旦晋国发生危难，你不要嫌尹铎地位不高，不要怕晋阳路途遥远，一定要以那里作为归宿。”"
+    ],
+    "entities": [
+      {
+        "name": "赵简子",
+        "alias": [],
+        "original_description_in_book": "赵国的大夫，赵无恤的父亲，派尹铎去晋阳并嘱咐儿子",
+        "description": "春秋末期晋国赵氏领袖，名鞅，谥号简，是赵国的奠基者之一。",
+        "power": "赵氏（晋国六卿之一）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "尹铎",
+        "alias": [],
+        "original_description_in_book": "赵简子派去晋阳的人，临行前请示赵简子，并少算居民户数，减轻赋税",
+        "description": "赵简子的家臣，以贤能和远见著称，负责治理晋阳，为赵氏保留了重要的战略基地。",
+        "power": "赵氏（晋国六卿之一）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵无恤",
+        "alias": [
+          "无恤"
+        ],
+        "original_description_in_book": "赵简子的幼子，被立为继承人，赵简子嘱咐他一旦晋国发生危难要以晋阳作为归宿",
+        "description": "即赵襄子，赵简子之子，赵国的开国君主，在晋阳之战中成功抵御智伯的进攻。",
+        "power": "赵氏（晋国六卿之一）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "晋阳",
+        "alias": [],
+        "type": "城市",
+        "description": "赵氏的重要城邑，被赵简子指定为家族的保障之地和危难时的归宿。",
+        "modern_name": "山西省太原市",
+        "coordinates": null,
+        "related_entities": [
+          "赵简子",
+          "尹铎",
+          "赵无恤"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "晋国",
+        "alias": [],
+        "type": "国家",
+        "description": "春秋时期的主要诸侯国，此时公室衰微，权力掌握在智、赵、韩、魏等卿大夫手中。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "赵简子",
+          "赵无恤"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "赵简子"
+        ],
+        "to_roles": [
+          "尹铎"
+        ],
+        "action": "派遣",
+        "context": "赵简子为巩固家族势力，派遣家臣尹铎去治理晋阳。",
+        "result": "尹铎前往晋阳",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "尹铎"
+        ],
+        "to_roles": [
+          "赵简子"
+        ],
+        "action": "请示",
+        "context": "尹铎临行前，向赵简子请示治理晋阳的方针，是搜刮财富还是作为保障之地。",
+        "result": "赵简子指示将晋阳作为保障之地",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "赵简子"
+        ],
+        "to_roles": [
+          "尹铎"
+        ],
+        "action": "指示",
+        "context": "赵简子明确指示尹铎，将晋阳作为赵氏的保障之地，而非财富来源。",
+        "result": "尹铎据此少算户数、减轻赋税",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "尹铎"
+        ],
+        "to_roles": [
+          "晋阳"
+        ],
+        "action": "治理",
+        "context": "尹铎遵照赵简子的指示，将晋阳作为保障之地进行治理。",
+        "result": "少算居民户数，减轻赋税",
+        "event_name": null,
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "赵简子"
+        ],
+        "to_roles": [
+          "赵无恤"
+        ],
+        "action": "嘱咐",
+        "context": "赵简子预见晋国未来可能发生危难，因此对继承人赵无恤做出重要指示。",
+        "result": "赵无恤被告知要以晋阳为危难时的归宿",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:12.947486",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2977,
+    "completion_tokens": 1182,
+    "total_tokens": 4159
+  },
+  "1-1-11": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 11,
+    "chunk_end_index": 12,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "等到智宣子去世，智襄子智瑶当政，他与韩康子、魏桓子在蓝台饮宴，席间智瑶戏弄韩康子，又侮辱他的家相段规。智瑶的家臣智国听说此事，就告诫说：“主公您不提防招来灾祸，灾祸就一定会来了！”智瑶说：“人的生死灾祸都取决于我。我不给他们降临灾祸，谁还敢兴风作浪！”智国又说：“这话可不妥。《夏书》中说：‘一个人屡次三番犯错误，结下的仇怨岂能在明处，应该在它没有表现时就提防。’贤德的人能够谨慎地处理小事，所以不会招致大祸。现在主公一次宴会就开罪了人家的主君和臣相，又不戒备，说：‘不敢兴风作浪。’这种态度恐怕不行吧。蚊子、蚂蚁、蜜蜂、蝎子，都能害人，何况是国君、国相呢！”智瑶不听。"
+    ],
+    "entities": [
+      {
+        "name": "智宣子",
+        "alias": [],
+        "original_description_in_book": "晋国的智宣子想以智瑶为继承人",
+        "description": "春秋末期晋国智氏家族的领袖，智瑶（智襄子）的父亲。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智瑶",
+        "alias": [
+          "智襄子"
+        ],
+        "original_description_in_book": "智襄子智瑶当政",
+        "description": "春秋末期晋国智氏家族领袖，史称智襄子，为人有才而骄横，最终导致智氏灭亡。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩康子",
+        "alias": [],
+        "original_description_in_book": "他与韩康子、魏桓子在蓝台饮宴",
+        "description": "春秋末期晋国韩氏家族的领袖。",
+        "power": "韩氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏桓子",
+        "alias": [],
+        "original_description_in_book": "他与韩康子、魏桓子在蓝台饮宴",
+        "description": "春秋末期晋国魏氏家族的领袖。",
+        "power": "魏氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "段规",
+        "alias": [],
+        "original_description_in_book": "又侮辱他的家相段规",
+        "description": "韩康子的家相（家臣首领）。",
+        "power": "韩氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智国",
+        "alias": [],
+        "original_description_in_book": "智瑶的家臣智国听说此事，就告诫说",
+        "description": "智瑶的家臣，有远见，曾劝谏智瑶要谨慎行事。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "蓝台",
+        "alias": [],
+        "type": "地点",
+        "description": "智瑶与韩康子、魏桓子举行饮宴的地点。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "智瑶",
+          "韩康子",
+          "魏桓子"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "蓝台之宴",
+        "time": "智宣子去世，智瑶当政后",
+        "location": "蓝台",
+        "participants": [
+          "智瑶",
+          "韩康子",
+          "魏桓子",
+          "段规"
+        ],
+        "description": "智瑶在蓝台宴请韩康子和魏桓子，席间戏弄韩康子并侮辱其家相段规。",
+        "background": "这是智瑶执政后的一次重要外交场合，其傲慢无礼的行为激化了与韩、魏两家的矛盾，为日后智氏的覆灭埋下伏笔。",
+        "significance": "暴露了智瑶的骄横性格，是导致韩、魏两家与赵氏联合灭智的关键事件之一。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "智宣子去世，智瑶当政后",
+        "from_roles": [
+          "智瑶"
+        ],
+        "to_roles": [
+          "韩康子"
+        ],
+        "action": "戏弄",
+        "context": "智瑶在蓝台饮宴时，对韩康子进行戏弄。",
+        "result": null,
+        "event_name": "蓝台之宴",
+        "location": "蓝台",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "智宣子去世，智瑶当政后",
+        "from_roles": [
+          "智瑶"
+        ],
+        "to_roles": [
+          "段规"
+        ],
+        "action": "侮辱",
+        "context": "智瑶在蓝台饮宴时，侮辱韩康子的家相段规。",
+        "result": null,
+        "event_name": "蓝台之宴",
+        "location": "蓝台",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "蓝台之宴后",
+        "from_roles": [
+          "智国"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "告诫",
+        "context": "智国的家臣智国听说智瑶戏弄韩康子、侮辱段规后，向智瑶提出告诫。",
+        "result": "智瑶不听",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "蓝台之宴后",
+        "from_roles": [
+          "智国"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "评论",
+        "context": "智国引用《夏书》并分析形势，劝智瑶提防灾祸。",
+        "result": "人的生死灾祸都取决于我。我不给他们降临灾祸，谁还敢兴风作浪！这种态度恐怕不行吧。蚊子、蚂蚁、蜜蜂、蝎子，都能害人，何况是国君、国相呢！",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:22.479556",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2789,
+    "completion_tokens": 1294,
+    "total_tokens": 4083
+  },
+  "1-1-4": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 4,
+    "chunk_end_index": 5,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "所谓礼教，在于分辨贵贱，排比亲疏，裁决万物，处理日常事物。没有一定的名位，就不能显扬；没有器物，就不能表现。只有用名位来分别称呼，用器物来分别标志，然后上下才能井然有序。这就是礼教的根本所在。如果名位、器物都没有了，那么礼教又怎么能单独存在呢！当年仲叔于奚为卫国建立了大功，他谢绝了赏赐的封地，却请求允许他享用贵族才应有的马饰。孔子认为不如多赏赐他一些封地，惟独名位和器物，绝不能假与他人，这是君王的职权象征；处理政事不坚持原则，国家也就会随着走向危亡。卫国国君期待孔子为他崐处理政事，孔子却先要确立名位，认为名位不正则百姓无所是从。马饰，是一种小器物，而孔子却珍惜它的价值；正名位，是一件小事情，而孔子却要先从它做起，就是因为名位、器物一紊乱，国家上下就无法相安互保。没有一件事情不是从微小之处产生而逐渐发展显著的，圣贤考虑久远，所以能够谨慎对待微小的变故及时予以处理；常人见识短浅，所以必等弊端闹大才来设法挽救。矫正初起的小错，用力小而收效大；挽救已明显的大害，往往是竭尽了全力也不能成功。《易经》说：“行于霜上而知严寒冰冻将至。”《尚书》说：“先王每天都要兢兢业业地处理成千上万件事情。”就是指这类防微杜渐的例子。所以说，区分地位高下最重要的是匡正各个等级的名分。"
+    ],
+    "entities": [
+      {
+        "name": "司马光",
+        "alias": [
+          "臣司马光"
+        ],
+        "original_description_in_book": "臣司马光曰",
+        "description": "北宋著名政治家、史学家，主持编纂《资治通鉴》。",
+        "power": "北宋",
+        "sentence_indexes_in_segment": [
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周威烈王",
+        "alias": [
+          "天子",
+          "周王"
+        ],
+        "original_description_in_book": "周威烈王姬午初次分封晋国大夫魏斯、赵籍、韩虔为诸侯国君。",
+        "description": "东周时期周天子，名姬午。他在位期间分封晋国三家大夫为诸侯，标志着战国时代的正式开始。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏斯",
+        "alias": [
+          "魏国",
+          "魏"
+        ],
+        "original_description_in_book": "晋国大夫魏斯",
+        "description": "战国初期魏国开国君主，即魏文侯，晋国大夫出身，被周威烈王封为诸侯。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵籍",
+        "alias": [
+          "赵国",
+          "赵"
+        ],
+        "original_description_in_book": "晋国大夫赵籍",
+        "description": "战国初期赵国开国君主，即赵烈侯，晋国大夫出身，被周威烈王封为诸侯。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩虔",
+        "alias": [
+          "韩国",
+          "韩"
+        ],
+        "original_description_in_book": "晋国大夫韩虔",
+        "description": "战国初期韩国开国君主，即韩景侯，晋国大夫出身，被周威烈王封为诸侯。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "孔子",
+        "alias": [
+          "孔圣人"
+        ],
+        "original_description_in_book": "孔子解释说：“天尊贵，地卑微，阳阴于是确定。由低至高排列有序，贵贱也就各得其位。”",
+        "description": "春秋末期思想家、教育家，儒家学派创始人，其思想核心是“仁”与“礼”。",
+        "power": "None",
+        "sentence_indexes_in_segment": [
+          3,
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "仲叔于奚",
+        "alias": [],
+        "original_description_in_book": "当年仲叔于奚为卫国建立了大功，他谢绝了赏赐的封地，却请求允许他享用贵族才应有的马饰。",
+        "description": "春秋时期卫国大夫，因立有大功，谢绝封地而请求使用贵族马饰，此事被孔子用以说明名器不可假人。",
+        "power": "卫国",
+        "sentence_indexes_in_segment": [
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "卫国国君",
+        "alias": [
+          "卫君"
+        ],
+        "original_description_in_book": "卫国国君期待孔子为他处理政事",
+        "description": "指春秋时期卫国的某位君主，曾希望任用孔子。",
+        "power": "卫国",
+        "sentence_indexes_in_segment": [
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周文王",
+        "alias": [],
+        "original_description_in_book": "周文王演绎排列《易经》，以乾、坤为首位。",
+        "description": "商末周族领袖，姬姓，名昌，被尊为周朝奠基者，相传曾推演《周易》。",
+        "power": "周",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "夏桀",
+        "alias": [],
+        "original_description_in_book": "如果不是夏桀、商纣那样的暴虐昏君",
+        "description": "夏朝末代君主，以暴虐著称，被商汤推翻。",
+        "power": "夏朝",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "商纣",
+        "alias": [
+          "纣王"
+        ],
+        "original_description_in_book": "如果不是夏桀、商纣那样的暴虐昏君",
+        "description": "商朝末代君主，以荒淫残暴著称，被周武王推翻。",
+        "power": "商朝",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "商汤",
+        "alias": [
+          "成汤"
+        ],
+        "original_description_in_book": "对手又遇上商汤、周武王这样的仁德明主",
+        "description": "商朝开国君主，推翻夏桀，以仁德著称。",
+        "power": "商",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周武王",
+        "alias": [],
+        "original_description_in_book": "对手又遇上商汤、周武王这样的仁德明主",
+        "description": "周朝开国君主，姬姓，名发，推翻商纣王。",
+        "power": "周",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "微子",
+        "alias": [],
+        "original_description_in_book": "所以如果商朝立贤明的微子为国君来取代纣王，成汤创立的商朝就可以永配上天",
+        "description": "商纣王的庶兄，以贤德著称，商亡后受周朝分封，建立宋国。",
+        "power": "商朝/宋国",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "季札",
+        "alias": [],
+        "original_description_in_book": "而吴国如果以仁德的季札做君主，开国之君太伯也可以永享祭祀。",
+        "description": "春秋时期吴国公子，以贤德和辞让君位著称。",
+        "power": "吴国",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "太伯",
+        "alias": [],
+        "original_description_in_book": "开国之君太伯也可以永享祭祀。",
+        "description": "周太王古公亶父的长子，吴国的始祖，为让位给弟弟季历而奔吴。",
+        "power": "吴国",
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "卫国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，姬姓，位于今河南北部一带。",
+        "modern_name": "河南北部",
+        "coordinates": null,
+        "related_entities": [
+          "仲叔于奚",
+          "卫国国君",
+          "孔子"
+        ],
+        "sentence_indexes_in_segment": [
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "吴国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，姬姓，位于今江苏南部一带。",
+        "modern_name": "江苏南部",
+        "coordinates": null,
+        "related_entities": [
+          "季札",
+          "太伯"
+        ],
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "商朝",
+        "alias": [
+          "商"
+        ],
+        "type": "国家",
+        "description": "中国历史上的第二个朝代，由商汤建立，后被周朝取代。",
+        "modern_name": "河南、山东等地",
+        "coordinates": null,
+        "related_entities": [
+          "商汤",
+          "商纣",
+          "微子"
+        ],
+        "sentence_indexes_in_segment": [
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周王室",
+        "alias": [
+          "周"
+        ],
+        "type": "国家",
+        "description": "周朝的王室，东周时期权威衰落，但仍是名义上的天下共主。",
+        "modern_name": "陕西、河南洛阳",
+        "coordinates": null,
+        "related_entities": [
+          "周威烈王",
+          "周文王",
+          "周武王"
+        ],
+        "sentence_indexes_in_segment": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "三家分晋",
+        "time": "威烈王二十三年（前403年）",
+        "location": "周王室",
+        "participants": [
+          "周威烈王",
+          "魏斯",
+          "赵籍",
+          "韩虔"
+        ],
+        "description": "周威烈王正式分封晋国大夫魏斯、赵籍、韩虔为诸侯国君，标志着晋国被韩、赵、魏三家瓜分，战国时代开始。",
+        "background": "春秋末期，晋国政权被韩、赵、魏、智、范、中行六卿把持，后经过内部兼并，韩、赵、魏三家最终瓜分晋国领土。周威烈王的册封是对这一既成事实的官方承认。",
+        "significance": "标志着春秋时代的结束和战国时代的正式开始，周王室权威进一步衰落。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "周威烈王"
+        ],
+        "to_roles": [
+          "魏斯",
+          "赵籍",
+          "韩虔"
+        ],
+        "action": "分封",
+        "context": "晋国大夫势力强大，瓜分晋国，周威烈王予以正式承认。",
+        "result": "魏、赵、韩成为正式诸侯国",
+        "event_name": "三家分晋",
+        "location": "周王室",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "None",
+        "from_roles": [
+          "司马光"
+        ],
+        "to_roles": [
+          "周威烈王",
+          "魏斯",
+          "赵籍",
+          "韩虔",
+          "礼教",
+          "名分",
+          "地位"
+        ],
+        "action": "评论",
+        "context": "司马光在《资治通鉴》开篇对周威烈王分封三家为诸侯一事发表长篇议论，阐述维护礼教、区分地位、匡正名分的重要性。",
+        "result": "认为天子最重要的职责是维护礼制，而周威烈王分封大夫为诸侯是破坏礼制、自乱名分的开端，导致了后续的混乱。",
+        "event_name": "三家分晋",
+        "location": "None",
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "春秋时期",
+        "from_roles": [
+          "仲叔于奚"
+        ],
+        "to_roles": [
+          "卫国国君"
+        ],
+        "action": "请求",
+        "context": "仲叔于奚为卫国建立大功。",
+        "result": "请求使用贵族马饰（名器）而非接受封地",
+        "event_name": "None",
+        "location": "卫国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "春秋时期",
+        "from_roles": [
+          "孔子"
+        ],
+        "to_roles": [
+          "仲叔于奚",
+          "卫国国君"
+        ],
+        "action": "评论/认为",
+        "context": "针对仲叔于奚谢绝封地而请求马饰一事。",
+        "result": "认为不如多赏赐封地，惟独名位和器物（马饰）绝不能假与他人，因为这是君权的象征。",
+        "event_name": "None",
+        "location": "None",
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "春秋时期",
+        "from_roles": [
+          "卫国国君"
+        ],
+        "to_roles": [
+          "孔子"
+        ],
+        "action": "期待/邀请",
+        "context": "卫国国君希望孔子为他处理政事。",
+        "result": "孔子先要确立名位（正名）",
+        "event_name": "None",
+        "location": "卫国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "春秋时期",
+        "from_roles": [
+          "孔子"
+        ],
+        "to_roles": [
+          "卫国国君"
+        ],
+        "action": "主张",
+        "context": "卫国国君邀请孔子理政。",
+        "result": "主张先正名，认为名不正则民无所措手足。",
+        "event_name": "None",
+        "location": "卫国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          4
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:32.154860",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2826,
+    "completion_tokens": 2862,
+    "total_tokens": 5688
+  },
+  "1-1-16": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 16,
+    "chunk_end_index": 17,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "臣司马光曰：智瑶的灭亡，在于才胜过德。才与德是不同的两回事，而世俗之人往往分不清，一概而论之曰贤明，于是就看错了人。所谓才，是指聪明、明察、坚强、果毅；所谓德，是指正直、公道、平和待人。才，是德的辅助；德，是才的统帅。云梦地方的竹子，天下都称为刚劲，然而如果不矫正其曲，不配上羽毛，就不能作为利箭穿透坚物。棠地方出产的铜材，天下都称为精利，然而如果不经熔烧铸造，不锻打出锋，就不能作为兵器击穿硬甲。所以，德才兼备称之为圣人；无德无才称之为愚人；德胜过才称之为君子；才胜过德称之为小人。挑选人才的方法，如果找不到圣人、君子而委任，与其得到小人，不如得到愚人。原因何在？因为君子持有才干把它用到善事上；而小人持有才干用来作恶。持有才干作善事，能处处行善；而凭借才干作恶，就无恶不作了。愚人尽管想作恶，因为智慧不济，气力不胜任，好像小狗扑人，人还能制服它。而小人既有足够的阴谋诡计来发挥邪恶，又有足够的力量来逞凶施暴，就如恶虎生翼，他的危害难道不大吗！有德的人令人尊敬，有才的人使人喜爱；对喜爱的人容易宠信专任，对尊敬的人容易疏远，所以察选人才者经常被人的才干所蒙蔽而忘记了考察他的品德。自古至今，国家的乱臣奸佞，家族的败家浪子，因为才有余而德不足，导致家国覆亡的多了，又何止智瑶呢！所以治国治家者如果能审察才与德两种不同的标准，知道选择的先后，又何必担心失去人才呢！"
+    ],
+    "entities": [
+      {
+        "name": "司马光",
+        "alias": [
+          "臣司马光"
+        ],
+        "original_description_in_book": "臣司马光曰",
+        "description": "北宋著名政治家、史学家，主持编纂《资治通鉴》。",
+        "power": "北宋",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智瑶",
+        "alias": [
+          "智襄子",
+          "智伯"
+        ],
+        "original_description_in_book": "智瑶的灭亡，在于才胜过德。",
+        "description": "春秋末期晋国正卿，智氏家族领袖，因索地于韩、魏、赵三家而引发晋阳之战，最终兵败身死，智氏灭族。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（戊寅、前403）",
+        "from_roles": [
+          "司马光"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "评论",
+        "context": "司马光在《资治通鉴》中针对智瑶灭亡一事发表长篇议论。",
+        "result": "智瑶的灭亡，在于才胜过德。才与德是不同的两回事，而世俗之人往往分不清，一概而论之曰贤明，于是就看错了人。所谓才，是指聪明、明察、坚强、果毅；所谓德，是指正直、公道、平和待人。才，是德的辅助；德，是才的统帅。云梦地方的竹子，天下都称为刚劲，然而如果不矫正其曲，不配上羽毛，就不能作为利箭穿透坚物。棠地方出产的铜材，天下都称为精利，然而如果不经熔烧铸造，不锻打出锋，就不能作为兵器击穿硬甲。所以，德才兼备称之为圣人；无德无才称之为愚人；德胜过才称之为君子；才胜过德称之为小人。挑选人才的方法，如果找不到圣人、君子而委任，与其得到小人，不如得到愚人。原因何在？因为君子持有才干把它用到善事上；而小人持有才干用来作恶。持有才干作善事，能处处行善；而凭借才干作恶，就无恶不作了。愚人尽管想作恶，因为智慧不济，气力不胜任，好像小狗扑人，人还能制服它。而小人既有足够的阴谋诡计来发挥邪恶，又有足够的力量来逞凶施暴，就如恶虎生翼，他的危害难道不大吗！有德的人令人尊敬，有才的人使人喜爱；对喜爱的人容易宠信专任，对尊敬的人容易疏远，所以察选人才者经常被人的才干所蒙蔽而忘记了考察他的品德。自古至今，国家的乱臣奸佞，家族的败家浪子，因为才有余而德不足，导致家国覆亡的多了，又何止智瑶呢！所以治国治家者如果能审察才与德两种不同的标准，知道选择的先后，又何必担心失去人才呢！",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:35.949234",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3656,
+    "completion_tokens": 729,
+    "total_tokens": 4385
+  },
+  "1-1-5": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 5,
+    "chunk_end_index": 6,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "呜呼！周幽王、周厉王丧失君德，周朝的气数每况愈下。礼纪朝纲土崩瓦解；下欺凌、上衰败；诸侯国君恣意征讨他人；士大夫擅自干预朝政；礼教从总体上已经有十之七八沦丧了。然而周文王、周武王开创的政权还能绵绵不断地延续下来，就是因为周王朝的子孙后裔尚能守定名位。为什么这样说呢？当年晋文公为周朝建立了大功，于是向周襄王请求允许他死后享用王室的隧葬礼制，周襄王没有准许，说：“周王制度明显。没有改朝换代而有两个天子，这也是作为叔父辈的晋文公您所反对的。不然的话，叔父您有地，愿意隧葬，又何必请示我呢？”晋文公于是感到畏惧而没有敢违反礼制。因此，周王室的地盘并不比曹国、滕国大，管辖的臣民也不比邾国、莒国多，然而经过几百年，仍然是天下的宗主，即使是晋、楚、齐、秦那样的强国也还不敢凌驾于其上，这是为什么呢？只是由于周王还保有天子的名分。再看看鲁国的大夫季氏、齐国的田常、楚国的白公胜、晋国的智伯，他们的势力都大得足以驱逐国君而自立，然而他们到底不敢这样做，难道是他们力量不足或是于心不忍吗？只不过是害怕奸夺名位僭犯身分而招致天下的讨伐罢了。现在晋国的三家大夫欺凌蔑视国君，瓜分了晋国，作为天子的周王不能派兵征讨，反而对他们加封赐爵，让他们列位于诸侯国君之中，这样做就使周王朝仅有的一点名分不能再守定而全部放弃了。周朝先王的礼教到此丧失干净！"
+    ],
+    "entities": [
+      {
+        "name": "周威烈王",
+        "alias": [
+          "姬午"
+        ],
+        "original_description_in_book": "初次分封晋国大夫魏斯、赵籍、韩虔为诸侯国君。",
+        "description": "东周君主，周威烈王姬午，在位期间发生了标志性事件“三家分晋”被周王室正式承认。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏斯",
+        "alias": [
+          "魏文侯"
+        ],
+        "original_description_in_book": "晋国大夫",
+        "description": "战国初期魏国开国君主，魏文侯，晋国大夫出身，后与赵、韩瓜分晋国，被周威烈王封为诸侯。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵籍",
+        "alias": [
+          "赵烈侯"
+        ],
+        "original_description_in_book": "晋国大夫",
+        "description": "战国初期赵国开国君主，赵烈侯，晋国大夫出身，后与魏、韩瓜分晋国，被周威烈王封为诸侯。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩虔",
+        "alias": [
+          "韩景侯"
+        ],
+        "original_description_in_book": "晋国大夫",
+        "description": "战国初期韩国开国君主，韩景侯，晋国大夫出身，后与魏、赵瓜分晋国，被周威烈王封为诸侯。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "司马光",
+        "alias": [
+          "臣司马光"
+        ],
+        "original_description_in_book": "臣司马光曰：我知道天子的职责中最重要的是维护礼教...",
+        "description": "北宋著名政治家、史学家，主持编纂《资治通鉴》，在书中常以“臣光曰”的形式发表史论。",
+        "power": "北宋",
+        "sentence_indexes_in_segment": [
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周幽王",
+        "alias": [],
+        "original_description_in_book": "周幽王、周厉王丧失君德，周朝的气数每况愈下。",
+        "description": "西周最后一位君主，因宠幸褒姒、烽火戏诸侯等事导致国势衰微，最终被犬戎所杀，西周灭亡。",
+        "power": "西周",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周厉王",
+        "alias": [],
+        "original_description_in_book": "周幽王、周厉王丧失君德，周朝的气数每况愈下。",
+        "description": "西周君主，以暴虐和“防民之口”著称，引发国人暴动，被流放。",
+        "power": "西周",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周文王",
+        "alias": [],
+        "original_description_in_book": "周文王、周武王开创的政权还能绵绵不断地延续下来...",
+        "description": "商末周族领袖，姬姓，名昌，为周朝的建立奠定了基础，被后世尊为圣王。",
+        "power": "周",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周武王",
+        "alias": [],
+        "original_description_in_book": "周文王、周武王开创的政权还能绵绵不断地延续下来...",
+        "description": "西周开国君主，姬发，周文王之子，率军伐纣，建立周朝。",
+        "power": "周",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "晋文公",
+        "alias": [],
+        "original_description_in_book": "当年晋文公为周朝建立了大功，于是向周襄王请求允许他死后享用王室的隧葬礼制...",
+        "description": "春秋时期晋国君主，名重耳，春秋五霸之一，曾平定周室内乱，尊王攘夷。",
+        "power": "晋国",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "周襄王",
+        "alias": [],
+        "original_description_in_book": "周襄王没有准许，说：“周王制度明显。没有改朝换代而有两个天子，这也是作为叔父辈的晋文公您所反对的。不然的话，叔父您有地，愿意隧葬，又何必请示我呢？”",
+        "description": "东周君主，姬郑，在位期间发生王子带之乱，得晋文公帮助平定。",
+        "power": "周王室",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "季氏",
+        "alias": [
+          "鲁国的大夫季氏"
+        ],
+        "original_description_in_book": "鲁国的大夫季氏...他们的势力都大得足以驱逐国君而自立，然而他们到底不敢这样做...",
+        "description": "指鲁国权臣季孙氏家族，长期把持鲁国国政，如季平子、季桓子等，是“三桓”之一。",
+        "power": "鲁国",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "田常",
+        "alias": [
+          "齐国的田常"
+        ],
+        "original_description_in_book": "齐国的田常...他们的势力都大得足以驱逐国君而自立，然而他们到底不敢这样做...",
+        "description": "即田成子，春秋末期齐国权臣，通过大斗出、小斗收收买民心，后其家族最终取代姜姓齐国。",
+        "power": "齐国",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "白公胜",
+        "alias": [
+          "楚国的白公胜"
+        ],
+        "original_description_in_book": "楚国的白公胜...他们的势力都大得足以驱逐国君而自立，然而他们到底不敢这样做...",
+        "description": "楚国太子建之子，因封于白地，故称白公胜。后发动叛乱，失败被杀。",
+        "power": "楚国",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智伯",
+        "alias": [
+          "晋国的智伯"
+        ],
+        "original_description_in_book": "晋国的智伯...他们的势力都大得足以驱逐国君而自立，然而他们到底不敢这样做...",
+        "description": "即智瑶，春秋末期晋国六卿之一，智氏家族领袖，势力强大，后在晋阳之战中被韩、赵、魏三家联合消灭。",
+        "power": "智氏",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "三家大夫",
+        "alias": [
+          "晋国的三家大夫"
+        ],
+        "original_description_in_book": "现在晋国的三家大夫欺凌蔑视国君，瓜分了晋国...",
+        "description": "指瓜分晋国的韩、赵、魏三家的领袖，即韩虔、赵籍、魏斯。",
+        "power": "韩、赵、魏",
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "晋国",
+        "alias": [],
+        "type": "国家",
+        "description": "春秋时期主要诸侯国，姬姓，后被韩、赵、魏三家瓜分。",
+        "modern_name": "山西及周边地区",
+        "coordinates": null,
+        "related_entities": [
+          "魏斯",
+          "赵籍",
+          "韩虔",
+          "晋文公",
+          "智伯",
+          "三家大夫"
+        ],
+        "sentence_indexes_in_segment": [
+          0,
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "曹国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，姬姓，春秋时期小国。",
+        "modern_name": "山东定陶一带",
+        "coordinates": null,
+        "related_entities": [],
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "滕国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，姬姓，春秋时期小国。",
+        "modern_name": "山东滕州一带",
+        "coordinates": null,
+        "related_entities": [],
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "邾国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，曹姓，春秋时期小国。",
+        "modern_name": "山东邹城一带",
+        "coordinates": null,
+        "related_entities": [],
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "莒国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，己姓，春秋时期小国。",
+        "modern_name": "山东莒县一带",
+        "coordinates": null,
+        "related_entities": [],
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "鲁国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，姬姓，周公旦的封国，礼仪之邦。",
+        "modern_name": "山东曲阜一带",
+        "coordinates": null,
+        "related_entities": [
+          "季氏"
+        ],
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "齐国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，姜姓（后为田氏取代），春秋五霸、战国七雄之一。",
+        "modern_name": "山东北部及河北东南部",
+        "coordinates": null,
+        "related_entities": [
+          "田常"
+        ],
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "楚国",
+        "alias": [],
+        "type": "国家",
+        "description": "周代诸侯国，芈姓，春秋五霸、战国七雄之一。",
+        "modern_name": "湖北、湖南及周边广大地区",
+        "coordinates": null,
+        "related_entities": [
+          "白公胜"
+        ],
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "三家分晋",
+        "time": "威烈王二十三年（前403）",
+        "location": "晋国",
+        "participants": [
+          "魏斯",
+          "赵籍",
+          "韩虔",
+          "周威烈王",
+          "三家大夫"
+        ],
+        "description": "晋国大夫魏斯、赵籍、韩虔瓜分晋国领土，周威烈王正式分封他们为诸侯国君，标志着战国时代的开始。",
+        "background": "春秋末期，晋国公室衰微，权力被韩、赵、魏、智、范、中行六卿把持。经过长期斗争，韩、赵、魏三家最终消灭其他卿族，瓜分晋国。",
+        "significance": "被司马光视为《资治通鉴》纪事的开端，是春秋与战国时代的分水岭，周王室礼制彻底崩坏的标志性事件。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0,
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "周威烈王"
+        ],
+        "to_roles": [
+          "魏斯",
+          "赵籍",
+          "韩虔"
+        ],
+        "action": "分封",
+        "context": "晋国大夫魏斯、赵籍、韩虔瓜分晋国后，周威烈王正式承认他们的地位。",
+        "result": "魏、赵、韩成为诸侯国",
+        "event_name": "三家分晋",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "司马光"
+        ],
+        "to_roles": [
+          "周威烈王",
+          "三家大夫"
+        ],
+        "action": "评论",
+        "context": "司马光在《资治通鉴》开篇发表长篇史论，阐述礼教、名分的重要性。",
+        "result": "批评周威烈王分封三家大夫的行为是放弃了周朝最后的名分，导致礼教丧尽。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "春秋时期",
+        "from_roles": [
+          "晋文公"
+        ],
+        "to_roles": [
+          "周襄王"
+        ],
+        "action": "请求",
+        "context": "晋文公因对周王室有功，请求死后使用天子的隧葬礼制。",
+        "result": "被周襄王以礼制为由拒绝，晋文公畏惧而未敢违反。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "春秋末期",
+        "from_roles": [
+          "三家大夫"
+        ],
+        "to_roles": [
+          "晋国"
+        ],
+        "action": "瓜分",
+        "context": "韩、赵、魏三家大夫势力强大，欺凌国君。",
+        "result": "晋国被瓜分",
+        "event_name": "三家分晋",
+        "location": "晋国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "春秋时期",
+        "from_roles": [
+          "周王室"
+        ],
+        "to_roles": [
+          "三家大夫"
+        ],
+        "action": "不能征讨，反而加封",
+        "context": "面对三家大夫瓜分晋国、蔑视国君的行为。",
+        "result": "使周王朝的名分守定不住而全部放弃，礼教丧尽。",
+        "event_name": "三家分晋",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          5
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:42.368348",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3228,
+    "completion_tokens": 3220,
+    "total_tokens": 6448
+  },
+  "1-1-12": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 12,
+    "chunk_end_index": 13,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "智瑶向韩康子要地，韩康子想不给。段规说：“智瑶贪财好利，又刚愎自用，如果不给，一定讨伐我们，不如姑且给他。他拿到地更加狂妄，一定又会向别人索要；别人不给，他必定向人动武用兵，这样我们就可以免于祸患而伺机行动了。”韩康子说：“好主意。”便派了使臣去送上有万户居民的领地。智瑶大喜，果然又向魏桓子提出索地要求，魏桓子想不给。家相任章问：“为崐什么不给呢？”魏桓子说：“无缘无故来要地，所以不给。”任章说：“智瑶无缘无故强索他人领地，一定会引起其他大夫官员的警惧；我们给智瑶地，他一定会骄傲。他骄傲而轻敌，我们警惧而互相亲善；用精诚团结之兵来对付狂妄轻敌的智瑶，智家的命运一定不会长久了。《周书》说：‘要打败敌人，必须暂时听从他；要夺取敌人利益，必须先给他一些好处。’主公不如先答应智瑶的要求，让他骄傲自大，然后我们可以选择盟友共同图谋，又何必单独以我们作智瑶的靶子呢！”魏桓子说：“对。”也交给智瑶一个有万户的封地。"
+    ],
+    "entities": [
+      {
+        "name": "智瑶",
+        "alias": [
+          "智襄子",
+          "智伯"
+        ],
+        "original_description_in_book": "智宣子去世后当政，贪财好利，又刚愎自用，向韩康子、魏桓子索要土地。",
+        "description": "春秋末期晋国正卿，智氏家族领袖，为人骄横贪婪，因向韩、赵、魏三家索地而引发矛盾，最终导致智氏灭亡。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩康子",
+        "alias": [
+          "韩"
+        ],
+        "original_description_in_book": "智瑶向其索要土地，起初想不给，后听从段规建议给了。",
+        "description": "春秋末期晋国六卿之一，韩国君主，在智瑶索地事件中采取了隐忍策略。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "段规",
+        "alias": [],
+        "original_description_in_book": "韩康子的家相，曾被智瑶侮辱，后为韩康子分析形势，建议满足智瑶的索地要求。",
+        "description": "韩康子的家相（重要谋臣），以谋略著称，在韩氏应对智瑶的决策中起了关键作用。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏桓子",
+        "alias": [
+          "魏"
+        ],
+        "original_description_in_book": "智瑶向其索要土地，起初想不给，后听从任章建议给了。",
+        "description": "春秋末期晋国六卿之一，魏国君主，与韩康子一样，在智瑶索地时采取了先予后图的策略。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "任章",
+        "alias": [],
+        "original_description_in_book": "魏桓子的家相，为魏桓子分析形势，建议满足智瑶的索地要求。",
+        "description": "魏桓子的家相（重要谋臣），深谙韬略，其建议帮助魏氏在危机中保存实力。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [
+      {
+        "name": "智瑶索地",
+        "time": "威烈王二十三年（前403）前后",
+        "location": null,
+        "participants": [
+          "智瑶",
+          "韩康子",
+          "段规",
+          "魏桓子",
+          "任章"
+        ],
+        "description": "智瑶当政后，先后向韩康子和魏桓子索要土地。韩、魏两家起初都不愿给，但分别在家相段规和任章的劝说下，决定暂时满足智瑶的要求，以骄其志，等待时机。",
+        "background": "此事发生在晋国六卿（智、赵、韩、魏、范、中行）相互倾轧的背景下。智氏势力最强，智瑶的骄横索地行为激化了与韩、魏的矛盾，为后来的三家联合灭智埋下了伏笔。",
+        "significance": "这是导致智氏灭亡的关键前奏事件，展现了韩、魏两家的隐忍与谋略，也暴露了智瑶的狂妄和战略短视。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）前后",
+        "from_roles": [
+          "智瑶"
+        ],
+        "to_roles": [
+          "韩康子"
+        ],
+        "action": "索要土地",
+        "context": "智瑶当政后，贪财好利，向韩康子提出领土要求。",
+        "result": "韩康子最终给了智瑶一个有万户居民的领地。",
+        "event_name": "智瑶索地",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）前后",
+        "from_roles": [
+          "段规"
+        ],
+        "to_roles": [
+          "韩康子"
+        ],
+        "action": "劝说",
+        "context": "韩康子想拒绝智瑶的索地要求，段规进行分析劝阻。",
+        "result": "韩康子采纳了段规的建议，决定给地。",
+        "event_name": "智瑶索地",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）前后",
+        "from_roles": [
+          "智瑶"
+        ],
+        "to_roles": [
+          "魏桓子"
+        ],
+        "action": "索要土地",
+        "context": "在成功从韩康子处得到土地后，智瑶又向魏桓子提出同样的要求。",
+        "result": "魏桓子最终也给了智瑶一个有万户的封地。",
+        "event_name": "智瑶索地",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）前后",
+        "from_roles": [
+          "任章"
+        ],
+        "to_roles": [
+          "魏桓子"
+        ],
+        "action": "劝说",
+        "context": "魏桓子想拒绝智瑶的索地要求，任章进行分析劝阻。",
+        "result": "魏桓子采纳了任章的建议，决定给地。",
+        "event_name": "智瑶索地",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "段规"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "评论",
+        "context": "段规向韩康子分析智瑶的性格和行为模式。",
+        "result": "智瑶贪财好利，又刚愎自用，拿到地会更加狂妄，必定会继续向别人索要并动武。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "任章"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "评论",
+        "context": "任章向魏桓子分析答应智瑶要求的战略意义。",
+        "result": "智瑶无缘无故强索他人领地，会引起他人警惧；给他地会让他骄傲轻敌。我们团结起来可以对付他。并引用《周书》说明“要打败敌人，必须暂时听从他”的道理。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:44.244512",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2917,
+    "completion_tokens": 1614,
+    "total_tokens": 4531
+  },
+  "1-1-13": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 13,
+    "chunk_end_index": 14,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "智瑶又向赵襄子要蔡和皋狼的地方。赵襄子拒绝不给。智瑶勃然大怒，率领韩、魏两家甲兵前去攻打赵家。赵襄子准备出逃。问：“我到哪里去呢？”随从说：“长子城最近，而且城墙坚厚又完整。”赵襄子说：“百姓精疲力尽地修完城墙，又要他们舍生入死地为我守城，谁能和我同心？”随从又说：“邯郸城里仓库充实。”赵襄子说：“搜刮民脂民膏才使仓库充实，现在又因战争让他们送命，谁会和我同心。还是投奔晋阳吧，那是先主的地盘，尹铎又待百姓宽厚，人民一定能同我们和衷共济。”于是前往晋阳。"
+    ],
+    "entities": [
+      {
+        "name": "智瑶",
+        "alias": [
+          "智襄子"
+        ],
+        "original_description_in_book": "智宣子继承人，智襄子智瑶当政，贪财好利，又刚愎自用",
+        "description": "春秋末期晋国正卿，智氏家族领袖，为人有才艺但刻薄寡恩，因向韩、赵、魏三家索地而引发晋阳之战，最终导致智氏灭亡。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵襄子",
+        "alias": [
+          "赵无恤"
+        ],
+        "original_description_in_book": "赵简子幼子，被立为继承人，拒绝给智瑶土地",
+        "description": "春秋末期晋国赵氏领袖，赵简子之子，在晋阳之战中成功抵御智氏，后联合韩、魏灭智氏，为赵国建立奠定基础。",
+        "power": "赵氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩康子",
+        "alias": [
+          "韩"
+        ],
+        "original_description_in_book": "被智瑶戏弄并索要土地，后与魏、赵联合",
+        "description": "春秋末期晋国韩氏领袖，在智瑶索地时采取妥协策略，后与赵、魏联合灭智氏。",
+        "power": "韩氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏桓子",
+        "alias": [
+          "魏"
+        ],
+        "original_description_in_book": "被智瑶索要土地，后与韩、赵联合",
+        "description": "春秋末期晋国魏氏领袖，在智瑶索地时采取妥协策略，后与赵、韩联合灭智氏。",
+        "power": "魏氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "尹铎",
+        "alias": [],
+        "original_description_in_book": "赵简子派去晋阳的官员，少算居民户数，减轻赋税，待百姓宽厚",
+        "description": "赵氏家臣，治理晋阳有方，减轻赋税，深得民心，为赵氏提供了稳固的后方基地。",
+        "power": "赵氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵简子",
+        "alias": [],
+        "original_description_in_book": "赵国的大夫，赵襄子之父，派尹铎治理晋阳",
+        "description": "春秋末期晋国赵氏领袖，赵襄子之父，为赵氏的发展壮大奠定了基础，并选定晋阳作为家族保障之地。",
+        "power": "赵氏家族",
+        "sentence_indexes_in_segment": [],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "蔡",
+        "alias": [],
+        "type": "地区",
+        "description": "智瑶向赵襄子索要的土地之一",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "智瑶",
+          "赵襄子"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "皋狼",
+        "alias": [],
+        "type": "地区",
+        "description": "智瑶向赵襄子索要的土地之一",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "智瑶",
+          "赵襄子"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "长子城",
+        "alias": [
+          "长子"
+        ],
+        "type": "城市",
+        "description": "赵襄子考虑出逃的第一个目的地，城墙坚厚完整",
+        "modern_name": "山西省长子县",
+        "coordinates": null,
+        "related_entities": [
+          "赵襄子"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "邯郸",
+        "alias": [],
+        "type": "城市",
+        "description": "赵襄子考虑出逃的第二个目的地，仓库充实",
+        "modern_name": "河北省邯郸市",
+        "coordinates": null,
+        "related_entities": [
+          "赵襄子"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "晋阳",
+        "alias": [],
+        "type": "城市",
+        "description": "赵氏先主的地盘，尹铎治理宽厚，赵襄子最终选择的逃亡和据守之地",
+        "modern_name": "山西省太原市",
+        "coordinates": null,
+        "related_entities": [
+          "赵襄子",
+          "尹铎",
+          "赵简子"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "智瑶"
+        ],
+        "to_roles": [
+          "赵襄子"
+        ],
+        "action": "索要土地",
+        "context": "智瑶在成功向韩康子、魏桓子索地后，又向赵襄子索要蔡和皋狼的地方。",
+        "result": "被赵襄子拒绝",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "拒绝给予土地",
+        "context": "赵襄子拒绝了智瑶索要蔡和皋狼土地的要求。",
+        "result": "激怒智瑶",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "智瑶"
+        ],
+        "to_roles": [
+          "赵襄子"
+        ],
+        "action": "勃然大怒，率领韩、魏甲兵攻打",
+        "context": "因赵襄子拒绝给地，智瑶大怒，联合韩、魏两家军队攻打赵氏。",
+        "result": "赵襄子准备出逃",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "长子城"
+        ],
+        "action": "考虑出逃至",
+        "context": "赵襄子被攻打后准备出逃，随从建议去最近且城墙坚厚完整的长子城。",
+        "result": "赵襄子因担心百姓不与自己同心而放弃",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "邯郸"
+        ],
+        "action": "考虑出逃至",
+        "context": "放弃长子城后，随从又建议去仓库充实的邯郸。",
+        "result": "赵襄子因担心搜刮民脂民膏的仓库无法获得民心而放弃",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "晋阳"
+        ],
+        "action": "决定投奔",
+        "context": "赵襄子认为晋阳是先主地盘，且尹铎待百姓宽厚，人民能同舟共济，因此决定前往。",
+        "result": "前往晋阳",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "尹铎"
+        ],
+        "action": "评价",
+        "context": "赵襄子决定投奔晋阳时，提到尹铎待百姓宽厚。",
+        "result": "尹铎又待百姓宽厚，人民一定能同我们和衷共济",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:55:54.543770",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3028,
+    "completion_tokens": 1957,
+    "total_tokens": 4985
+  },
+  "1-1-19": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 19,
+    "chunk_end_index": 20,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "魏文侯魏斯以卜子夏、田子方为国师，他每次经过名士段干木的住宅，都要在车上俯首行礼。四方贤才德士很多前来归附他。"
+    ],
+    "entities": [
+      {
+        "name": "魏文侯",
+        "alias": [
+          "魏斯"
+        ],
+        "original_description_in_book": "魏文侯魏斯以卜子夏、田子方为国师，他每次经过名士段干木的住宅，都要在车上俯首行礼。四方贤才德士很多前来归附他。",
+        "description": "战国初期魏国开国君主，魏桓子之孙。在位期间礼贤下士，任用李悝、吴起、西门豹等贤才，推行变法，使魏国成为战国初期最强大的国家。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "卜子夏",
+        "alias": [],
+        "original_description_in_book": "魏文侯魏斯以卜子夏、田子方为国师",
+        "description": "孔子弟子，姓卜名商，字子夏，孔门十哲之一，长于文学。相传曾讲学于西河，为魏文侯师。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "田子方",
+        "alias": [],
+        "original_description_in_book": "魏文侯魏斯以卜子夏、田子方为国师",
+        "description": "战国时期魏国贤士，孔子弟子子贡的学生，以道德高尚、不慕权贵著称，被魏文侯尊为国师。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "段干木",
+        "alias": [],
+        "original_description_in_book": "名士段干木",
+        "description": "战国初期魏国贤士，隐居不仕，品德高尚，学问渊博。魏文侯对他极为敬重，每次路过其家门都要扶轼行礼。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "魏国",
+        "alias": [],
+        "type": "国家",
+        "description": "战国七雄之一，由魏文侯正式立国。都城在安邑（后迁大梁）。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "魏文侯",
+          "魏桓子"
+        ],
+        "sentence_indexes_in_segment": [],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "卜子夏",
+          "田子方"
+        ],
+        "action": "尊为国师",
+        "context": "魏文侯即位后，为了招揽人才、治理国家，尊奉有德行的学者为国师。",
+        "result": "卜子夏、田子方成为魏文侯的老师。",
+        "event_name": null,
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "段干木"
+        ],
+        "action": "俯首行礼",
+        "context": "魏文侯非常敬重贤士段干木，每次乘车经过他的住宅时，都会在车上俯首行礼以示尊敬。",
+        "result": "体现了魏文侯礼贤下士的作风。",
+        "event_name": null,
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "四方贤才德士"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "前来归附",
+        "context": "由于魏文侯礼贤下士、尊重人才的名声传扬开来。",
+        "result": "很多有才能和德行的人士都前来投奔魏国。",
+        "event_name": null,
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:07.601055",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3506,
+    "completion_tokens": 972,
+    "total_tokens": 4478
+  },
+  "1-1-15": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 15,
+    "chunk_end_index": 16,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "赵襄子派张孟谈秘密出城来见韩、魏二人，说：“我听说唇亡齿寒。现在智瑶率领韩、魏两家来围攻赵家，赵家灭亡就该轮到韩、魏了。”韩康子、魏崐桓子也说：“我们心里也知道会这样，只怕事情还未办好而计谋先泄露出去，就会马上大祸临头。”张孟谈又说：“计谋出自二位主公之口，进入我一人耳朵，有何伤害呢？”于是两人秘密地与张孟谈商议，约好起事日期后送他回城了。夜里，赵襄子派人杀掉智军守堤官吏，使大水决口反灌智瑶军营。智瑶军队为救水淹而大乱，韩、魏两家军队乘机从两翼夹击，赵襄子率士兵从正面迎头痛击，大败智家军，于是杀死智瑶，又将智家族人尽行诛灭。只有辅果得以幸免。"
+    ],
+    "entities": [
+      {
+        "name": "赵襄子",
+        "alias": [
+          "赵家"
+        ],
+        "original_description_in_book": "赵家之主，派张孟谈秘密出城游说韩、魏",
+        "description": "战国初期赵国开国君主，名无恤，赵简子之子。在晋阳之战中成功联合韩、魏击败智瑶，奠定了三家分晋的基础。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "张孟谈",
+        "alias": [],
+        "original_description_in_book": "赵襄子派其秘密出城来见韩、魏二人",
+        "description": "赵襄子的谋臣，在晋阳之战中成功策反韩、魏两家，是赵家得以反败为胜的关键人物。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩康子",
+        "alias": [
+          "韩",
+          "韩家"
+        ],
+        "original_description_in_book": "韩家之主，与魏桓子一同被张孟谈游说",
+        "description": "战国初期韩国开国君主，名虎。在晋阳之战中，先被迫服从智瑶，后与赵、魏联合灭智。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏桓子",
+        "alias": [
+          "魏",
+          "魏家"
+        ],
+        "original_description_in_book": "魏家之主，与韩康子一同被张孟谈游说",
+        "description": "战国初期魏国开国君主，名驹。在晋阳之战中，与韩、赵联合，最终击败智瑶。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智瑶",
+        "alias": [
+          "智伯",
+          "智家"
+        ],
+        "original_description_in_book": "智家之主，率领韩、魏两家围攻赵家，最终被击败杀死",
+        "description": "春秋末期晋国正卿，智氏家族领袖，为人刚愎自用、贪得无厌。因索地于赵襄子被拒而发动晋阳之战，最终兵败身死，导致智氏灭族。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "辅果",
+        "alias": [],
+        "original_description_in_book": "智家族人，只有他得以幸免",
+        "description": "智氏族人，因预见智瑶必败而改姓辅氏，得以在智氏灭族时幸存。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "晋阳",
+        "alias": [],
+        "type": "城市",
+        "description": "赵氏的重要根据地，晋阳之战的主战场。赵襄子在此被智、韩、魏三家联军围困，后成功反击。",
+        "modern_name": "山西省太原市",
+        "coordinates": null,
+        "related_entities": [
+          "赵襄子",
+          "尹铎",
+          "智瑶",
+          "韩康子",
+          "魏桓子"
+        ],
+        "sentence_indexes_in_segment": [],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "晋阳之战",
+        "time": "前453年",
+        "location": "晋阳",
+        "participants": [
+          "赵襄子",
+          "智瑶",
+          "韩康子",
+          "魏桓子",
+          "张孟谈"
+        ],
+        "description": "智瑶联合韩康子、魏桓子围攻赵襄子于晋阳。赵襄子派张孟谈秘密策反韩、魏，约定共同起事。赵军决堤水灌智瑶军营，韩、魏两军从侧翼夹击，赵军正面进攻，大败智家军，杀死智瑶并诛灭其族人。",
+        "background": "此战是春秋末期晋国内部六卿斗争的最终高潮。智瑶凭借权势向韩、魏、赵三家索地，赵襄子拒绝，引发战争。智瑶的骄横和韩、魏对自身命运的担忧，为赵家的反间计提供了条件。",
+        "significance": "此战直接导致智氏灭亡，晋国由六卿变为韩、赵、魏三家，为后来的“三家分晋”和战国时代的开启奠定了基础。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "张孟谈"
+        ],
+        "action": "派遣",
+        "context": "赵襄子被围于晋阳，形势危急，派谋臣张孟谈秘密出城执行游说任务。",
+        "result": "张孟谈成功出城并见到韩、魏二人。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "张孟谈"
+        ],
+        "to_roles": [
+          "韩康子",
+          "魏桓子"
+        ],
+        "action": "游说",
+        "context": "张孟谈以“唇亡齿寒”的道理，向韩康子、魏桓子阐明赵家灭亡后，智瑶下一个目标就是韩、魏两家。",
+        "result": "韩康子、魏桓子被说服，秘密与张孟谈商议并约定起事日期。",
+        "event_name": "晋阳之战",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "韩康子",
+          "魏桓子"
+        ],
+        "to_roles": [
+          "张孟谈"
+        ],
+        "action": "商议并约定",
+        "context": "韩康子、魏桓子担心计谋泄露，但在张孟谈保证保密后，与其秘密商议反叛智瑶的计划。",
+        "result": "确定了起事日期，并送张孟谈回城。",
+        "event_name": "晋阳之战",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间，约定日期）",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "智军守堤官吏"
+        ],
+        "action": "派人杀掉",
+        "context": "按照与韩、魏的约定，赵襄子在夜里采取行动，破坏智瑶军队的水攻设施。",
+        "result": "智军守堤官吏被杀，大水决口反灌智瑶军营。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "韩康子",
+          "魏桓子",
+          "赵襄子"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "联合进攻",
+        "context": "智瑶军营因水淹大乱，韩、魏两家军队从两翼夹击，赵襄子率军从正面进攻。",
+        "result": "大败智家军。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "韩康子",
+          "魏桓子",
+          "赵襄子"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "杀死",
+        "context": "在击败智家军后，联军杀死了智瑶。",
+        "result": "智瑶死亡。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战后）",
+        "from_roles": [
+          "韩康子",
+          "魏桓子",
+          "赵襄子"
+        ],
+        "to_roles": [
+          "智家族人"
+        ],
+        "action": "诛灭",
+        "context": "在杀死智瑶后，韩、赵、魏三家将智氏族人全部诛杀。",
+        "result": "智氏家族被灭族，只有辅果幸免。",
+        "event_name": "晋阳之战",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:10.396581",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3349,
+    "completion_tokens": 2042,
+    "total_tokens": 5391
+  },
+  "1-1-14": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 14,
+    "chunk_end_index": 15,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "智瑶、韩康子、魏桓子三家围住晋阳，引水灌城。城墙头只差三版的地方没有被淹没，锅灶都被泡塌，青蛙孳生，人民仍是没有背叛之意。智瑶巡视水势，魏桓子为他驾车，韩康子站在右边护卫。智瑶说：“我今天才知道水可以让人亡国。”魏桓子用胳膊肘碰了一下韩康子，韩康子也踩了一下魏桓子脚。因为汾水可以灌魏国都城安邑，绛水也可以灌韩国都城平阳。智家的谋士疵对智瑶说：“韩、魏两家肯定会反叛。”智瑶问：“你何以知道？”疵说：“以人之常情而论。我们调集韩、魏两家的军队来围攻赵家，赵家覆亡，下次灾难一定是连及韩、魏两家了。现在我们约定灭掉赵家后三家分割其地，晋阳城仅差三版就被水淹没，城内宰马为食，破城已是指日可待。然而韩康子、魏桓子两人没有高兴的心情，反倒面有忧色，这不是必反又是什么？”第二天，智瑶把疵的话告诉了韩、魏二人，二人说：“这一定是离间小人想为赵家游说，让主公您怀疑我们韩、魏两家而放松对赵家的进攻。不然的话，我们两家岂不是放着早晚就分到手的赵家田土不要，而要去干那危险必不可成的事吗？”两人出去，疵进来说：“主公为什么把臣下我的话告诉他们两人呢？”智瑶惊奇地反问：“你怎么知道的？”回答说：“我见他们认真看我而匆忙离去，因为他们知道我看穿了他们的心思。”智瑶不改。于是疵请求让他出使齐国。"
+    ],
+    "entities": [
+      {
+        "name": "智瑶",
+        "alias": [
+          "智襄子",
+          "智伯"
+        ],
+        "original_description_in_book": "智瑶、韩康子、魏桓子三家围住晋阳，引水灌城。智瑶巡视水势。",
+        "description": "春秋末期晋国正卿，智氏家族领袖，为人刚愎自用、贪得无厌，因索地于赵襄子不成而联合韩、魏围攻晋阳，最终导致智氏灭亡。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩康子",
+        "alias": [
+          "韩"
+        ],
+        "original_description_in_book": "智瑶、韩康子、魏桓子三家围住晋阳。魏桓子为他驾车，韩康子站在右边护卫。",
+        "description": "春秋末期晋国六卿之一，韩国（后为战国七雄之一）的奠基者。在晋阳之战中，起初被迫追随智瑶，后与魏、赵联合反攻智氏。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏桓子",
+        "alias": [
+          "魏"
+        ],
+        "original_description_in_book": "智瑶、韩康子、魏桓子三家围住晋阳。魏桓子为他驾车。",
+        "description": "春秋末期晋国六卿之一，魏国（后为战国七雄之一）的奠基者。在晋阳之战中，与韩康子一同被迫追随智瑶，后与韩、赵联合反攻智氏。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "疵",
+        "alias": [
+          "智家的谋士疵"
+        ],
+        "original_description_in_book": "智家的谋士疵对智瑶说：“韩、魏两家肯定会反叛。”",
+        "description": "智瑶的家臣或谋士，有敏锐的观察力，预见到韩、魏两家可能反叛，并向智瑶进谏，但未被采纳。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵襄子",
+        "alias": [
+          "赵家",
+          "赵"
+        ],
+        "original_description_in_book": "我们调集韩、魏两家的军队来围攻赵家。",
+        "description": "春秋末期晋国六卿之一，赵氏家族领袖，赵国的奠基者。在晋阳之战中，坚守晋阳，最终联合韩、魏反败为胜，灭掉智氏。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "晋阳",
+        "alias": [],
+        "type": "城市",
+        "description": "赵氏的重要根据地，晋阳之战的主战场。城墙坚固，民心归附，是赵襄子最后的退守之地。",
+        "modern_name": "山西省太原市",
+        "coordinates": null,
+        "related_entities": [
+          "赵襄子",
+          "尹铎"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "安邑",
+        "alias": [],
+        "type": "城市",
+        "description": "魏国的都城。",
+        "modern_name": "山西省运城市夏县",
+        "coordinates": null,
+        "related_entities": [
+          "魏桓子"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "平阳",
+        "alias": [],
+        "type": "城市",
+        "description": "韩国的都城。",
+        "modern_name": "山西省临汾市",
+        "coordinates": null,
+        "related_entities": [
+          "韩康子"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "齐国",
+        "alias": [],
+        "type": "国家",
+        "description": "春秋战国时期的重要诸侯国。",
+        "modern_name": "山东省大部及河北省东南部",
+        "coordinates": null,
+        "related_entities": [],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "晋阳之战",
+        "time": "前453年（根据上下文推断）",
+        "location": "晋阳",
+        "participants": [
+          "智瑶",
+          "韩康子",
+          "魏桓子",
+          "赵襄子"
+        ],
+        "description": "智瑶联合韩康子、魏桓子三家军队围攻赵襄子据守的晋阳城，并引水灌城，城内情况危急。期间，智瑶的谋士疵察觉到韩、魏有反叛之意并向智瑶进言，但智瑶不以为意，反而将疵的话告诉了韩、魏二人。",
+        "background": "此战是春秋末期晋国内部六卿争权的关键战役。智瑶凭借权势向韩、魏、赵三家索地，赵襄子拒绝，导致战争爆发。",
+        "significance": "此战是“三家分晋”的直接导火索。智瑶的狂妄和韩、魏的离心，为后续韩、魏、赵三家联合灭智氏并瓜分晋国奠定了基础，标志着战国时代的开始。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "智瑶",
+          "韩康子",
+          "魏桓子"
+        ],
+        "to_roles": [
+          "赵襄子"
+        ],
+        "action": "围攻、水攻",
+        "context": "因赵襄子拒绝割地，智瑶联合韩、魏两家发兵攻打赵氏。",
+        "result": "晋阳城被水淹，危在旦夕，但赵氏军民未叛。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "疵"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "进谏、预言",
+        "context": "疵观察到韩康子、魏桓子面有忧色，推断他们必反。",
+        "result": "智瑶不信，并将疵的话告诉了韩、魏二人。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "智瑶"
+        ],
+        "to_roles": [
+          "韩康子",
+          "魏桓子"
+        ],
+        "action": "告知（疵的预言）",
+        "context": "智瑶不采纳疵的警告，反而将疵怀疑韩、魏会反叛的话直接告诉了二人。",
+        "result": "韩、魏二人巧言辩解，智瑶未加戒备。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "韩康子",
+          "魏桓子"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "辩解、掩饰",
+        "context": "面对智瑶转述的疵的怀疑，韩、魏二人声称这是离间计，并表示自己只想分赵家之地。",
+        "result": "暂时消除了智瑶的疑虑。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "疵"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "评论、指出",
+        "context": "疵发现韩、魏二人知道自己的心思被看穿后匆忙离去。",
+        "result": "疵请求出使齐国以避祸。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "智瑶"
+        ],
+        "to_roles": [
+          "魏桓子",
+          "韩康子"
+        ],
+        "action": "评论（水可亡国）",
+        "context": "智瑶巡视水攻成果时，看到晋阳被淹，得意地说：“我今天才知道水可以让人亡国。”",
+        "result": "魏桓子和韩康子暗中互相示意，担心自己的都城也会被水攻。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前453年（晋阳之战期间）",
+        "from_roles": [
+          "魏桓子"
+        ],
+        "to_roles": [
+          "韩康子"
+        ],
+        "action": "暗示（用胳膊肘碰）",
+        "context": "听到智瑶说“水可以让人亡国”，魏桓子想到汾水可灌自己的都城安邑，便用胳膊肘碰韩康子。",
+        "result": "韩康子也踩了魏桓子的脚作为回应，两人心照不宣。",
+        "event_name": "晋阳之战",
+        "location": "晋阳",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:13.363866",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3268,
+    "completion_tokens": 2210,
+    "total_tokens": 5478
+  },
+  "1-1-20": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 20,
+    "chunk_end_index": 21,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "魏文侯与群臣饮酒，奏乐间，下起了大雨，魏文侯却下令备车前往山野之中。左右侍臣问：“今天饮酒正乐，外面又下着大雨，国君打算到哪里去呢？”魏文侯说：“我与山野村长约好了去打猎，虽然这里很快乐，也不能不遵守约定！”于是前去，亲自告诉停猎。"
+    ],
+    "entities": [
+      {
+        "name": "魏文侯",
+        "alias": [
+          "魏斯"
+        ],
+        "original_description_in_book": "魏文侯与群臣饮酒，奏乐间，下起了大雨，魏文侯却下令备车前往山野之中。",
+        "description": "战国初期魏国开国君主，魏桓子之孙。在位期间礼贤下士，任用李悝、吴起、西门豹等人进行变法，使魏国成为战国初期最强大的国家。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "群臣",
+        "alias": [],
+        "original_description_in_book": "魏文侯与群臣饮酒",
+        "description": "指魏文侯朝廷中的大臣们。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "左右侍臣",
+        "alias": [
+          "左右"
+        ],
+        "original_description_in_book": "左右侍臣问：“今天饮酒正乐，外面又下着大雨，国君打算到哪里去呢？”",
+        "description": "指在魏文侯身边侍奉的近臣或侍卫。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "山野村长",
+        "alias": [],
+        "original_description_in_book": "我与山野村长约好了去打猎",
+        "description": "指山野地区的基层官吏或地方首领。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "山野之中",
+        "alias": [
+          "山野"
+        ],
+        "type": "地区",
+        "description": "指城外的山林原野地区，是魏文侯与村长约定打猎的地方。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "魏文侯",
+          "山野村长"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "魏文侯冒雨赴约",
+        "time": "威烈王二十三年（前403）或稍后",
+        "location": "山野之中",
+        "participants": [
+          "魏文侯",
+          "山野村长"
+        ],
+        "description": "魏文侯在宫中与群臣饮酒作乐时，天降大雨，但他为了遵守与山野村长打猎的约定，毅然冒雨前往山野，亲自告知对方停猎。",
+        "background": "此事发生在魏文侯在位期间，是其展现诚信和重视承诺的典型事例，反映了战国初期一些开明君主注重树立个人威信和道德形象。",
+        "significance": "体现了魏文侯重信守诺的品格，是其能够招揽贤才、稳固统治的原因之一，常被后世作为君主诚信的典范。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）或稍后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "群臣"
+        ],
+        "action": "饮酒奏乐",
+        "context": "魏文侯在宫中与大臣们宴饮娱乐。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）或稍后",
+        "from_roles": [
+          "左右侍臣"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "询问",
+        "context": "看到外面下大雨，而魏文侯却准备出门，侍臣们感到不解。",
+        "result": "魏文侯解释了原因。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）或稍后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "左右侍臣"
+        ],
+        "action": "解释（遵守约定）",
+        "context": "面对侍臣的疑问，魏文侯说明自己与山野村长有约，必须前往。",
+        "result": "侍臣知晓了国君的意图。",
+        "event_name": "魏文侯冒雨赴约",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）或稍后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "山野村长"
+        ],
+        "action": "前往告知停猎",
+        "context": "虽然饮酒很快乐且天降大雨，但魏文侯坚持履行打猎的约定，亲自前往山野。",
+        "result": "亲自告诉对方停猎（因下雨）。",
+        "event_name": "魏文侯冒雨赴约",
+        "location": "山野之中",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:21.043517",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3211,
+    "completion_tokens": 1198,
+    "total_tokens": 4409
+  },
+  "1-1-23": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 23,
+    "chunk_end_index": 24,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "魏文侯与田子方饮酒，文侯说：“编钟的乐声不协调吗？左边高。”田子方笑了，魏文侯问：“你笑什么？”田子方说：“臣下我听说，国君懂得任用乐官，不必懂得乐音。现在国君您精通音乐，我担心您会疏忽了任用官员的职责。”魏文侯说：“对。”"
+    ],
+    "entities": [
+      {
+        "name": "魏文侯",
+        "alias": [
+          "魏斯"
+        ],
+        "original_description_in_book": "与田子方饮酒，精通音乐",
+        "description": "战国初期魏国开国君主，姬姓，魏氏，名斯。在位期间礼贤下士，任用李悝、吴起、西门豹等贤才，进行变法，使魏国成为战国初期最强大的国家。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "田子方",
+        "alias": [],
+        "original_description_in_book": "臣下我听说，国君懂得任用乐官，不必懂得乐音。现在国君您精通音乐，我担心您会疏忽了任用官员的职责。",
+        "description": "战国时期魏国贤士，孔子弟子子贡的学生，以道德学问著称，被魏文侯尊为国师。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "田子方"
+        ],
+        "action": "饮酒交谈",
+        "context": "魏文侯与田子方一同饮酒，期间讨论音乐与治国之道。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [],
+        "action": "评论音乐",
+        "context": "魏文侯在饮酒时指出编钟的乐声左边偏高。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "田子方"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "劝谏",
+        "context": "田子方针对魏文侯精通音乐一事进行劝谏，认为国君的职责在于任用官员，而非精通具体技艺。",
+        "result": "魏文侯表示赞同。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:27.105732",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2627,
+    "completion_tokens": 606,
+    "total_tokens": 3233
+  },
+  "1-1-18": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 18,
+    "chunk_end_index": 19,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "赵襄子因为赵简子没有立哥哥伯鲁为继承人，自己虽然有五个儿子，也不肯立为继承人。他封赵伯鲁的儿子于代国，称代成君，早逝；又立其子赵浣为赵家的继承人。赵襄子死后，弟弟赵桓子就驱逐赵浣，自立为国君，继位一年也死了。赵家的族人说：“赵桓子做国君本来就不是赵襄子的主意。”大家一起杀死了赵桓子的儿子，再迎回赵浣，拥立为国君，这就是赵献子。赵献子生子名赵籍，就是赵烈侯。魏斯，是魏桓子的孙子，就是魏文侯。韩康子生子名韩武子，武子又生韩虔，被封为韩景侯。"
+    ],
+    "entities": [
+      {
+        "name": "赵襄子",
+        "alias": [],
+        "original_description_in_book": "赵襄子因为赵简子没有立哥哥伯鲁为继承人，自己虽然有五个儿子，也不肯立为继承人。",
+        "description": "春秋末期晋国赵氏领袖，赵简子之子。在晋阳之战中成功抵御智伯的围攻，并联合韩、魏反攻灭智氏，是“三家分晋”的关键人物之一。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵简子",
+        "alias": [],
+        "original_description_in_book": "赵简子没有立哥哥伯鲁为继承人",
+        "description": "春秋末期晋国赵氏领袖，赵鞅，谥号简，是赵襄子的父亲，为赵氏在晋国的强大奠定了基础。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "伯鲁",
+        "alias": [
+          "赵伯鲁"
+        ],
+        "original_description_in_book": "哥哥伯鲁",
+        "description": "赵简子的长子，赵襄子的兄长，因故未被立为赵氏继承人。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "代成君",
+        "alias": [],
+        "original_description_in_book": "他封赵伯鲁的儿子于代国，称代成君，早逝",
+        "description": "赵伯鲁之子，被赵襄子封于代地，早逝。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵浣",
+        "alias": [
+          "赵献子"
+        ],
+        "original_description_in_book": "又立其子赵浣为赵家的继承人。赵襄子死后...再迎回赵浣，拥立为国君，这就是赵献子。",
+        "description": "代成君之子，赵襄子的侄孙，被立为赵氏继承人，后一度被驱逐，最终被迎回立为国君，即赵献子。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵桓子",
+        "alias": [],
+        "original_description_in_book": "赵襄子死后，弟弟赵桓子就驱逐赵浣，自立为国君，继位一年也死了。",
+        "description": "赵襄子的弟弟，在赵襄子死后驱逐继承人赵浣，自立为赵氏领袖，但统治短暂。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵籍",
+        "alias": [
+          "赵烈侯"
+        ],
+        "original_description_in_book": "赵献子生子名赵籍，就是赵烈侯。",
+        "description": "赵献子之子，战国时期赵国的开国君主赵烈侯。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏斯",
+        "alias": [
+          "魏文侯"
+        ],
+        "original_description_in_book": "魏斯，是魏桓子的孙子，就是魏文侯。",
+        "description": "战国时期魏国的开国君主魏文侯，魏桓子之孙，在位期间任用李悝变法，使魏国成为战国初期强国。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏桓子",
+        "alias": [],
+        "original_description_in_book": "魏桓子的孙子",
+        "description": "春秋末期晋国魏氏领袖，名驹，参与晋阳之战，与韩、赵联合灭智氏。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩康子",
+        "alias": [],
+        "original_description_in_book": "韩康子生子名韩武子",
+        "description": "春秋末期晋国韩氏领袖，名虎，参与晋阳之战，与赵、魏联合灭智氏。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩武子",
+        "alias": [],
+        "original_description_in_book": "韩康子生子名韩武子",
+        "description": "韩康子之子，战国初期韩氏领袖。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩虔",
+        "alias": [
+          "韩景侯"
+        ],
+        "original_description_in_book": "武子又生韩虔，被封为韩景侯。",
+        "description": "韩武子之子，战国时期韩国的开国君主韩景侯。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "代国",
+        "alias": [
+          "代地"
+        ],
+        "type": "地区",
+        "description": "古代国名，位于今河北蔚县一带，后被赵国所并。",
+        "modern_name": "河北蔚县一带",
+        "coordinates": null,
+        "related_entities": [
+          "代成君"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [],
+    "relations": [
+      {
+        "time": "赵襄子死后",
+        "from_roles": [
+          "赵桓子"
+        ],
+        "to_roles": [
+          "赵浣"
+        ],
+        "action": "驱逐",
+        "context": "赵襄子死后，其弟赵桓子不承认赵浣的继承人地位。",
+        "result": "赵浣被驱逐",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "赵桓子继位一年后",
+        "from_roles": [
+          "赵桓子"
+        ],
+        "to_roles": [],
+        "action": "死亡",
+        "context": "赵桓子自立为国君仅一年。",
+        "result": "赵桓子死亡",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "赵桓子死后",
+        "from_roles": [
+          "赵家的族人"
+        ],
+        "to_roles": [
+          "赵桓子的儿子"
+        ],
+        "action": "杀死",
+        "context": "赵家族人认为赵桓子做国君并非赵襄子本意。",
+        "result": "赵桓子的儿子被杀",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "赵桓子死后",
+        "from_roles": [
+          "赵家的族人"
+        ],
+        "to_roles": [
+          "赵浣"
+        ],
+        "action": "迎回并拥立",
+        "context": "在杀死赵桓子之子后，赵家族人重新迎回合法的继承人赵浣。",
+        "result": "赵浣被立为国君（赵献子）",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "赵献子"
+        ],
+        "to_roles": [
+          "赵籍"
+        ],
+        "action": "生子",
+        "context": "赵献子生育后代。",
+        "result": "生下赵籍（赵烈侯）",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "韩康子"
+        ],
+        "to_roles": [
+          "韩武子"
+        ],
+        "action": "生子",
+        "context": "韩康子生育后代。",
+        "result": "生下韩武子",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": null,
+        "from_roles": [
+          "韩武子"
+        ],
+        "to_roles": [
+          "韩虔"
+        ],
+        "action": "生子",
+        "context": "韩武子生育后代。",
+        "result": "生下韩虔（韩景侯）",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:33.040342",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3630,
+    "completion_tokens": 1984,
+    "total_tokens": 5614
+  },
+  "1-1-21": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 21,
+    "chunk_end_index": 22,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "韩国邀请魏国出兵攻打赵国。魏文侯说：“我与赵国，是兄弟之邦，不敢从命。”赵国也来向魏国借兵讨伐韩国，魏文侯仍然用同样的理由拒绝了。两国使者都怒气冲冲地离去。后来两国得知魏文侯对自己的和睦态度，都前来朝拜魏国。魏国于是开始成为魏、赵、韩三国之首，各诸侯国都不能和它争雄。"
+    ],
+    "entities": [
+      {
+        "name": "韩国",
+        "alias": [
+          "韩"
+        ],
+        "original_description_in_book": "邀请魏国出兵攻打赵国",
+        "description": "战国七雄之一，由韩虔（韩景侯）建立，与赵、魏同出自晋国六卿。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏国",
+        "alias": [
+          "魏"
+        ],
+        "original_description_in_book": "魏文侯之国，被韩、赵邀请出兵",
+        "description": "战国七雄之一，由魏斯（魏文侯）建立，战国初期率先变法，国力强盛。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵国",
+        "alias": [
+          "赵"
+        ],
+        "original_description_in_book": "被韩国邀请魏国攻打，后向魏国借兵讨伐韩国",
+        "description": "战国七雄之一，由赵籍（赵烈侯）建立，与韩、魏同出自晋国六卿。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0,
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏文侯",
+        "alias": [
+          "魏斯"
+        ],
+        "original_description_in_book": "魏国国君，拒绝韩、赵的出兵请求",
+        "description": "战国时期魏国开国君主，名斯，在位期间任用贤能，推行改革，使魏国成为战国初期第一强国。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "魏国",
+        "alias": [
+          "魏"
+        ],
+        "type": "国家",
+        "description": "战国七雄之一，都城在安邑（今山西夏县），后迁都大梁（今河南开封）。",
+        "modern_name": "主要位于今山西、河南、河北部分地区",
+        "coordinates": null,
+        "related_entities": [
+          "魏文侯"
+        ],
+        "sentence_indexes_in_segment": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩国",
+        "alias": [
+          "韩"
+        ],
+        "type": "国家",
+        "description": "战国七雄之一，都城在阳翟（今河南禹州），后迁都新郑（今河南新郑）。",
+        "modern_name": "主要位于今河南中部、山西南部",
+        "coordinates": null,
+        "related_entities": [],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵国",
+        "alias": [
+          "赵"
+        ],
+        "type": "国家",
+        "description": "战国七雄之一，都城在晋阳（今山西太原），后迁都邯郸（今河北邯郸）。",
+        "modern_name": "主要位于今山西、河北、内蒙古部分地区",
+        "coordinates": null,
+        "related_entities": [],
+        "sentence_indexes_in_segment": [
+          0,
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "韩魏赵外交风波",
+        "time": "威烈王二十三年（前403）或稍后",
+        "location": "魏国",
+        "participants": [
+          "韩国",
+          "魏国",
+          "赵国",
+          "魏文侯"
+        ],
+        "description": "韩国邀请魏国出兵攻打赵国，魏文侯以与赵国是兄弟之邦为由拒绝。赵国也来向魏国借兵讨伐韩国，魏文侯同样拒绝。两国使者愤怒离去，但后来得知魏文侯的和平态度，都前来朝拜魏国。",
+        "background": "此时韩、赵、魏三家刚被周威烈王正式册封为诸侯（前403年），三国关系微妙，魏文侯采取中立和平的外交策略以树立威信。",
+        "significance": "使魏国开始成为三晋（魏、赵、韩）的领袖，各诸侯国都不能与之争雄，奠定了魏国在战国初期的霸主地位。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）或稍后",
+        "from_roles": [
+          "韩国"
+        ],
+        "to_roles": [
+          "魏国"
+        ],
+        "action": "邀请出兵",
+        "context": "韩国欲攻打赵国，故邀请魏国共同出兵。",
+        "result": "被拒绝",
+        "event_name": "韩魏赵外交风波",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）或稍后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "韩国"
+        ],
+        "action": "拒绝请求",
+        "context": "魏文侯认为魏国与赵国是兄弟之邦，不敢从命攻打赵国。",
+        "result": "韩国使者怒气冲冲离去",
+        "event_name": "韩魏赵外交风波",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）或稍后",
+        "from_roles": [
+          "赵国"
+        ],
+        "to_roles": [
+          "魏国"
+        ],
+        "action": "借兵讨伐",
+        "context": "赵国得知韩国邀魏攻赵后，也向魏国借兵以讨伐韩国。",
+        "result": "被拒绝",
+        "event_name": "韩魏赵外交风波",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）或稍后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "赵国"
+        ],
+        "action": "拒绝请求",
+        "context": "魏文侯用同样的理由（与赵国是兄弟之邦）拒绝了赵国借兵讨伐韩国的请求。",
+        "result": "赵国使者怒气冲冲离去",
+        "event_name": "韩魏赵外交风波",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          1
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "后来",
+        "from_roles": [
+          "韩国",
+          "赵国"
+        ],
+        "to_roles": [
+          "魏国"
+        ],
+        "action": "朝拜",
+        "context": "韩、赵两国得知魏文侯对双方都保持和睦、不偏袒任何一方的态度后。",
+        "result": "魏国开始成为魏、赵、韩三国之首，诸侯不能争雄",
+        "event_name": "韩魏赵外交风波",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          2,
+          3
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:34.277716",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3092,
+    "completion_tokens": 1594,
+    "total_tokens": 4686
+  },
+  "1-1-24": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 24,
+    "chunk_end_index": 25,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "魏文侯的公子魏击出行，途中遇见国师田子方，下车伏拜行礼。田子方却不作回礼。魏击怒气冲冲地对田子方说：“富贵的人能对人骄傲呢，还是贫贱的人能对人骄傲？”田子方说：“当然是贫贱的人能对人骄傲啦，富贵的人哪里敢对人骄傲呢！国君对人骄傲就将亡国，大夫对人骄傲就将失去采地。失去国家的人，没有听说有以国主对待他的；失去采地的人，也没有听说有以家主对待他的。贫贱的游士呢，话不听，行为不合意，就穿上鞋子告辞了，到哪里得不到贫贱呢！”魏击于是谢罪。"
+    ],
+    "entities": [
+      {
+        "name": "魏击",
+        "alias": [
+          "公子魏击"
+        ],
+        "original_description_in_book": "魏文侯的公子",
+        "description": "魏文侯之子，即后来的魏武侯，战国初期魏国君主。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "田子方",
+        "alias": [
+          "国师田子方"
+        ],
+        "original_description_in_book": "国师",
+        "description": "战国初期魏国贤士，魏文侯尊为国师，是子夏的弟子，以敢于直谏和淡泊名利著称。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏文侯",
+        "alias": [
+          "魏斯"
+        ],
+        "original_description_in_book": "",
+        "description": "战国初期魏国开国君主，名魏斯，在位期间礼贤下士，任用李悝、吴起等人变法，使魏国成为战国首强。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "魏击"
+        ],
+        "to_roles": [
+          "田子方"
+        ],
+        "action": "遇见并下车伏拜行礼",
+        "context": "魏击出行途中遇见国师田子方，下车伏拜行礼。",
+        "result": "田子方不作回礼",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "魏击"
+        ],
+        "to_roles": [
+          "田子方"
+        ],
+        "action": "质问",
+        "context": "魏击因田子方不回礼而怒气冲冲，质问富贵与贫贱者谁更能对人骄傲。",
+        "result": "田子方进行了一番关于骄傲的论述",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "田子方"
+        ],
+        "to_roles": [
+          "魏击"
+        ],
+        "action": "评论/阐述",
+        "context": "针对魏击关于骄傲的质问，田子方阐述贫贱者（游士）比富贵者（国君、大夫）更有资格骄傲的道理。",
+        "result": "魏击谢罪",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "魏击"
+        ],
+        "to_roles": [
+          "田子方"
+        ],
+        "action": "谢罪",
+        "context": "听完田子方关于骄傲的论述后，魏击认识到自己的错误。",
+        "result": null,
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:35.764504",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2608,
+    "completion_tokens": 782,
+    "total_tokens": 3390
+  },
+  "1-1-17": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 17,
+    "chunk_end_index": 18,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "赵、韩、魏三家瓜分智家的田土，赵襄子把智瑶的头骨涂上漆，作为饮具。智瑶的家臣豫让想为主公报仇，就化装为罪人，怀揣匕首，混到赵襄子的宫室中打扫厕所。赵襄子上厕所时，忽然心动不安，令人搜索，抓获了豫让。左右随从要将他杀死，赵襄子说：“智瑶已死无后人，而此人还要为他报仇，真是一个义士，我小心躲避他好了。”于是释放豫让。豫让用漆涂身，弄成一个癞疮病人，又吞下火炭，弄哑嗓音。在街市上乞讨，连结发妻子见面也认不出来。路上遇到朋友，朋友认出他，为他垂泪道：“以你的才干，如果投靠赵家，一定会成为亲信，那时你就为所欲为，不是易如反掌吗？何苦自残形体崐以至于此？这样来图谋报仇，不是太困难了吗！”豫让说：“我要是委身于赵家为臣，再去刺杀他，就是怀有二心。我现在这种做法，是极困难的。然而之所以还要这样做，就是为了让天下与后世做人臣子而怀有二心的人感到羞愧。”赵襄子乘车出行，豫让潜伏在桥下。赵襄子到了桥前，马突然受惊，进行搜索，捕获豫让，于是杀死他。"
+    ],
+    "entities": [
+      {
+        "name": "赵襄子",
+        "alias": [
+          "赵家"
+        ],
+        "original_description_in_book": "赵、韩、魏三家瓜分智家的田土，赵襄子把智瑶的头骨涂上漆，作为饮具。",
+        "description": "战国时期赵国开国君主，赵氏领袖，在晋阳之战中联合韩、魏击败智伯，奠定了三家分晋的基础。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "韩",
+        "alias": [
+          "韩家"
+        ],
+        "original_description_in_book": "赵、韩、魏三家瓜分智家的田土",
+        "description": "战国七雄之一，由韩康子建立，参与三家分晋。",
+        "power": "韩国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏",
+        "alias": [
+          "魏家"
+        ],
+        "original_description_in_book": "赵、韩、魏三家瓜分智家的田土",
+        "description": "战国七雄之一，由魏桓子建立，参与三家分晋。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "智瑶",
+        "alias": [
+          "智伯",
+          "智家"
+        ],
+        "original_description_in_book": "赵襄子把智瑶的头骨涂上漆，作为饮具。智瑶已死无后人，而此人还要为他报仇",
+        "description": "春秋末期晋国正卿，智氏家族领袖，因索地于韩、魏、赵三家而引发晋阳之战，兵败身死，导致智氏灭族。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "豫让",
+        "alias": [],
+        "original_description_in_book": "智瑶的家臣豫让想为主公报仇，就化装为罪人，怀揣匕首，混到赵襄子的宫室中打扫厕所。",
+        "description": "春秋末期晋国人，智伯的家臣，以忠义著称，为报答智伯的知遇之恩，多次行刺赵襄子为智伯报仇，失败后自杀。",
+        "power": "智氏家族",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "豫让的朋友",
+        "alias": [
+          "朋友"
+        ],
+        "original_description_in_book": "路上遇到朋友，朋友认出他，为他垂泪道：“以你的才干，如果投靠赵家，一定会成为亲信，那时你就为所欲为，不是易如反掌吗？何苦自残形体崐以至于此？这样来图谋报仇，不是太困难了吗！”",
+        "description": "豫让的友人，在豫让自残后于街市相遇，对其行为表示不解和同情。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "左右随从",
+        "alias": [
+          "左右"
+        ],
+        "original_description_in_book": "左右随从要将他杀死",
+        "description": "赵襄子的侍从或护卫。",
+        "power": "赵国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "街市",
+        "alias": [],
+        "type": "地区",
+        "description": "城市中商业贸易和人群聚集的场所。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "豫让",
+          "豫让的朋友"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "桥",
+        "alias": [],
+        "type": "地标",
+        "description": "赵襄子出行途中所经过的一座桥梁，豫让曾潜伏于此试图行刺。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "赵襄子",
+          "豫让"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "赵襄子的宫室",
+        "alias": [
+          "厕所"
+        ],
+        "type": "建筑",
+        "description": "赵襄子居住和处理政务的宫殿建筑群，豫让曾化装潜入其中打扫厕所。",
+        "modern_name": "",
+        "coordinates": null,
+        "related_entities": [
+          "赵襄子",
+          "豫让"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "三家分智",
+        "time": "前403年（威烈王二十三年）后不久",
+        "location": null,
+        "participants": [
+          "赵襄子",
+          "韩",
+          "魏"
+        ],
+        "description": "赵、韩、魏三家共同瓜分了被他们联合消灭的智氏家族的田土和领地。",
+        "background": "此事件是晋阳之战的直接后果。智伯（智瑶）在晋阳之战中被赵、韩、魏三家联军击败并杀死，智氏家族被灭。战后，胜利的三家开始分割智氏的土地和财产，进一步巩固了各自的势力，为最终的三家分晋（晋国被赵、韩、魏三家瓜分）奠定了基础。",
+        "significance": "标志着智氏势力的彻底消亡，加速了晋国公室的瓦解和赵、韩、魏三家作为独立诸侯国的崛起。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "豫让刺赵襄子",
+        "time": "前403年（威烈王二十三年）后不久",
+        "location": "赵襄子的宫室、街市、桥",
+        "participants": [
+          "豫让",
+          "赵襄子",
+          "左右随从",
+          "豫让的朋友"
+        ],
+        "description": "智伯的家臣豫让为给主公智瑶报仇，两次试图刺杀赵襄子。第一次化装潜入赵襄子宫室厕所，被搜捕获释；第二次自残形体后在街市乞讨，遇友人劝说，后潜伏桥下再次行刺，因马惊被搜出，最终被杀。",
+        "background": "豫让曾侍奉范氏、中行氏，未受重用，后转投智伯，受到尊宠。智伯在晋阳之战中被赵、韩、魏三家所灭，赵襄子将其头骨做成饮器。豫让感念智伯的知遇之恩，决心为其复仇，体现了春秋战国时期“士为知己者死”的忠义观念。",
+        "significance": "豫让的故事成为后世忠义精神的典范，其“漆身吞炭”的行为和“让天下怀二心者羞愧”的言论，深刻影响了中国的忠臣文化和侠义精神。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "赵襄子",
+          "韩",
+          "魏"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "瓜分田土",
+        "context": "在晋阳之战击败并杀死智瑶、灭亡智氏家族后",
+        "result": "智家的田土被赵、韩、魏三家分割",
+        "event_name": "三家分智",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "侮辱（漆头骨为饮具）",
+        "context": "瓜分智家田土后，赵襄子对已故仇敌智瑶的遗体进行侮辱",
+        "result": "智瑶的头骨被做成饮具",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "豫让"
+        ],
+        "to_roles": [
+          "智瑶"
+        ],
+        "action": "立志报仇",
+        "context": "感念智瑶的知遇之恩，对其被赵襄子侮辱并灭族感到愤慨",
+        "result": "决定刺杀赵襄子",
+        "event_name": "豫让刺赵襄子",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "豫让"
+        ],
+        "to_roles": [
+          "赵襄子"
+        ],
+        "action": "行刺（未遂）",
+        "context": "化装为罪人，怀揣匕首，潜入赵襄子宫室打扫厕所",
+        "result": "被赵襄子察觉，搜索抓获",
+        "event_name": "豫让刺赵襄子",
+        "location": "赵襄子的宫室",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "左右随从"
+        ],
+        "to_roles": [
+          "豫让"
+        ],
+        "action": "欲杀",
+        "context": "抓获潜入宫室的刺客豫让后",
+        "result": "被赵襄子制止",
+        "event_name": "豫让刺赵襄子",
+        "location": "赵襄子的宫室",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "豫让"
+        ],
+        "action": "释放并称赞",
+        "context": "认为豫让为已故无后之主报仇是义士行为",
+        "result": "豫让被释放，赵襄子表示会小心躲避他",
+        "event_name": "豫让刺赵襄子",
+        "location": "赵襄子的宫室",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "豫让"
+        ],
+        "to_roles": [
+          "自己"
+        ],
+        "action": "自残（漆身吞炭）",
+        "context": "为改变容貌和声音，避免被认出，以便再次行刺",
+        "result": "变成癞疮病人，嗓音嘶哑，妻子也认不出",
+        "event_name": "豫让刺赵襄子",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "豫让的朋友"
+        ],
+        "to_roles": [
+          "豫让"
+        ],
+        "action": "劝说",
+        "context": "在街市认出自残后的豫让，为其感到悲伤",
+        "result": "建议豫让假意投靠赵家再行刺，被豫让拒绝",
+        "event_name": "豫让刺赵襄子",
+        "location": "街市",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "豫让"
+        ],
+        "to_roles": [
+          "豫让的朋友",
+          "天下与后世做人臣子而怀有二心的人"
+        ],
+        "action": "解释动机（评论）",
+        "context": "回应朋友的劝说，阐明自己坚持艰难报仇方式的原因",
+        "result": "为了让怀有二心的臣子感到羞愧",
+        "event_name": null,
+        "location": "街市",
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "豫让"
+        ],
+        "to_roles": [
+          "赵襄子"
+        ],
+        "action": "再次行刺（未遂）",
+        "context": "自残后，潜伏在赵襄子出行必经的桥下",
+        "result": "因马惊被搜出，捕获",
+        "event_name": "豫让刺赵襄子",
+        "location": "桥",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "前403年后",
+        "from_roles": [
+          "赵襄子"
+        ],
+        "to_roles": [
+          "豫让"
+        ],
+        "action": "杀死",
+        "context": "豫让第二次行刺失败被捕获后",
+        "result": "豫让被杀",
+        "event_name": "豫让刺赵襄子",
+        "location": "桥",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:53.213942",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3756,
+    "completion_tokens": 2886,
+    "total_tokens": 6642
+  },
+  "1-1-27": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 27,
+    "chunk_end_index": 28,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "吴起做大将，与最下等的士兵同样穿衣吃饭，睡觉不铺席子，行军也不骑马，亲自挑上士兵的粮食，与士兵们分担疾苦。有个士兵患了毒疮，吴起为他吸吮毒汁。士兵的母亲听说后却痛哭。有人奇怪地问：“你的儿子是个士兵，而吴起将军亲自为他吸吮毒疮，你为什么哭？”士兵母亲答道：“不是这样啊！当年吴将军为孩子的父亲吸过毒疮，他父亲作战从不后退，就战死在敌阵中了。吴将军现在又为我儿子吸毒疮，我不知道他该死在哪里了，所以哭他。”"
+    ],
+    "entities": [
+      {
+        "name": "吴起",
+        "alias": [
+          "吴将军"
+        ],
+        "original_description_in_book": "吴起做大将，与最下等的士兵同样穿衣吃饭，睡觉不铺席子，行军也不骑马，亲自挑上士兵的粮食，与士兵们分担疾苦。有个士兵患了毒疮，吴起为他吸吮毒汁。",
+        "description": "战国初期著名军事家、政治家，卫国左氏人。先后仕鲁、魏、楚，在魏国主持变法，在楚国推行“吴起变法”。著有《吴子兵法》。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "士兵",
+        "alias": [
+          "士兵们",
+          "最下等的士兵"
+        ],
+        "original_description_in_book": "与最下等的士兵同样穿衣吃饭...有个士兵患了毒疮，吴起为他吸吮毒汁。",
+        "description": "魏国军队中的普通士卒。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "士兵的母亲",
+        "alias": [],
+        "original_description_in_book": "士兵的母亲听说后却痛哭。",
+        "description": "一位魏国士兵的母亲，其丈夫和儿子都曾在吴起麾下服役。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "士兵的父亲",
+        "alias": [
+          "孩子的父亲"
+        ],
+        "original_description_in_book": "当年吴将军为孩子的父亲吸过毒疮，他父亲作战从不后退，就战死在敌阵中了。",
+        "description": "一位曾在吴起麾下服役并战死的魏国士兵。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [],
+    "events": [],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "吴起"
+        ],
+        "to_roles": [
+          "士兵"
+        ],
+        "action": "吸吮毒疮",
+        "context": "吴起作为大将，与士兵同甘共苦。有个士兵患了毒疮，吴起亲自为他吸吮毒汁以治疗。",
+        "result": "士兵的毒疮得到处理。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "过去（士兵父亲服役时）",
+        "from_roles": [
+          "吴起"
+        ],
+        "to_roles": [
+          "士兵的父亲"
+        ],
+        "action": "吸吮毒疮",
+        "context": "当年吴起将军也曾为这位士兵的父亲吸过毒疮。",
+        "result": "士兵的父亲作战勇猛，最终战死。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "士兵的母亲"
+        ],
+        "to_roles": [
+          "吴起",
+          "士兵"
+        ],
+        "action": "评论/痛哭",
+        "context": "士兵的母亲听说吴起又为她儿子吸吮毒疮后，回忆起丈夫的遭遇，因而痛哭。",
+        "result": "她认为吴起如此爱护士兵，会激励士兵像他父亲一样拼死作战，因此预感到儿子也将战死沙场，为此而悲伤。",
+        "event_name": null,
+        "location": null,
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:54.149755",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3164,
+    "completion_tokens": 845,
+    "total_tokens": 4009
+  },
+  "1-1-28": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 28,
+    "chunk_end_index": 29,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "燕国燕公去世，其子燕僖公即位。"
+    ],
+    "entities": [
+      {
+        "name": "燕国",
+        "alias": [
+          "燕"
+        ],
+        "original_description_in_book": "",
+        "description": "战国七雄之一，位于北方，姬姓诸侯国，在今河北北部和辽宁西部一带。",
+        "power": "燕国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "燕公",
+        "alias": [],
+        "original_description_in_book": "燕国国君",
+        "description": "燕国君主，谥号“公”，具体所指人物不详，应为燕国前代国君。",
+        "power": "燕国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "燕僖公",
+        "alias": [],
+        "original_description_in_book": "燕公之子",
+        "description": "燕国君主，谥号“僖公”，继燕公之位，为燕国国君。",
+        "power": "燕国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "燕国",
+        "alias": [
+          "燕"
+        ],
+        "type": "国家",
+        "description": "战国时期北方诸侯国，都城在蓟（今北京西南）。",
+        "modern_name": "河北北部、辽宁西部一带",
+        "coordinates": null,
+        "related_entities": [
+          "燕公",
+          "燕僖公"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "燕公去世，燕僖公即位",
+        "time": "威烈王二十三年（前403年）",
+        "location": "燕国",
+        "participants": [
+          "燕公",
+          "燕僖公"
+        ],
+        "description": "燕国国君燕公去世，其子燕僖公继承君位。",
+        "background": "这是战国时期燕国的一次权力更迭。燕国在战国初期相对较弱，常受周边强国影响。",
+        "significance": "标志着燕国国君的世代交替，是燕国历史进程中的一个节点。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403年）",
+        "from_roles": [
+          "燕公"
+        ],
+        "to_roles": [],
+        "action": "去世",
+        "context": "燕国国君燕公去世。",
+        "result": "君位空缺",
+        "event_name": "燕公去世，燕僖公即位",
+        "location": "燕国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403年）",
+        "from_roles": [
+          "燕僖公"
+        ],
+        "to_roles": [],
+        "action": "即位",
+        "context": "燕公去世后，其子燕僖公继承君位。",
+        "result": "成为燕国新君",
+        "event_name": "燕公去世，燕僖公即位",
+        "location": "燕国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:56:57.026622",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3015,
+    "completion_tokens": 739,
+    "total_tokens": 3754
+  },
+  "1-1-22": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 22,
+    "chunk_end_index": 23,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "魏文侯派乐羊攻打中山国，予以攻克，封给自己的儿子魏击。魏文侯问群臣：“我是什么样的君主？”大家都说：“您是仁德的君主！”只有任座说：“国君您得了中山国，不用来封您的弟弟，却封给自己的儿子，这算什么仁德君主！”魏文侯勃然大怒，任座快步离开。魏文侯又问翟璜，翟璜回答说：“您是仁德君主。”魏文侯问：“你何以知道？”回答说：“臣下我听说国君仁德，他的臣子就敢直言。刚才任座的话很耿直，于是我知道您是仁德君主。”魏文侯大喜，派翟璜去追任座回来，还亲自下殿堂去迎接，奉为上客。"
+    ],
+    "entities": [
+      {
+        "name": "魏文侯",
+        "alias": [
+          "魏斯"
+        ],
+        "original_description_in_book": "魏文侯魏斯以卜子夏、田子方为国师，他每次经过名士段干木的住宅，都要在车上俯首行礼。",
+        "description": "战国初期魏国开国君主，魏桓子之孙。在位期间礼贤下士，任用李悝、吴起、西门豹等贤臣，进行变法，使魏国成为战国首强。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "乐羊",
+        "alias": [],
+        "original_description_in_book": "魏文侯派乐羊攻打中山国",
+        "description": "战国时期魏国将领，曾率军攻灭中山国。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "中山国",
+        "alias": [
+          "中山"
+        ],
+        "original_description_in_book": "魏文侯派乐羊攻打中山国，予以攻克",
+        "description": "战国时期的一个诸侯国，由白狄鲜虞部建立，位于今河北省中部太行山东麓一带。",
+        "power": null,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏击",
+        "alias": [],
+        "original_description_in_book": "封给自己的儿子魏击",
+        "description": "魏文侯之子，即后来的魏武侯。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "任座",
+        "alias": [],
+        "original_description_in_book": "只有任座说：“国君您得了中山国，不用来封您的弟弟，却封给自己的儿子，这算什么仁德君主！”",
+        "description": "战国时期魏国大臣，以直言敢谏著称。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "翟璜",
+        "alias": [],
+        "original_description_in_book": "魏文侯又问翟璜，翟璜回答说：“您是仁德君主。”",
+        "description": "战国时期魏国大臣，曾向魏文侯举荐吴起、西门豹、乐羊、李克等人才。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "群臣",
+        "alias": [],
+        "original_description_in_book": "魏文侯问群臣：“我是什么样的君主？”大家都说：“您是仁德的君主！”",
+        "description": "泛指魏文侯朝廷中的大臣们。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "中山国",
+        "alias": [
+          "中山"
+        ],
+        "type": "国家",
+        "description": "战国时期的一个诸侯国，由白狄鲜虞部建立，位于今河北省中部太行山东麓一带。",
+        "modern_name": "河北省中部地区",
+        "coordinates": null,
+        "related_entities": [
+          "乐羊",
+          "魏文侯",
+          "魏击"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "乐羊灭中山",
+        "time": "战国初期（魏文侯时期）",
+        "location": "中山国",
+        "participants": [
+          "魏文侯",
+          "乐羊",
+          "中山国"
+        ],
+        "description": "魏文侯派遣将领乐羊率军攻打并最终攻克了中山国。",
+        "background": "中山国是位于魏国东北方向的狄人国家，对魏国构成一定威胁。魏文侯为扩张领土、消除边患，发动了此次战争。",
+        "significance": "魏国成功吞并中山国，扩大了疆域，增强了国力，是魏文侯霸业的重要成就之一。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏文侯问政",
+        "time": "攻克中山国后",
+        "location": null,
+        "participants": [
+          "魏文侯",
+          "群臣",
+          "任座",
+          "翟璜"
+        ],
+        "description": "魏文侯在攻克中山国后，询问群臣自己是什么样的君主，引发任座的直言批评和翟璜的巧妙劝谏。",
+        "background": "魏文侯在取得重大军事胜利后，希望得到臣下的评价，既可能出于自得，也可能意在考察臣子的忠诚与见识。",
+        "significance": "展现了魏文侯的纳谏胸襟和翟璜的智慧，以及魏国朝廷的直言风气，是体现魏文侯“仁德”之名的典型事例。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "战国初期（魏文侯时期）",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "乐羊"
+        ],
+        "action": "派遣攻打",
+        "context": "魏文侯为扩张领土，消除边患，决定对中山国用兵。",
+        "result": "攻克中山国",
+        "event_name": "乐羊灭中山",
+        "location": "中山国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "攻克中山国后",
+        "from_roles": [
+          "乐羊"
+        ],
+        "to_roles": [
+          "中山国"
+        ],
+        "action": "攻打攻克",
+        "context": "奉魏文侯之命，率军进攻中山国。",
+        "result": "攻克中山国",
+        "event_name": "乐羊灭中山",
+        "location": "中山国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "攻克中山国后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "魏击"
+        ],
+        "action": "封给",
+        "context": "魏文侯将新征服的中山国土地封赏给自己的儿子。",
+        "result": "魏击获得中山封地",
+        "event_name": null,
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "攻克中山国后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "群臣"
+        ],
+        "action": "询问评价",
+        "context": "魏文侯在取得重大胜利后，向群臣询问对自己的评价。",
+        "result": "群臣大多称赞其为仁德君主",
+        "event_name": "魏文侯问政",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "攻克中山国后",
+        "from_roles": [
+          "群臣"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "称赞",
+        "context": "回应魏文侯的询问。",
+        "result": "称魏文侯为仁德君主",
+        "event_name": "魏文侯问政",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "攻克中山国后",
+        "from_roles": [
+          "任座"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "批评",
+        "context": "针对魏文侯将中山封给儿子而非弟弟的行为提出异议。",
+        "result": "魏文侯勃然大怒，任座离开",
+        "event_name": "魏文侯问政",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "攻克中山国后",
+        "from_roles": [
+          "翟璜"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "回答并劝谏",
+        "context": "在任座直言触怒魏文侯后，被问及同样问题。",
+        "result": "魏文侯大喜，追回并礼遇任座",
+        "event_name": "魏文侯问政",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "攻克中山国后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "翟璜"
+        ],
+        "action": "派去追回",
+        "context": "听了翟璜的劝谏后，意识到自己的错误。",
+        "result": "任座被追回",
+        "event_name": "魏文侯问政",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "攻克中山国后",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "任座"
+        ],
+        "action": "迎接奉为上客",
+        "context": "为弥补之前因怒斥任座而可能造成的过失，并显示纳谏诚意。",
+        "result": "任座受到礼遇",
+        "event_name": "魏文侯问政",
+        "location": null,
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:57:02.377695",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2852,
+    "completion_tokens": 2175,
+    "total_tokens": 5027
+  },
+  "1-1-25": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 25,
+    "chunk_end_index": 26,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "魏文侯问李克：“先生曾经说过：‘家贫思良妻，国乱思良相。’现在我选相不是魏成就是翟璜，这两人怎么样？”李克回答说：“下属不参与尊长的事，外人不过问亲戚的事。臣子我在朝外任职，不敢接受命令。”魏文侯说：“先生不要临事推让！”李克说道：“国君您没有仔细观察呀！看人，平时看他所亲近的，富贵时看他所交往的，显赫时看他所推荐的，穷困时看他所不做的，贫贱时看他所不取的。仅此五条，就足以去断定人，又何必要等我指明呢！”魏文侯说：“先生请回府吧，我的国相已经选定了。”李克离去，遇到翟璜。翟璜问：“听说今天国君召您去征求宰相人选，到底定了谁呢？”李克说：“魏成。”翟璜立刻忿忿不平地变了脸色，说：“西河守令吴起，是我推荐的。国君担心内地的邺县，我推荐西门豹。国君想征伐中山国，我推荐乐羊。中山国攻克之后，没有人去镇守，我推荐了先生您。国君的公子没有老师，我推荐了屈侯鲋。凭耳闻目睹的这些事实，我哪点儿比魏成差！”李克说：“你把我介绍给你的国君，难道是为了结党以谋求高官吗？国君问我宰相的人选，我说了刚才那一番话。我所以推断国君肯定会选中魏成为相，是因为魏成享有千钟的傣禄，十分之九都用在外面，只有十分之一留作家用，所以向东得到了卜子夏、田子方、段干木。这三个人，国君都奉他们为老师；而你所举荐的五人，国君都任用为臣属。你怎么能和魏成比呢！”翟璜听罢徘徊不敢进前，一再行礼说：“我翟璜，真是个粗人，失礼了，愿终身为您的弟子！”"
+    ],
+    "entities": [
+      {
+        "name": "魏文侯",
+        "alias": [
+          "国君",
+          "您"
+        ],
+        "original_description_in_book": "魏国君主，向李克询问宰相人选",
+        "description": "战国初期魏国开国君主，名魏斯，在位期间任用贤能，进行改革，使魏国成为战国首强。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "李克",
+        "alias": [
+          "先生",
+          "臣子我",
+          "我"
+        ],
+        "original_description_in_book": "魏国大臣，魏文侯向其咨询宰相人选",
+        "description": "战国初期魏国政治家，法家代表人物，辅佐魏文侯变法图强。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏成",
+        "alias": [],
+        "original_description_in_book": "魏文侯选相的候选人之一",
+        "description": "魏国宗室大臣，魏文侯之弟（一说为子），以贤德著称。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "翟璜",
+        "alias": [
+          "你",
+          "我翟璜"
+        ],
+        "original_description_in_book": "魏国大臣，魏文侯选相的候选人之一，曾推荐吴起、西门豹、乐羊、李克、屈侯鲋等人",
+        "description": "战国初期魏国大臣，以善于举荐人才闻名。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "吴起",
+        "alias": [],
+        "original_description_in_book": "西河守令，翟璜推荐",
+        "description": "战国初期著名军事家、政治家，先后效力于鲁、魏、楚三国，著有《吴子兵法》。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "西门豹",
+        "alias": [],
+        "original_description_in_book": "被翟璜推荐治理邺县",
+        "description": "战国时期魏国官吏，以治理邺县、破除“河伯娶妇”陋习而闻名。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "乐羊",
+        "alias": [],
+        "original_description_in_book": "被翟璜推荐征伐中山国",
+        "description": "战国初期魏国将领，曾率军攻灭中山国。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "屈侯鲋",
+        "alias": [],
+        "original_description_in_book": "被翟璜推荐作为公子魏击的老师",
+        "description": "战国时期魏国学者，曾担任魏国公子之师。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "卜子夏",
+        "alias": [],
+        "original_description_in_book": "魏成所举荐，被魏文侯奉为老师",
+        "description": "孔子弟子，姓卜名商，字子夏，战国初期儒家代表人物，曾在西河讲学，对魏国文化影响深远。",
+        "power": "None",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "田子方",
+        "alias": [],
+        "original_description_in_book": "魏成所举荐，被魏文侯奉为老师",
+        "description": "战国初期魏国贤士，孔子弟子子贡的学生，以德行和直谏著称，深受魏文侯敬重。",
+        "power": "None",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "段干木",
+        "alias": [],
+        "original_description_in_book": "魏成所举荐，被魏文侯奉为老师",
+        "description": "战国初期魏国隐士，贤人，魏文侯曾登门拜访，他越墙避见，后成为魏文侯之师。",
+        "power": "None",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "魏国",
+        "alias": [],
+        "type": "国家",
+        "description": "战国七雄之一，由晋国大夫魏斯建立，都城安邑（后迁大梁）。",
+        "modern_name": "大致位于今山西南部、河南北部一带",
+        "coordinates": null,
+        "related_entities": [
+          "魏文侯",
+          "李克",
+          "魏成",
+          "翟璜",
+          "吴起",
+          "西门豹",
+          "乐羊",
+          "屈侯鲋"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "西河",
+        "alias": [],
+        "type": "地区",
+        "description": "战国时魏国西部边境地区，与秦国接壤，是军事要地。",
+        "modern_name": "大致位于今陕西东部黄河西岸地区",
+        "coordinates": null,
+        "related_entities": [
+          "吴起"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "邺县",
+        "alias": [],
+        "type": "城市",
+        "description": "魏国重要城邑，位于今河北临漳县西南。",
+        "modern_name": "河北临漳县西南",
+        "coordinates": null,
+        "related_entities": [
+          "西门豹"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "中山国",
+        "alias": [],
+        "type": "国家",
+        "description": "春秋战国时期由白狄鲜虞部建立的国家，位于今河北中部。",
+        "modern_name": "河北中部",
+        "coordinates": null,
+        "related_entities": [
+          "乐羊"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "魏文侯问相",
+        "time": "威烈王二十三年（前403）",
+        "location": "魏国",
+        "participants": [
+          "魏文侯",
+          "李克",
+          "魏成",
+          "翟璜"
+        ],
+        "description": "魏文侯就国相人选咨询李克，李克提出“五视”观人法，并推断魏文侯会选择魏成。事后翟璜不服，与李克辩论，最终被李克说服。",
+        "background": "战国初期，各国争相变法图强，选拔贤能是君主的重要职责。魏文侯是著名的贤明君主，其选相过程体现了对人才标准的重视。",
+        "significance": "此事展现了魏文侯的用人智慧和战国初期的人才观，李克提出的“五视”观人法成为后世识人选才的重要参考。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "李克"
+        ],
+        "action": "询问",
+        "context": "魏文侯为选定国相，向李克咨询魏成和翟璜谁更合适。",
+        "result": "李克提出观人五法，并推断魏文侯会选择魏成。",
+        "event_name": "魏文侯问相",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "李克"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "回答/陈述观人法",
+        "context": "应魏文侯之问，李克阐述其观人标准。",
+        "result": "提出“居视其所亲，富视其所与，达视其所举，穷视其所不为，贫视其所不取”的五条标准。",
+        "event_name": "魏文侯问相",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "李克"
+        ],
+        "to_roles": [
+          "翟璜"
+        ],
+        "action": "告知",
+        "context": "李克离开宫廷后遇到翟璜，翟璜询问宰相人选结果。",
+        "result": "李克告知翟璜，魏文侯已选定魏成为相。",
+        "event_name": "魏文侯问相",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "翟璜"
+        ],
+        "to_roles": [
+          "李克"
+        ],
+        "action": "抱怨/列举功绩",
+        "context": "翟璜得知魏成被选为相后，心中不平，向李克列举自己举荐吴起、西门豹、乐羊、李克、屈侯鲋的功劳。",
+        "result": "质问李克自己哪点不如魏成。",
+        "event_name": "魏文侯问相",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "李克"
+        ],
+        "to_roles": [
+          "翟璜"
+        ],
+        "action": "反驳/解释",
+        "context": "针对翟璜的抱怨，李克进行反驳和解释。",
+        "result": "指出魏成将俸禄的十分之九用于招揽卜子夏、田子方、段干木三位国君之师，而翟璜举荐的五人只是国君之臣，因此魏成更贤。翟璜听后认错。",
+        "event_name": "魏文侯问相",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "翟璜"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "推荐",
+        "context": "翟璜曾多次向魏文侯举荐人才。",
+        "result": "吴起被任为西河守令，西门豹被派去治理邺县，乐羊被任命征伐中山国，李克被推荐镇守中山，屈侯鲋被任命为公子之师。",
+        "event_name": null,
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）之前",
+        "from_roles": [
+          "魏成"
+        ],
+        "to_roles": [
+          "魏文侯"
+        ],
+        "action": "举荐/供养",
+        "context": "魏成用自己的俸禄招揽贤士。",
+        "result": "为魏文侯得到了卜子夏、田子方、段干木三位老师。",
+        "event_name": null,
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "威烈王二十三年（前403）",
+        "from_roles": [
+          "翟璜"
+        ],
+        "to_roles": [
+          "李克"
+        ],
+        "action": "认错/拜服",
+        "context": "听完李克的解释后，翟璜认识到自己的错误。",
+        "result": "翟璜向李克行礼，表示愿终身为弟子。",
+        "event_name": "魏文侯问相",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:57:38.665106",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 2992,
+    "completion_tokens": 2753,
+    "total_tokens": 5745
+  },
+  "1-1-26": {
+    "juan_index": 1,
+    "segment_index": 1,
+    "chunk_start_index": 26,
+    "chunk_end_index": 27,
+    "segment_start_time": "威烈王二十三年（戊寅、前403）",
+    "source_sentences": [
+      "吴起，卫国人，在鲁国任官。齐国攻打鲁国，鲁国想任用吴起为将，但吴起娶的妻子是齐国人，鲁国猜疑吴起。于是，吴起杀死了自己的妻子，求得大将，大破齐国军队。有人在鲁国国君面前攻击他说：“吴起当初曾师事曾参，母亲死了也不回去治丧，曾参与他断绝关系。现在他又杀死妻子来求得您的大将职位。吴起，真是一个残忍缺德的人！况且，以我们小小的鲁国能有战胜齐国的名气，各个国家都要来算计鲁国了。”吴起恐怕鲁国治他的罪，又听说魏文侯贤明，于是就前去投奔。魏文侯征求李克的意见，李克说：“吴起为人贪婪而好色，然而他的用兵之道，连齐国的名将司马穰苴也超不过他。”于是魏文侯崐任命吴起为大将，攻击秦国，攻占五座城。"
+    ],
+    "entities": [
+      {
+        "name": "吴起",
+        "alias": [],
+        "original_description_in_book": "卫国人，在鲁国任官。",
+        "description": "战国初期著名军事家、政治家，著有《吴子兵法》。先后仕于鲁、魏、楚三国，在魏国主持军事改革，创建“魏武卒”；在楚国主持“吴起变法”。",
+        "power": "鲁国（后投奔魏国）",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "齐国",
+        "alias": [],
+        "original_description_in_book": "",
+        "description": "战国七雄之一，位于今山东一带，是东方大国。",
+        "power": "齐国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "鲁国",
+        "alias": [],
+        "original_description_in_book": "",
+        "description": "周朝诸侯国，位于今山东南部，是孔子的故乡，在战国时期国力较弱。",
+        "power": "鲁国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "鲁国国君",
+        "alias": [],
+        "original_description_in_book": "",
+        "description": "鲁国的君主。",
+        "power": "鲁国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "曾参",
+        "alias": [
+          "曾子"
+        ],
+        "original_description_in_book": "吴起当初曾师事曾参",
+        "description": "春秋末期鲁国人，孔子的弟子，儒家重要代表人物，以孝道著称。",
+        "power": "None",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏文侯",
+        "alias": [],
+        "original_description_in_book": "魏文侯贤明",
+        "description": "战国时期魏国开国君主，名魏斯，在位期间任用李悝、吴起等人进行改革，使魏国成为战国初期最强大的国家。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "李克",
+        "alias": [
+          "李悝"
+        ],
+        "original_description_in_book": "魏文侯征求李克的意见",
+        "description": "战国初期法家代表人物，魏国大臣，辅佐魏文侯进行变法，著有《法经》。",
+        "power": "魏国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "司马穰苴",
+        "alias": [],
+        "original_description_in_book": "齐国的名将司马穰苴",
+        "description": "春秋时期齐国著名军事家，著有《司马法》。",
+        "power": "齐国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "秦国",
+        "alias": [],
+        "original_description_in_book": "",
+        "description": "战国七雄之一，位于今陕西一带，后统一六国。",
+        "power": "秦国",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "攻击吴起的人",
+        "alias": [
+          "有人"
+        ],
+        "original_description_in_book": "有人在鲁国国君面前攻击他说",
+        "description": "在鲁国国君面前诋毁吴起的匿名者。",
+        "power": "None",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "locations": [
+      {
+        "name": "卫国",
+        "alias": [],
+        "type": "国家",
+        "description": "周朝诸侯国，吴起的祖国，位于今河南北部。",
+        "modern_name": "河南北部",
+        "coordinates": null,
+        "related_entities": [
+          "吴起"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "鲁国",
+        "alias": [],
+        "type": "国家",
+        "description": "周朝诸侯国，吴起曾在此为官并担任将领。",
+        "modern_name": "山东南部",
+        "coordinates": null,
+        "related_entities": [
+          "吴起",
+          "鲁国国君",
+          "曾参"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "齐国",
+        "alias": [],
+        "type": "国家",
+        "description": "周朝诸侯国，与鲁国交战并被吴起击败。",
+        "modern_name": "山东大部",
+        "coordinates": null,
+        "related_entities": [
+          "吴起",
+          "司马穰苴"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "魏国",
+        "alias": [],
+        "type": "国家",
+        "description": "战国七雄之一，吴起投奔并效力于此。",
+        "modern_name": "山西南部、河南北部",
+        "coordinates": null,
+        "related_entities": [
+          "吴起",
+          "魏文侯",
+          "李克"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "秦国",
+        "alias": [],
+        "type": "国家",
+        "description": "战国七雄之一，被吴起率领的魏军攻击。",
+        "modern_name": "陕西",
+        "coordinates": null,
+        "related_entities": [
+          "吴起"
+        ],
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "events": [
+      {
+        "name": "齐国攻打鲁国",
+        "time": "战国初期（具体年份不详）",
+        "location": "鲁国",
+        "participants": [
+          "齐国",
+          "鲁国",
+          "吴起"
+        ],
+        "description": "齐国发兵攻打鲁国，鲁国欲任用吴起为将，但因吴起妻子是齐国人而产生猜疑。吴起杀妻求将，最终被任命为大将并大破齐军。",
+        "background": "战国初期，诸侯国之间征伐不断。齐国作为东方大国，常与邻国鲁国发生冲突。",
+        "significance": "此战展现了吴起的军事才能，但也因其“杀妻求将”的行为引发非议，最终导致他离开鲁国。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "吴起投奔魏国",
+        "time": "战国初期（具体年份不详）",
+        "location": "魏国",
+        "participants": [
+          "吴起",
+          "魏文侯",
+          "李克"
+        ],
+        "description": "吴起因在鲁国遭人诋毁，恐被治罪，又听闻魏文侯贤明，于是离开鲁国投奔魏国。魏文侯征求李克意见后，任命吴起为大将。",
+        "background": "战国时期人才流动频繁，各国君主争相招揽贤能。魏文侯是当时著名的贤君，致力于富国强兵。",
+        "significance": "标志着吴起职业生涯的重要转折，他将在魏国发挥其军事才能，帮助魏国开疆拓土。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "name": "吴起攻秦",
+        "time": "战国初期（具体年份不详）",
+        "location": "秦国",
+        "participants": [
+          "吴起",
+          "秦国"
+        ],
+        "description": "吴起被魏文侯任命为大将后，率军攻击秦国，攻占了五座城池。",
+        "background": "魏国在战国初期积极扩张，西面的秦国是其重要对手。",
+        "significance": "显示了吴起卓越的军事指挥能力，为魏国夺取了战略要地，增强了魏国的国力。",
+        "related_action_indices": [],
+        "source": "",
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "relations": [
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "齐国"
+        ],
+        "to_roles": [
+          "鲁国"
+        ],
+        "action": "攻打",
+        "context": "齐国发兵进攻鲁国。",
+        "result": "被吴起率领的鲁军击败",
+        "event_name": "齐国攻打鲁国",
+        "location": "鲁国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "鲁国"
+        ],
+        "to_roles": [
+          "吴起"
+        ],
+        "action": "猜疑",
+        "context": "因吴起娶的妻子是齐国人，鲁国对吴起的忠诚产生怀疑。",
+        "result": "吴起杀妻以表忠心",
+        "event_name": "齐国攻打鲁国",
+        "location": "鲁国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "吴起"
+        ],
+        "to_roles": [
+          "吴起的妻子"
+        ],
+        "action": "杀死",
+        "context": "为了消除鲁国的猜疑，求得大将职位。",
+        "result": "求得鲁国大将职位",
+        "event_name": "齐国攻打鲁国",
+        "location": "鲁国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "吴起"
+        ],
+        "to_roles": [
+          "齐国"
+        ],
+        "action": "大破",
+        "context": "吴起被任命为鲁国大将后，率军与齐军作战。",
+        "result": "大破齐国军队",
+        "event_name": "齐国攻打鲁国",
+        "location": "鲁国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "攻击吴起的人"
+        ],
+        "to_roles": [
+          "吴起"
+        ],
+        "action": "攻击/诋毁",
+        "context": "在鲁国国君面前批评吴起不孝（母死不归）、不仁（杀妻求将）的行为。",
+        "result": "吴起恐怕鲁国治他的罪",
+        "event_name": null,
+        "location": "鲁国",
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "吴起"
+        ],
+        "to_roles": [
+          "魏国"
+        ],
+        "action": "投奔",
+        "context": "吴起在鲁国遭人诋毁，又听说魏文侯贤明。",
+        "result": "成功投奔魏国",
+        "event_name": "吴起投奔魏国",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "李克"
+        ],
+        "action": "征求意见",
+        "context": "关于是否任用吴起。",
+        "result": "李克给出评价和建议",
+        "event_name": "吴起投奔魏国",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "李克"
+        ],
+        "to_roles": [
+          "吴起"
+        ],
+        "action": "评价",
+        "context": "魏文侯征求对吴起的看法。",
+        "result": "“吴起为人贪婪而好色，然而他的用兵之道，连齐国的名将司马穰苴也超不过他。”",
+        "event_name": "吴起投奔魏国",
+        "location": "魏国",
+        "is_commentary": true,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "魏文侯"
+        ],
+        "to_roles": [
+          "吴起"
+        ],
+        "action": "任命",
+        "context": "听取李克意见后，决定任用吴起。",
+        "result": "任命吴起为大将",
+        "event_name": "吴起投奔魏国",
+        "location": "魏国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      },
+      {
+        "time": "战国初期",
+        "from_roles": [
+          "吴起"
+        ],
+        "to_roles": [
+          "秦国"
+        ],
+        "action": "攻击",
+        "context": "吴起被任命为魏国大将后，率军西征。",
+        "result": "攻占五座城",
+        "event_name": "吴起攻秦",
+        "location": "秦国",
+        "is_commentary": false,
+        "sentence_indexes_in_segment": [
+          0
+        ],
+        "juan_index": 1,
+        "segment_index": 1
+      }
+    ],
+    "extracted_at": "2026-01-03T15:57:49.157451",
+    "model_name": "deepseek-chat",
+    "prompt_tokens": 3123,
+    "completion_tokens": 2873,
+    "total_tokens": 5996
+  }
+}

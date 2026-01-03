@@ -42,72 +42,62 @@ chapters
 ## 结构化数据
 结构化数据已由`model.py`生成，其中的数据结构及生成过程可见于`model.py`。结构化数据保存于`data.json`（[结构化数据文件](https://github.com/JY0284/zizhitongjian/blob/main/data.json)）。数据读取和使用样例请见`data_usage_demo_visualization.ipynb`（[结构化数据使用样例](https://github.com/JY0284/zizhitongjian/blob/main/data_usage_demo_visualization.ipynb)）。
 
-## 抛砖引玉——资治通鉴数据应用样例（壹）：AI辅助理解可视化
-> 正在进行中。
-> [结构化数据使用样例](https://github.com/JY0284/zizhitongjian/blob/main/data_usage_demo_visualization.ipynb)
-> [AI辅助资治通鉴知识图谱挖掘&构建](https://github.com/JY0284/zizhitongjian/blob/main/extract_and_build_knowledge_graph.ipynb)
+## 资治通鉴数据应用样例：交互式历史可视化系统
 
-### 可视化脚本 plot_er.py 使用指南（ER 关系 Sankey 图）
-本仓库新增了 **`plot_er.py`**（由之前的示例脚本改名而来），可把实体-关系结构化数据渲染成一张 **“权力/影响力流向 Sankey 图”**。  
-图中每一条带状流代表一次或多次 **分封 / 背叛 / 代 / 立** 等“权力流转”事件，鼠标悬停即可看到对应的事件标签及计数。
+🚀 **在线体验地址：[http://zztj.wawuyu.cn](http://zztj.wawuyu.cn)**
 
-#### 1. 准备数据
+本项目新增了基于 React + D3.js 的现代化交互式可视化系统，位于 `visualization` 目录下。该系统提供了更加流畅、直观的历史数据探索体验，帮助读者从时间、空间、人物关系等多个维度深入理解《资治通鉴》。
 
-真实示例结构化数据存放在 data/demo_er.json，构建过程可参考[AI辅助资治通鉴知识图谱挖掘&构建](https://github.com/JY0284/zizhitongjian/blob/main/extract_and_build_knowledge_graph.ipynb)
+### 主要功能展示
 
-#### 2. 一条命令生成并保存 HTML
+#### 1. 交互式历史事件时间轴 (Interactive Timeline)
+全新的时间轴组件支持智能聚类、缩放平移、全局概览及实时搜索。
+- **主界面与时间轴概览**：
+![主界面与时间轴](https://github.com/JY0284/zizhitongjian/blob/main/demo/main_page_and_events_timeline.png)
+- **时间轴细节交互**：
+![时间轴细节](https://github.com/JY0284/zizhitongjian/blob/main/demo/time_line.png)
+
+#### 2. 复杂人物关系网络 (Relation Network)
+通过力导向图展示人物之间的复杂关系，支持点击节点查看人物详情，点击连线查看具体交互事件。
+- **关系网络全景**：
+![关系网络](https://github.com/JY0284/zizhitongjian/blob/main/demo/relation_network_1.png)
+- **人物详情查看**：
+![人物详情](https://github.com/JY0284/zizhitongjian/blob/main/demo/relation_network_node_detail.png)
+- **关系细节查看**：
+![关系细节](https://github.com/JY0284/zizhitongjian/blob/main/demo/relation_network_edge_detail.png)
+
+#### 3. 历史地理与地点 (Historical Locations)
+展示历史地名及其相关事件，支持查看地点详情。
+- **地点列表**：
+![地点列表](https://github.com/JY0284/zizhitongjian/blob/main/demo/location_list.png)
+- **地点详情**：
+![地点详情](https://github.com/JY0284/zizhitongjian/blob/main/demo/location_list_node_detail.png)
+
+### 本地启动方法
+
+如果您想在本地运行该系统：
 
 ```bash
-python plot_er.py data/demo_er.json --keep-loops --all-actions -o demo/demo_er.html
+cd visualization
+npm install
+npm run dev
 ```
 
-| 主要参数            | 作用                                                                             |
-| --------------- | ------------------------------------------------------------------------------ |
-| `--keep-loops`  | **保留自循环**（同一势力内部的事件）。若不加该参数，脚本默认去掉这些往往难以辨识的细线。                                 |
-| `--all-actions` | 不仅统计“分封 / 背叛 / 代 / 立”四类动作，而是 **把所有关系事件都画进图里**。如果只想看“权力流转”四类动作，可省略此参数。          |
-| `-o <HTML>`     | 把结果保存为指定文件，同时自动在浏览器中打开。若不加 `-o`，脚本会直接弹出 Plotly 交互窗口（部分终端/远程环境可能无法弹窗，建议加 `-o`）。 |
+## 技术实现简述
 
-更多用法示例请运行：
+为了支撑上述可视化系统，本项目构建了一套完整的知识提取与融合流程：
 
-```bash
-python plot_er.py -h
-```
+1.  **AI 知识提取 (Knowledge Extraction)**
+    *   利用大语言模型对《资治通鉴》原文进行深度语义分析。
+    *   自动提取**人物 (Roles)**、**地点 (Locations)**、**事件 (Events)** 及**人物关系 (Relations)**。
 
-#### 3. 线上示例
+2.  **实体消歧与融合 (Entity Resolution)**
+    *   **智能合并**：通过 Union-Find 算法，将同一人物的不同称呼（如“赵籍”、“赵侯”）自动合并为统一实体。
+    *   **防误触机制**：内置黑名单机制，防止“王”、“臣”、“公子”等通用称谓导致错误合并。
+    *   **人地分离**：特殊处理逻辑区分人名与国名（如区分“赵籍”与“赵国”），确保关系网络准确性。
 
-仓库已经用 `data/demo_er.json` 运行了一次脚本，生成的静态文件放在：
-
-```
-demo/demo_er.html
-```
-
-> ⚠️ 该文件约 5 MB，Plotly 脚本已内嵌，可直接在浏览器离线查看。
-
-👇 **互动示例**
-![历史人物/势力关系交互图静态截图](https://github.com/JY0284/zizhitongjian/blob/main/demo/demo_er.png)
-
-
-[历史人物/势力关系交互图HTML，下载至本地使用浏览器打开](https://github.com/JY0284/zizhitongjian/blob/main/demo/demo_er.html)
-
-#### 4. 这张 Sankey 图能看出什么？
-
-1. **势力间的权力走向一目了然**
-   例如，可以直观看到 **周朝 → 魏国 / 赵国 / 韩国** 的分封流，以及 **智氏家族 → 赵国** 的大带状流，背后对应“晋阳之战”等关键事件。
-2. **鼠标悬停即得事件详情**
-   悬浮在某条带上会显示如 “三家分晋 (1)；立为继承人 (2)” 等列表，快速了解该流包含哪些事件、各发生几次。
-3. **参数化过滤，探索更深**
-
-   * 通过 `-s` / `-e`（开始/结束年份）只观察特定时代；
-   * 加或减 `--keep-loops` 查看内部权力更迭；
-   * 去掉 `--all-actions` 聚焦“权力流转”四大动词。
-     这样既能俯瞰宏观格局，也能精查局部细节。
-
-### 其他demo
-正在进行中的可视化Demo（使用GPT-O1与Deepseek-R1完成）：
-![demo_1](https://github.com/JY0284/zizhitongjian/blob/main/周纪关系图.png)
-![demo_2](https://github.com/JY0284/zizhitongjian/blob/main/history_relations.gv.png)
-![demo_3](https://github.com/JY0284/zizhitongjian/blob/main/资治通鉴卷1-Seg1-实体关系图.png)
-
+3.  **统一知识库 (Unified Knowledge Base)**
+    *   将分散在各卷的碎片化信息重组为时空连贯的结构化数据，支持跨卷检索与分析。
 
 ## 项目进展
 
@@ -120,7 +110,7 @@ demo/demo_er.html
 - [x] 文本数据结构化，便于利用数据分析工具和可视化工具进行处理
 - [x] 结构化数据使用样例
 - [x] AI辅助理解及可视化样例
-- [ ] AI辅助获取全书知识图谱（人物、事件及其关系，以及在格式化数据中的精确定位）
+- [x] AI辅助获取全书知识图谱（人物、事件及其关系，以及在格式化数据中的精确定位）
 - [ ] 对话交互式资治通鉴
 - [ ] ...
 
