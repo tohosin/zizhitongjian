@@ -163,20 +163,30 @@
 
 ## Phase 5 — Frontend: locations list mode → map mode → trajectory
 
-- [ ] 16) **Locations list mode fully driven by Global Context**
+- [x] 16) **Locations list mode fully driven by Global Context**
 - Output: location list + detail reflect `juanRange`/`yearRange`.
 - Success criteria: locations shown are “in-range relevant”.
 - Touchpoints:
   - `visualization/src/components/DetailPanels.tsx` (location panels)
   - `visualization/src/utils/unifiedDataProcessing.ts`
 
-- [ ] 17) **Add map mode (graceful fallback for null coordinates)**
+  Verified: `cd visualization && npm run build`
+
+- [x] 17) **Add map mode (graceful fallback for null coordinates)**
 - Output: toggle/dual-mode implementation inside locations tab:
   - plot only in-range locations with coordinates
   - keep list for missing coordinates
 - Success criteria: no blank screen when coords are missing.
 - Touchpoints:
   - locations UI: `visualization/src/...` (new component likely needed)
+
+  Implementation: Moved map to separate top-level tab using Leaflet + OpenStreetMap tiles.
+  - New component: `visualization/src/components/MapView.tsx`
+  - Uses `react-leaflet` with OSM tiles (neutral, shows rivers/mountains, no border issues)
+  - LocationsView simplified to list-only with max-height scroll
+  - Merged geocoding coordinates into `unified_knowledge.json` (195 locations)
+  
+  Verified: `cd visualization && npm run build`
 
 - [ ] 18) **Derive and render entity trajectory**
 - Output: for selected role/event/power, show ordered event-location path when both year + coords exist.
