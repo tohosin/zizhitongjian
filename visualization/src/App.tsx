@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useCallback, useRef, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useUnifiedKnowledgeBase, useUnifiedVisualizationData } from './hooks/useUnifiedData';
+import { useJuanYearIndex } from './hooks/useJuanYearIndex';
 import {
   Timeline,
   NetworkGraph,
@@ -29,6 +30,7 @@ interface SelectedRelationPair {
 function App() {
   // Use the unified knowledge base hook
   const { kb, loading, error } = useUnifiedKnowledgeBase();
+  const { juanYearIndex } = useJuanYearIndex();
 
   const [searchParams, setSearchParams] = useSearchParams();
   const initialCtxRef = useRef(parseUrlGlobalContext(searchParams, 294));
@@ -36,6 +38,7 @@ function App() {
   const [juanRange, setJuanRange] = useState<[number, number]>(initialCtxRef.current.juanRange);
   const [timeRange, setTimeRange] = useState<[number | null, number | null]>(initialCtxRef.current.yearRange);
   const [activeTab, setActiveTab] = useState<TabType>(initialCtxRef.current.tab);
+  const [syncJuanYear, setSyncJuanYear] = useState(true);
   
   const [selectedEvent, setSelectedEvent] = useState<TimelineEventUnified | null>(null);
   const [selectedRole, setSelectedRole] = useState<RoleNodeUnified | null>(null);
@@ -49,8 +52,70 @@ function App() {
     links: roleLinks, 
     timelineEvents, 
     locations, 
-    powerDistribution 
-  } = useUnifiedVisualizationData(kb, juanRange);
+  } = useUnifiedVisualizationData(kb, juanRange, timeRange);
+
+  const juanStartYearPairs = useMemo(() => {
+    const m = juanYearIndex?.juan_start_year;
+    if (!m) return null;
+    return Object.entries(m)
+      .map(([juan, year]) => ({ juan: Number(juan), year }))
+      .filter((x) => Number.isFinite(x.juan) && typeof x.year === 'number')
+      .sort((a, b) => a.juan - b.juan);
+  }, [juanYearIndex]);
+
+  const normalizeJuanRange = useCallback((range: [number, number], maxJuan: number): [number, number] => {
+    let [start, end] = range;
+    start = Math.max(1, Math.min(maxJuan, start));
+    end = Math.max(1, Math.min(maxJuan, end));
+    if (start > end) [start, end] = [end, start];
+    return [start, end];
+  }, []);
+
+  const normalizeYearRange = useCallback((range: [number | null, number | null]): [number | null, number | null] => {
+    const [a, b] = range;
+    if (a === null || b === null) return [a, b];
+    return a <= b ? [a, b] : [b, a];
+  }, []);
+
+  const deriveYearRangeFromJuanRange = useCallback(
+    (range: [number, number]): [number | null, number | null] | null => {
+      const m = juanYearIndex?.juan_start_year;
+      if (!m) return null;
+      const startYear = m[String(range[0])];
+      const endYear = m[String(range[1])];
+      if (typeof startYear !== 'number' || typeof endYear !== 'number') return null;
+      return startYear <= endYear ? [startYear, endYear] : [endYear, startYear];
+    },
+    [juanYearIndex]
+  );
+
+  const deriveJuanRangeFromYearRange = useCallback(
+    (range: [number | null, number | null], maxJuan: number): [number, number] | null => {
+      if (!juanStartYearPairs) return null;
+      const [startY, endY] = normalizeYearRange(range);
+      if (startY === null && endY === null) return null;
+
+      const effectiveStart = startY ?? -Infinity;
+      const effectiveEnd = endY ?? Infinity;
+
+      const candidates = juanStartYearPairs.filter((p) => p.year >= effectiveStart && p.year <= effectiveEnd);
+      if (candidates.length > 0) {
+        const startJuan = Math.max(1, Math.min(maxJuan, candidates[0].juan));
+        const endJuan = Math.max(1, Math.min(maxJuan, candidates[candidates.length - 1].juan));
+        return startJuan <= endJuan ? [startJuan, endJuan] : [endJuan, startJuan];
+      }
+
+      // No juan start year falls within range; pick the closest juan to start boundary.
+      const target = startY ?? endY ?? 0;
+      let best = juanStartYearPairs[0];
+      for (const p of juanStartYearPairs) {
+        if (Math.abs(p.year - target) < Math.abs(best.year - target)) best = p;
+      }
+      const j = Math.max(1, Math.min(maxJuan, best.juan));
+      return [j, j];
+    },
+    [juanStartYearPairs, normalizeYearRange]
+  );
 
   // Keep latest derived arrays in refs so URL-sync effect doesn't depend on them
   // (avoids rerender loops if hooks return new array identities each render).
@@ -274,6 +339,36 @@ function App() {
     });
   }, [timelineEvents, timeRange]);
 
+  const filteredLocations = useMemo(() => {
+    // `locations` is already juanRange-filtered by the unified data hook.
+    if (timeRange[0] === null && timeRange[1] === null) return locations;
+
+    const namesInRange = new Set(
+      filteredEvents
+        .map((e) => e.location)
+        .filter((loc): loc is string => typeof loc === 'string' && loc.length > 0)
+    );
+    if (namesInRange.size === 0) return [];
+    return locations.filter((loc) => namesInRange.has(loc.canonical_name));
+  }, [locations, filteredEvents, timeRange]);
+
+  const availableRoleIds = useMemo(() => new Set(roles.map((r) => r.id)), [roles]);
+
+  const powerDistributionInRange = useMemo(() => {
+    // Keep Power tab consistent with current Global Context by using in-range network nodes.
+    const byPower = new Map<string, { count: number; roles: string[] }>();
+    for (const role of roles) {
+      if (!role.power) continue;
+      const entry = byPower.get(role.power) ?? { count: 0, roles: [] };
+      entry.count += 1;
+      entry.roles.push(role.id);
+      byPower.set(role.power, entry);
+    }
+    return Array.from(byPower.entries())
+      .map(([power, v]) => ({ power, count: v.count, roles: v.roles }))
+      .sort((a, b) => b.count - a.count);
+  }, [roles]);
+
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#faf8f5]">
@@ -326,20 +421,71 @@ function App() {
             <FilterControls
               juanRange={juanRange}
               onJuanRangeChange={(range) => {
-                setJuanRange(range);
-                updateUrlContext({ juanRange: range }, { replace: true });
+                const nextJuanRange = normalizeJuanRange(range, 294);
+                setJuanRange(nextJuanRange);
+
+                if (syncJuanYear) {
+                  const derived = deriveYearRangeFromJuanRange(nextJuanRange);
+                  if (derived) {
+                    setTimeRange(derived);
+                    updateUrlContext({ juanRange: nextJuanRange, yearRange: derived }, { replace: true });
+                    return;
+                  }
+                }
+
+                updateUrlContext({ juanRange: nextJuanRange }, { replace: true });
               }}
               onJuanRangeCommit={(range) => {
-                updateUrlContext({ juanRange: range }, { replace: false });
+                const nextJuanRange = normalizeJuanRange(range, 294);
+                if (syncJuanYear) {
+                  const derived = deriveYearRangeFromJuanRange(nextJuanRange);
+                  if (derived) {
+                    setTimeRange(derived);
+                    updateUrlContext({ juanRange: nextJuanRange, yearRange: derived }, { replace: false });
+                    return;
+                  }
+                }
+                updateUrlContext({ juanRange: nextJuanRange }, { replace: false });
               }}
               maxJuan={294}
               timeRange={timeRange}
               onTimeRangeChange={(range) => {
-                setTimeRange(range);
-                updateUrlContext({ yearRange: range }, { replace: true });
+                const nextYearRange = normalizeYearRange(range);
+                setTimeRange(nextYearRange);
+
+                if (syncJuanYear) {
+                  const derivedJuanRange = deriveJuanRangeFromYearRange(nextYearRange, 294);
+                  if (derivedJuanRange) {
+                    setJuanRange(derivedJuanRange);
+                    updateUrlContext({ juanRange: derivedJuanRange, yearRange: nextYearRange }, { replace: true });
+                    return;
+                  }
+                }
+
+                updateUrlContext({ yearRange: nextYearRange }, { replace: true });
               }}
               onTimeRangeCommit={(range) => {
-                updateUrlContext({ yearRange: range }, { replace: false });
+                const nextYearRange = normalizeYearRange(range);
+                if (syncJuanYear) {
+                  const derivedJuanRange = deriveJuanRangeFromYearRange(nextYearRange, 294);
+                  if (derivedJuanRange) {
+                    setJuanRange(derivedJuanRange);
+                    updateUrlContext({ juanRange: derivedJuanRange, yearRange: nextYearRange }, { replace: false });
+                    return;
+                  }
+                }
+                updateUrlContext({ yearRange: nextYearRange }, { replace: false });
+              }}
+              syncJuanYear={syncJuanYear}
+              syncAvailable={Boolean(juanYearIndex?.juan_start_year)}
+              onSyncJuanYearChange={(enabled) => {
+                setSyncJuanYear(enabled);
+                if (!enabled) return;
+                const derived = deriveYearRangeFromJuanRange(juanRange);
+                if (derived) {
+                  setTimeRange(derived);
+                  updateUrlContext({ yearRange: derived }, { replace: true });
+                }
               }}
             />
 
@@ -357,7 +503,7 @@ function App() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">地点数量：</span>
-                  <span className="font-semibold">{locations.length}</span>
+                  <span className="font-semibold">{filteredLocations.length}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-600">关系数量：</span>
@@ -440,12 +586,12 @@ function App() {
               )}
 
               {activeTab === 'power' && (
-                <PowerChart data={powerDistribution} />
+                <PowerChart data={powerDistributionInRange} />
               )}
 
               {activeTab === 'locations' && (
                 <LocationList
-                  locations={locations}
+                  locations={filteredLocations}
                   onLocationClick={(loc) => {
                     setSelectedLocation(loc);
                     const next = writeUrlGlobalContext(searchParams, {
@@ -486,6 +632,8 @@ function App() {
           setSearchParams(next, { replace: false });
         }}
         onEntityClick={handleFocusNode}
+        kb={kb}
+        availableRoleIds={availableRoleIds}
       />
       <RoleDetail 
         role={selectedRole} 
@@ -501,6 +649,8 @@ function App() {
           setSearchParams(next, { replace: false });
         }}
         onEntityClick={handleFocusNode}
+        kb={kb}
+        availableRoleIds={availableRoleIds}
       />
       {selectedLocation && (
         <LocationDetail
@@ -520,6 +670,8 @@ function App() {
             setSearchParams(next, { replace: false });
           }}
           onEntityClick={handleFocusNode}
+          kb={kb}
+          availableRoleIds={availableRoleIds}
         />
       )}
       {selectedRelationPair && (
@@ -539,6 +691,8 @@ function App() {
             setSearchParams(next, { replace: false });
           }}
           onEntityClick={handleFocusNode}
+          kb={kb}
+          availableRoleIds={availableRoleIds}
         />
       )}
     </div>

@@ -1,11 +1,10 @@
 import { useState, useEffect, useMemo } from 'react';
 import type { UnifiedKnowledgeBase } from '../types/unified';
 import {
-  unifiedRolesToNodes,
-  unifiedRelationsToLinks,
   unifiedEventsToTimeline,
   unifiedLocationsToList,
   calculateUnifiedPowerDistribution,
+  unifiedNetworkGraphData,
 } from '../utils/unifiedDataProcessing';
 
 /**
@@ -46,17 +45,13 @@ export function useUnifiedKnowledgeBase() {
  */
 export function useUnifiedVisualizationData(
   kb: UnifiedKnowledgeBase | null,
-  juanRange?: [number, number]
+  juanRange?: [number, number],
+  yearRange?: [number | null, number | null]
 ) {
-  const nodes = useMemo(() => {
-    if (!kb) return [];
-    return unifiedRolesToNodes(kb, juanRange);
-  }, [kb, juanRange]);
-
-  const links = useMemo(() => {
-    if (!kb) return [];
-    return unifiedRelationsToLinks(kb, juanRange);
-  }, [kb, juanRange]);
+  const { nodes, links } = useMemo(() => {
+    if (!kb) return { nodes: [], links: [] };
+    return unifiedNetworkGraphData(kb, juanRange, yearRange ?? [null, null]);
+  }, [kb, juanRange, yearRange]);
 
   const timelineEvents = useMemo(() => {
     if (!kb) return [];

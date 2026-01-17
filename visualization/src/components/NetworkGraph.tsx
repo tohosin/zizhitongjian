@@ -583,12 +583,15 @@ export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNode
       
       {tooltip && (
         <div
-          className="absolute bg-white border border-[#d4c5b5] rounded-lg shadow-lg p-3 z-10 max-w-xs pointer-events-none"
-          style={{ left: tooltip.x - 100, top: tooltip.y - 200 }}
+          className="absolute bg-white border border-[#d4c5b5] rounded-lg shadow-lg p-3 z-10 w-80 max-w-[90vw] pointer-events-none break-words"
+          style={{
+            left: Math.max(8, Math.min(tooltip.x - 100, (containerRef.current?.clientWidth ?? 800) - 340)),
+            top: Math.max(8, Math.min(tooltip.y - 200, 400)),
+          }}
         >
           <h4 className="font-bold text-[#8b4513]">{tooltip.content.name}</h4>
           <p className="text-sm text-gray-600">势力: {tooltip.content.power || '无'}</p>
-          <p className="text-sm mt-1 line-clamp-3">{tooltip.content.description}</p>
+          <p className="text-sm mt-1 line-clamp-3 break-words">{tooltip.content.description}</p>
           <p className="text-xs text-gray-500 mt-1">出现次数: {tooltip.content.appearances}</p>
           <p className="text-xs text-[#8b4513] mt-1 font-medium">点击查看详情</p>
         </div>
@@ -596,8 +599,11 @@ export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNode
 
       {linkTooltip && (
         <div
-          className="absolute bg-white border border-[#8b4513] rounded-lg shadow-lg p-3 z-10 max-w-md pointer-events-none"
-          style={{ left: linkTooltip.x + 10, top: linkTooltip.y - 100 }}
+          className="absolute bg-white border border-[#8b4513] rounded-lg shadow-lg p-3 z-10 w-[28rem] max-w-[90vw] pointer-events-none break-words"
+          style={{
+            left: Math.max(8, Math.min(linkTooltip.x + 10, (containerRef.current?.clientWidth ?? 800) - 460)),
+            top: Math.max(8, Math.min(linkTooltip.y - 100, 400)),
+          }}
         >
           <h4 className="font-bold text-[#8b4513]">
             {linkTooltip.sourceName} → {linkTooltip.targetName}

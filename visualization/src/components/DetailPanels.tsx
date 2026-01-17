@@ -1,12 +1,82 @@
-import type { TimelineEventUnified, RoleNodeUnified, UnifiedLocation, UnifiedRelation, RoleLinkUnified } from '../types/unified';
+import type {
+  TimelineEventUnified,
+  RoleNodeUnified,
+  UnifiedLocation,
+  UnifiedRelation,
+  RoleLinkUnified,
+  UnifiedKnowledgeBase,
+} from '../types/unified';
+
+function resolveRoleId(kb: UnifiedKnowledgeBase | null, nameOrId: string): string | null {
+  if (!kb) return null;
+  // Direct id match
+  if (kb.roles?.[nameOrId]) return nameOrId;
+  // Check name_to_role_id index
+  const fromIndex = kb.name_to_role_id?.[nameOrId];
+  if (fromIndex && kb.roles?.[fromIndex]) return fromIndex;
+  // Fallback: scan roles for matching all_names (handles aliases not in index)
+  for (const role of Object.values(kb.roles ?? {})) {
+    if (role.all_names?.includes(nameOrId)) return role.id;
+  }
+  return null;
+}
+
+function formatJuanSpan(juans: number[] | undefined): string {
+  if (!juans || juans.length === 0) return '未知卷';
+  const sorted = [...juans].sort((a, b) => a - b);
+  const start = sorted[0];
+  const end = sorted[sorted.length - 1];
+  return start === end ? `卷${start}` : `卷${start}–${end}`;
+}
+
+function renderRelatedRoleChip(
+  opts: {
+    name: string;
+    kb: UnifiedKnowledgeBase | null;
+    availableRoleIds: Set<string>;
+    onClick: (name: string) => void;
+    variant?: 'neutral' | 'danger';
+  }
+) {
+  const { name, kb, availableRoleIds, onClick, variant } = opts;
+  const roleId = resolveRoleId(kb, name);
+  const available = roleId ? availableRoleIds.has(roleId) : false;
+  const juanSpan = roleId && kb?.roles?.[roleId] ? formatJuanSpan(kb.roles[roleId].juans_appeared) : null;
+
+  if (available) {
+    const baseClass =
+      variant === 'danger'
+        ? 'inline-flex items-center px-2 py-1 bg-[#c41e3a] text-white rounded text-sm hover:bg-[#8b4513] transition-colors cursor-pointer'
+        : 'inline-flex items-center px-2 py-1 bg-[#faf8f5] border border-[#d4c5b5] rounded text-sm hover:bg-[#8b4513] hover:text-white hover:border-[#8b4513] transition-colors cursor-pointer';
+    return (
+      <button key={name} onClick={() => onClick(name)} className={baseClass}>
+        {name}
+      </button>
+    );
+  }
+
+  // Unavailable: show chip + optional info text below (only if we know where it appears)
+  return (
+    <span
+      key={name}
+      className="inline-flex items-center px-2 py-1 bg-gray-100 border border-gray-300 rounded text-sm text-gray-400 cursor-not-allowed"
+      title={juanSpan ? `不可用（当前范围内不存在）。出现：${juanSpan}` : '不可用（未知来源）'}
+    >
+      {name}
+      {juanSpan && <span className="ml-1 text-[10px] text-gray-400">({juanSpan})</span>}
+    </span>
+  );
+}
 
 interface EventDetailProps {
   event: TimelineEventUnified | null;
   onClose: () => void;
   onEntityClick?: (entityName: string) => void;
+  kb: UnifiedKnowledgeBase | null;
+  availableRoleIds: Set<string>;
 }
 
-export function EventDetail({ event, onClose, onEntityClick }: EventDetailProps) {
+export function EventDetail({ event, onClose, onEntityClick, kb, availableRoleIds }: EventDetailProps) {
   if (!event) return null;
 
   const handleEntityClick = (name: string) => {
@@ -50,15 +120,15 @@ export function EventDetail({ event, onClose, onEntityClick }: EventDetailProps)
               <span className="font-semibold text-[#2c1810]">参与者：</span>
               <p className="text-xs text-gray-500 mt-0.5">点击可在关系图中查看</p>
               <div className="flex flex-wrap gap-2 mt-1">
-                {event.participants.map((p) => (
-                  <button
-                    key={p}
-                    onClick={() => handleEntityClick(p)}
-                    className="px-2 py-1 bg-[#faf8f5] border border-[#d4c5b5] rounded text-sm hover:bg-[#8b4513] hover:text-white hover:border-[#8b4513] transition-colors cursor-pointer"
-                  >
-                    {p}
-                  </button>
-                ))}
+                {event.participants.map((p) =>
+                  renderRelatedRoleChip({
+                    name: p,
+                    kb,
+                    availableRoleIds,
+                    onClick: handleEntityClick,
+                    variant: 'neutral',
+                  })
+                )}
               </div>
             </div>
           )}
@@ -88,9 +158,11 @@ interface RoleDetailProps {
   role: RoleNodeUnified | null;
   onClose: () => void;
   onEntityClick?: (entityName: string) => void;
+  kb: UnifiedKnowledgeBase | null;
+  availableRoleIds: Set<string>;
 }
 
-export function RoleDetail({ role, onClose, onEntityClick }: RoleDetailProps) {
+export function RoleDetail({ role, onClose, onEntityClick, kb, availableRoleIds }: RoleDetailProps) {
   if (!role) return null;
 
   const handleEntityClick = (name: string) => {
@@ -150,15 +222,15 @@ export function RoleDetail({ role, onClose, onEntityClick }: RoleDetailProps) {
               <span className="font-semibold text-[#2c1810]">相关人物：</span>
               <p className="text-xs text-gray-500 mt-0.5">点击可在图中查看</p>
               <div className="flex flex-wrap gap-2 mt-1">
-                {role.relatedEntities.slice(0, 15).map((entity, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleEntityClick(entity)}
-                    className="px-2 py-1 bg-[#faf8f5] border border-[#d4c5b5] rounded text-sm hover:bg-[#8b4513] hover:text-white hover:border-[#8b4513] transition-colors cursor-pointer"
-                  >
-                    {entity}
-                  </button>
-                ))}
+                {role.relatedEntities.slice(0, 15).map((entity) =>
+                  renderRelatedRoleChip({
+                    name: entity,
+                    kb,
+                    availableRoleIds,
+                    onClick: handleEntityClick,
+                    variant: 'neutral',
+                  })
+                )}
                 {role.relatedEntities.length > 15 && (
                   <span className="text-sm text-gray-500 self-center">
                     +{role.relatedEntities.length - 15}
@@ -236,6 +308,8 @@ interface LocationDetailProps {
   relatedActions: UnifiedRelation[];
   onClose: () => void;
   onEntityClick?: (entityName: string) => void;
+  kb: UnifiedKnowledgeBase | null;
+  availableRoleIds: Set<string>;
 }
 
 export function LocationDetail({
@@ -244,6 +318,8 @@ export function LocationDetail({
   relatedRoles,
   onClose,
   onEntityClick,
+  kb,
+  availableRoleIds,
 }: LocationDetailProps) {
   if (!location) return null;
 
@@ -337,15 +413,15 @@ export function LocationDetail({
               <span className="font-semibold text-[#2c1810]">相关人物：</span>
               <p className="text-xs text-gray-500 mt-0.5">点击可在关系图中查看</p>
               <div className="flex flex-wrap gap-2 mt-1">
-                {relatedRoles.map((role, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => handleEntityClick(role)}
-                    className="px-2 py-1 bg-[#c41e3a] text-white rounded text-sm hover:bg-[#8b4513] transition-colors cursor-pointer"
-                  >
-                    {role}
-                  </button>
-                ))}
+                {relatedRoles.map((role) =>
+                  renderRelatedRoleChip({
+                    name: role,
+                    kb,
+                    availableRoleIds,
+                    onClick: handleEntityClick,
+                    variant: 'danger',
+                  })
+                )}
               </div>
             </div>
           )}
@@ -361,6 +437,8 @@ interface RelationDetailProps {
   targetName: string;
   onClose: () => void;
   onEntityClick?: (entityName: string) => void;
+  kb: UnifiedKnowledgeBase | null;
+  availableRoleIds: Set<string>;
 }
 
 export function RelationDetail({
@@ -369,6 +447,8 @@ export function RelationDetail({
   targetName,
   onClose,
   onEntityClick,
+  kb,
+  availableRoleIds,
 }: RelationDetailProps) {
   if (!relations || relations.length === 0) return null;
 
@@ -385,6 +465,13 @@ export function RelationDetail({
   const times = relations.map(r => r.time).filter(Boolean);
   const earliestTime = times.length > 0 ? times[0] : null;
 
+  const sourceId = resolveRoleId(kb, sourceName);
+  const targetId = resolveRoleId(kb, targetName);
+  const sourceAvailable = sourceId ? availableRoleIds.has(sourceId) : false;
+  const targetAvailable = targetId ? availableRoleIds.has(targetId) : false;
+  const sourceJuanSpan = sourceId && kb?.roles?.[sourceId] ? formatJuanSpan(kb.roles[sourceId].juans_appeared) : '未知卷';
+  const targetJuanSpan = targetId && kb?.roles?.[targetId] ? formatJuanSpan(kb.roles[targetId].juans_appeared) : '未知卷';
+
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
       <div
@@ -398,20 +485,37 @@ export function RelationDetail({
             </h2>
             <p className="text-lg text-[#2c1810] mt-1">
               <button
-                onClick={() => handleEntityClick(sourceName)}
-                className="font-semibold hover:text-[#8b4513] hover:underline cursor-pointer"
+                onClick={() => sourceAvailable && handleEntityClick(sourceName)}
+                disabled={!sourceAvailable}
+                className={
+                  sourceAvailable
+                    ? 'font-semibold hover:text-[#8b4513] hover:underline cursor-pointer'
+                    : 'font-semibold text-gray-400 cursor-not-allowed'
+                }
               >
                 {sourceName}
               </button>
               <span className="mx-2 text-gray-500">⇄</span>
               <button
-                onClick={() => handleEntityClick(targetName)}
-                className="font-semibold hover:text-[#8b4513] hover:underline cursor-pointer"
+                onClick={() => targetAvailable && handleEntityClick(targetName)}
+                disabled={!targetAvailable}
+                className={
+                  targetAvailable
+                    ? 'font-semibold hover:text-[#8b4513] hover:underline cursor-pointer'
+                    : 'font-semibold text-gray-400 cursor-not-allowed'
+                }
               >
                 {targetName}
               </button>
             </p>
             <p className="text-xs text-gray-500 mt-0.5">点击人物名可在图中查看</p>
+            {(!sourceAvailable || !targetAvailable) && (
+              <p className="text-xs text-gray-400 mt-1">
+                {!sourceAvailable ? `${sourceName} 不可用 · ${sourceJuanSpan}` : null}
+                {!sourceAvailable && !targetAvailable ? '；' : null}
+                {!targetAvailable ? `${targetName} 不可用 · ${targetJuanSpan}` : null}
+              </p>
+            )}
           </div>
           <button
             onClick={onClose}

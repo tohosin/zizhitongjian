@@ -90,6 +90,94 @@ export function unifiedRelationsToLinks(
   return links;
 }
 
+function relationOverlapsYearRange(
+  relation: UnifiedRelation,
+  yearRange: [number | null, number | null]
+): boolean {
+  const [filterStart, filterEnd] = yearRange;
+  if (filterStart === null && filterEnd === null) return true;
+
+  const startCandidates = [relation.first_interaction_year, relation.last_interaction_year].filter(
+    (y): y is number => typeof y === 'number'
+  );
+  if (startCandidates.length === 0) return false;
+
+  const relStart = Math.min(...startCandidates);
+  const relEnd = Math.max(...startCandidates);
+
+  const effectiveStart = filterStart ?? -Infinity;
+  const effectiveEnd = filterEnd ?? Infinity;
+  return relEnd >= effectiveStart && relStart <= effectiveEnd;
+}
+
+/**
+ * Build network graph data consistent with Global Context.
+ *
+ * V1 policy:
+ * - `juanRange` filters relations by `source_juans` overlap.
+ * - `yearRange` filters relations by numeric span overlap using
+ *   `first_interaction_year` / `last_interaction_year`.
+ * - Nodes are derived from remaining edges (no isolated nodes).
+ * - When a `yearRange` is active, relations without numeric years are excluded.
+ */
+export function unifiedNetworkGraphData(
+  kb: UnifiedKnowledgeBase,
+  juanFilter?: [number, number],
+  yearRange: [number | null, number | null] = [null, null]
+): { nodes: RoleNodeUnified[]; links: RoleLinkUnified[] } {
+  const links: RoleLinkUnified[] = [];
+
+  for (const relation of Object.values(kb.relations)) {
+    if (juanFilter) {
+      const [start, end] = juanFilter;
+      const inRange = relation.source_juans.some((j) => j >= start && j <= end);
+      if (!inRange) continue;
+    }
+
+    if (!relationOverlapsYearRange(relation, yearRange)) continue;
+
+    const sourceId = kb.name_to_role_id[relation.from_entity];
+    const targetId = kb.name_to_role_id[relation.to_entity];
+    if (!sourceId || !targetId || !kb.roles[sourceId] || !kb.roles[targetId]) continue;
+
+    links.push({
+      source: sourceId,
+      target: targetId,
+      action: relation.primary_action,
+      weight: relation.interaction_count,
+      time: relation.first_interaction_time,
+      actionTypes: relation.action_types,
+      contexts: relation.contexts,
+      sourceJuans: relation.source_juans,
+    });
+  }
+
+  const nodeIds = new Set<string>();
+  for (const link of links) {
+    nodeIds.add(link.source);
+    nodeIds.add(link.target);
+  }
+
+  const nodes: RoleNodeUnified[] = [];
+  for (const roleId of nodeIds) {
+    const role = kb.roles[roleId];
+    if (!role) continue;
+    nodes.push({
+      id: role.id,
+      name: role.canonical_name,
+      power: role.primary_power,
+      description: role.description,
+      appearances: role.total_mentions,
+      juans: role.juans_appeared,
+      aliases: Array.from(role.all_names).filter((n) => n !== role.canonical_name),
+      relatedEntities: Array.from(role.related_entities),
+    });
+  }
+
+  nodes.sort((a, b) => b.appearances - a.appearances);
+  return { nodes, links };
+}
+
 /**
  * Convert unified events to timeline format
  */
