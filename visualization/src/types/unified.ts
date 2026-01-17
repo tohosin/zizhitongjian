@@ -52,8 +52,8 @@ export interface UnifiedEvent {
   time: string | null;
   time_start: number | null;
   time_end: number | null;
-  imputed_time_start?: number | null;
-  imputed_time_end?: number | null;
+  imputed_time_start: number | null;
+  imputed_time_end: number | null;
   location: string | null;
   participants: string[];
   description: string;
@@ -75,10 +75,49 @@ export interface UnifiedRelation {
   interaction_count: number;
   first_interaction_time: string | null;
   last_interaction_time: string | null;
-  first_interaction_year?: number | null;
-  last_interaction_year?: number | null;
+  first_interaction_year: number | null;
+  last_interaction_year: number | null;
   contexts: string[];
   source_juans: number[];
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UnifiedPolity {
+  id: string;
+  canonical_name: string;
+  all_names: string[];
+  description: string;
+  original_descriptions: string[];
+  occurrences: EntityOccurrence[];
+  total_mentions: number;
+  juans_appeared: number[];
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UnifiedOrganization {
+  id: string;
+  canonical_name: string;
+  all_names: string[];
+  description: string;
+  original_descriptions: string[];
+  occurrences: EntityOccurrence[];
+  total_mentions: number;
+  juans_appeared: number[];
+  created_at: string;
+  updated_at: string;
+}
+
+export interface UnifiedSchool {
+  id: string;
+  canonical_name: string;
+  all_names: string[];
+  description: string;
+  original_descriptions: string[];
+  occurrences: EntityOccurrence[];
+  total_mentions: number;
+  juans_appeared: number[];
   created_at: string;
   updated_at: string;
 }
@@ -88,19 +127,34 @@ export interface UnifiedKnowledgeBase {
   locations: Record<string, UnifiedLocation>;
   events: Record<string, UnifiedEvent>;
   relations: Record<string, UnifiedRelation>;
+
+  // Non-human entities
+  polities: Record<string, UnifiedPolity>;
+  organizations: Record<string, UnifiedOrganization>;
+  schools: Record<string, UnifiedSchool>;
   
   // Indexes
   name_to_role_id: Record<string, string>;
   name_to_location_id: Record<string, string>;
+  name_to_polity_id: Record<string, string>;
+  name_to_organization_id: Record<string, string>;
+  name_to_school_id: Record<string, string>;
   power_to_roles: Record<string, string[]>;
   juan_to_roles: Record<number, string[]>;
   juan_to_events: Record<number, string[]>;
+
+  juan_to_polities: Record<number, string[]>;
+  juan_to_organizations: Record<number, string[]>;
+  juan_to_schools: Record<number, string[]>;
   
   // Statistics
   total_roles: number;
   total_locations: number;
   total_events: number;
   total_relations: number;
+  total_polities: number;
+  total_organizations: number;
+  total_schools: number;
   juans_processed: number[];
   last_updated: string;
 }

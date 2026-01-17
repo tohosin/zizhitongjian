@@ -1,5 +1,7 @@
 // Type definitions matching the Python models
 
+export * from './pipelineArtifacts';
+
 export interface Role {
   name: string;
   alias: string[];
