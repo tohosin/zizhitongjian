@@ -113,6 +113,8 @@ npm run dev
     *   使用高德(Amap)为 `data/unified_knowledge.json` 的地点补全 WGS84 坐标（`coordinates: [lng, lat]`）。
     *   配置：复制 `.env.example` 为 `.env`，填入 `AMAP_KEY`。
     *   运行：`python scripts/geocode_locations_amap.py` 生成缓存，然后 `python scripts/merge_geocoding_into_unified_kb.py` 回填坐标。
+    *   速率控制：默认每次请求间隔 `0.25s`（可用 `--sleep` 调整），避免触发限流。
+    *   无密钥也可预跑：不设置 `AMAP_KEY` 时会自动进入 `--simulate`（只写入 query/needs_review，不调用 API）。
 
 ## 项目进展
 

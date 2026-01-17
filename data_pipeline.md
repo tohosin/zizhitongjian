@@ -54,6 +54,31 @@ Schema (suggested):
 }
 ```
 
+Notes (canonical V1):
+
+- Key format is `${juan_index}-${segment_index}`.
+- `year` may be `null` when parsing fails; then `parse_method=null` and `confidence=0.0`.
+- Optional manual fixes live in `data/segment_year_overrides.json` and are applied by `scripts/build_segment_year_index.py --overrides ...`.
+
+#### Segment Year Overrides (optional but supported)
+
+- File: `data/segment_year_overrides.json`
+
+Schema (canonical V1):
+
+```json
+{
+  "version": "v1",
+  "notes": "...",
+  "overrides": {
+    "252-2": {
+      "year": 871,
+      "reason": "..."
+    }
+  }
+}
+```
+
 ### 2) Juan Year Index
 
 - File: `data/juan_year_index.json`
@@ -122,6 +147,15 @@ Schema (suggested):
 }
 ```
 
+Notes (canonical V1):
+
+- Coordinates are always **WGS84** and ordered as **`[lng, lat]`**.
+- When `needs_review=true`, `coordinates` SHOULD be `null` (non-authoritative); optional fields may be recorded:
+  - `candidate_coordinates: [lng, lat] | null`
+  - `candidate_count: number | null`
+  - `info`, `infocode`
+  - `attempts`
+
 ## Pipeline Stages
 
 ### Stage A — Extract (LLM)
@@ -141,15 +175,26 @@ Notes:
 
 Parsing to numeric year:
 
-- Extract numeric year from `segment_start_time_raw` using regex.
-- V1 rule: treat extracted years as **BCE** until a cutoff.
-  - Default cutoff can be `-1` (i.e. BCE only) and later extended.
+- Extract numeric year from `segment_start_time_raw` using deterministic regex.
+- V1 rule:
+  - If explicitly marked as BCE (`公元前NNN` / `前NNN`) → `year = -NNN`
+  - If explicitly marked as CE (`公元NNN`) → `year = +NNN`
+  - Parenthesized numeric years like `（...、116）` are treated as **CE by default** with `confidence < 1.0`.
+    - Policy knob: set `cutoff_year` so that if an ambiguous parsed year $N \le cutoff\_year$, it is treated as BCE (`-N`).
+    - Default `cutoff_year = -1` keeps all ambiguous parenthesized years as CE.
 
 Suggested parsing order:
 
 1. `公元前(\d+)` → `year = -N`
 2. `前(\d+)` → `year = -N`
 3. (Optional) if segment explicitly contains `公元(\d+)` → `year = +N`
+4. `（...、(\d{1,4})）` (or ASCII parentheses) → `year = +N` (or `-N` if `N <= cutoff_year`)
+
+Failure behavior (canonical V1):
+
+- If no supported format matches, the segment year is recorded as `null`.
+- In `data/segment_year_index.json`, this is represented as:
+  - `year: null`, `parse_method: null`, `confidence: 0.0`
 
 Quality constraints:
 
