@@ -1,18 +1,36 @@
+import type { KeyboardEvent } from 'react';
+
 interface FilterControlsProps {
   juanRange: [number, number];
   onJuanRangeChange: (range: [number, number]) => void;
+  onJuanRangeCommit: (range: [number, number]) => void;
   maxJuan: number;
   timeRange: [number | null, number | null];
   onTimeRangeChange: (range: [number | null, number | null]) => void;
+  onTimeRangeCommit: (range: [number | null, number | null]) => void;
 }
 
 export function FilterControls({
   juanRange,
   onJuanRangeChange,
+  onJuanRangeCommit,
   maxJuan,
   timeRange,
   onTimeRangeChange,
+  onTimeRangeCommit,
 }: FilterControlsProps) {
+  const commitJuanOnEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onJuanRangeCommit(juanRange);
+    }
+  };
+
+  const commitTimeOnEnter = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      onTimeRangeCommit(timeRange);
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md p-4">
       <h3 className="text-lg font-bold text-[#2c1810] mb-4">筛选控制</h3>
@@ -33,6 +51,8 @@ export function FilterControls({
               onChange={(e) =>
                 onJuanRangeChange([parseInt(e.target.value) || 1, juanRange[1]])
               }
+              onBlur={() => onJuanRangeCommit(juanRange)}
+              onKeyDown={commitJuanOnEnter}
               className="w-full mt-1 px-3 py-2 border border-[#d4c5b5] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b4513]"
             />
           </div>
@@ -47,6 +67,8 @@ export function FilterControls({
               onChange={(e) =>
                 onJuanRangeChange([juanRange[0], parseInt(e.target.value) || maxJuan])
               }
+              onBlur={() => onJuanRangeCommit(juanRange)}
+              onKeyDown={commitJuanOnEnter}
               className="w-full mt-1 px-3 py-2 border border-[#d4c5b5] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b4513]"
             />
           </div>
@@ -59,6 +81,8 @@ export function FilterControls({
           onChange={(e) =>
             onJuanRangeChange([juanRange[0], parseInt(e.target.value)])
           }
+          onMouseUp={() => onJuanRangeCommit(juanRange)}
+          onTouchEnd={() => onJuanRangeCommit(juanRange)}
           className="w-full mt-2 accent-[#8b4513]"
         />
       </div>
@@ -79,6 +103,8 @@ export function FilterControls({
                 const val = e.target.value ? -parseInt(e.target.value) : null;
                 onTimeRangeChange([val, timeRange[1]]);
               }}
+              onBlur={() => onTimeRangeCommit(timeRange)}
+              onKeyDown={commitTimeOnEnter}
               className="w-full mt-1 px-3 py-2 border border-[#d4c5b5] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b4513]"
             />
           </div>
@@ -93,6 +119,8 @@ export function FilterControls({
                 const val = e.target.value ? -parseInt(e.target.value) : null;
                 onTimeRangeChange([timeRange[0], val]);
               }}
+              onBlur={() => onTimeRangeCommit(timeRange)}
+              onKeyDown={commitTimeOnEnter}
               className="w-full mt-1 px-3 py-2 border border-[#d4c5b5] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#8b4513]"
             />
           </div>

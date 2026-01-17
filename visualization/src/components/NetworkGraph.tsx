@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo } from 'react';
+import { useEffect, useRef, useState, useMemo, useCallback } from 'react';
 import * as d3 from 'd3';
 import type { RoleNodeUnified, RoleLinkUnified } from '../types/unified';
 
@@ -26,6 +26,35 @@ interface SimulationLink {
   time: string | null;
 }
 
+/**
+ * PERFORMANCE CRITICAL: Helper to create a stable key for data comparison.
+ * 
+ * This function is essential to prevent unnecessary D3 force simulation rebuilds.
+ * 
+ * Problem it solves:
+ * - React's useMemo creates new array references even when data content is identical
+ * - D3 force simulation is expensive to rebuild - it resets all node positions
+ * - Without this check, clicking a node would cause the entire graph to "refresh"
+ *   because the click handler triggers URL updates, which causes parent re-renders,
+ *   which creates new array references for nodes/links props
+ * 
+ * How it works:
+ * - Generates a string key from node IDs and link source-target pairs
+ * - If the key matches the previous render, we skip rebuilding the simulation
+ * - This allows interactions (clicks, hovers) without disrupting the graph layout
+ * 
+ * DO NOT REMOVE THIS - it's critical for usable graph interactions!
+ */
+function createDataKey(nodes: RoleNodeUnified[], links: RoleLinkUnified[]): string {
+  const nodeIds = nodes.map(n => n.id).sort().join(',');
+  const linkIds = links.map(l => {
+    const sourceId = typeof l.source === 'object' ? (l.source as any).id : l.source;
+    const targetId = typeof l.target === 'object' ? (l.target as any).id : l.target;
+    return `${sourceId}-${targetId}`;
+  }).sort().join(',');
+  return `${nodeIds}|${linkIds}`;
+}
+
 export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNodeId, onFocusNodeHandled }: NetworkGraphProps) {
   const svgRef = useRef<SVGSVGElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,11 +67,23 @@ export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNode
   useEffect(() => { onNodeClickRef.current = onNodeClick; }, [onNodeClick]);
   useEffect(() => { onLinkClickRef.current = onLinkClick; }, [onLinkClick]);
   
+  // PERFORMANCE: Refs to track simulation state and avoid unnecessary rebuilds.
+  // The D3 force simulation is expensive - rebuilding it resets all node positions.
+  // These refs allow us to check if data actually changed before rebuilding.
+  // See createDataKey() for detailed explanation.
+  const simulationRef = useRef<d3.Simulation<SimulationNode, SimulationLink> | null>(null);
+  const prevDataKeyRef = useRef<string>('');
+  
+  // Refs for zoom/pan functionality to center on focused nodes
+  const zoomRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null);
+  const nodesDataRef = useRef<SimulationNode[]>([]);
+  
   // Interactive state
   const [searchTerm, setSearchTerm] = useState('');
   const [minAppearances, setMinAppearances] = useState(1);
   const [selectedPower, setSelectedPower] = useState<string>('all');
   const [highlightedNode, setHighlightedNode] = useState<string | null>(null);
+  const [notFoundMessage, setNotFoundMessage] = useState<string | null>(null);
 
   // Get unique powers for filter dropdown
   const availablePowers = useMemo(() => {
@@ -94,31 +135,132 @@ export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNode
     }
   }, [searchResult]);
 
-  // Handle external focus request
+  /**
+   * Center the graph view on a specific node with smooth animation.
+   * 
+   * This is called when:
+   * - User clicks on a related entity in a detail panel (RoleDetail, EventDetail, etc.)
+   * - The entity should become visually prominent in the network graph
+   * 
+   * The function:
+   * 1. Finds the node's current position from the simulation
+   * 2. Calculates a transform to center and zoom in on that node
+   * 3. Applies a smooth animated transition
+   */
+  const centerOnNode = useCallback((nodeId: string) => {
+    if (!svgRef.current || !containerRef.current || !zoomRef.current) return;
+    
+    // Find the node in the simulation data (which has x, y positions)
+    const node = nodesDataRef.current.find(n => n.id === nodeId || n.name === nodeId);
+    if (!node || node.x === undefined || node.y === undefined) return;
+    
+    const svg = d3.select(svgRef.current);
+    const container = containerRef.current;
+    const width = container.clientWidth;
+    const height = 600;
+    
+    // Calculate transform to center on the node with a nice zoom level
+    const scale = 1.5; // Zoom in a bit to make the focused node prominent
+    const x = width / 2 - node.x * scale;
+    const y = height / 2 - node.y * scale;
+    
+    // Apply smooth transition to center on the node
+    svg.transition()
+      .duration(750)
+      .call(
+        zoomRef.current.transform,
+        d3.zoomIdentity.translate(x, y).scale(scale)
+      );
+  }, []);
+
+  /**
+   * Handle external focus request - highlight AND center on the node.
+   * 
+   * This effect responds to `focusNodeId` prop changes, which occur when:
+   * - User clicks on a related entity button in detail panels (EventDetail, RoleDetail, etc.)
+   * - User navigates via URL with a focus parameter
+   * 
+   * The effect:
+   * 1. Finds the node (by ID or name) in filtered nodes, or adjusts filters if needed
+   * 2. Sets the node as highlighted (dims other nodes, shows connections)
+   * 3. Centers the view on the node with a smooth zoom animation
+   * 
+   * The setTimeout delay ensures that if filters were changed, the simulation
+   * has time to include the newly visible node before we try to center on it.
+   */
   useEffect(() => {
     if (focusNodeId) {
-      // Check if the node exists in filtered nodes
-      const nodeExists = filteredNodes.some(n => n.id === focusNodeId || n.name === focusNodeId);
-      if (nodeExists) {
-        setHighlightedNode(focusNodeId);
+      // Clear any previous not-found message
+      setNotFoundMessage(null);
+      
+      // Check if the node exists in filtered nodes (by ID, name, or alias)
+      let targetNodeId: string | null = null;
+      const nodeInFiltered = filteredNodes.find(n => 
+        n.id === focusNodeId || 
+        n.name === focusNodeId ||
+        n.aliases?.some(alias => alias === focusNodeId)
+      );
+      
+      if (nodeInFiltered) {
+        targetNodeId = nodeInFiltered.id;
+        setHighlightedNode(targetNodeId);
         setSearchTerm(''); // Clear search when focusing externally
       } else {
-        // Try to find by name in all nodes and adjust filters
-        const node = nodes.find(n => n.id === focusNodeId || n.name === focusNodeId);
+        // Try to find by ID, name, or alias in all nodes and adjust filters
+        const node = nodes.find(n => 
+          n.id === focusNodeId || 
+          n.name === focusNodeId ||
+          n.aliases?.some(alias => alias === focusNodeId)
+        );
         if (node) {
           // Reset filters to show this node
           setMinAppearances(1);
           setSelectedPower('all');
+          targetNodeId = node.id;
           setHighlightedNode(node.id);
           setSearchTerm('');
+        } else {
+          // Node not found in the knowledge base
+          // This can happen when a related entity is mentioned but not extracted as a proper node
+          console.warn(`[NetworkGraph] Entity "${focusNodeId}" not found in graph nodes. It may be a generic term or an unextracted entity.`);
+          setNotFoundMessage(`"${focusNodeId}" 未在图谱中找到，可能是通用术语或未被提取的实体`);
+          // Auto-hide after 3 seconds
+          setTimeout(() => setNotFoundMessage(null), 3000);
         }
       }
+      
+      // Center view on the focused node after a short delay
+      // (allows time for filter changes to take effect if needed)
+      if (targetNodeId) {
+        const nodeIdToCenter = targetNodeId;
+        setTimeout(() => {
+          centerOnNode(nodeIdToCenter);
+        }, 100);
+      }
+      
       onFocusNodeHandled?.();
     }
-  }, [focusNodeId, filteredNodes, nodes, onFocusNodeHandled]);
+  }, [focusNodeId, filteredNodes, nodes, onFocusNodeHandled, centerOnNode]);
 
   useEffect(() => {
     if (!svgRef.current || !containerRef.current || filteredNodes.length === 0) return;
+
+    // PERFORMANCE CRITICAL: Check if the data actually changed by comparing keys.
+    // This prevents simulation rebuild when only interactions (clicks, hovers) occur.
+    // Without this check, clicking a node would reset all node positions!
+    // See createDataKey() function for detailed explanation.
+    const currentDataKey = createDataKey(filteredNodes, filteredLinks);
+    if (currentDataKey === prevDataKeyRef.current && simulationRef.current) {
+      // Data hasn't changed, skip rebuilding the simulation
+      return;
+    }
+    prevDataKeyRef.current = currentDataKey;
+
+    // Stop previous simulation if exists
+    if (simulationRef.current) {
+      simulationRef.current.stop();
+      simulationRef.current = null;
+    }
 
     const container = containerRef.current;
     const width = container.clientWidth;
@@ -144,6 +286,9 @@ export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNode
       });
 
     svg.call(zoom);
+    
+    // Store zoom ref for external centering functionality
+    zoomRef.current = zoom;
 
     // Color scale for powers
     const powers = [...new Set(filteredNodes.map((n) => n.power || '无'))];
@@ -162,6 +307,12 @@ export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNode
       .force('charge', d3.forceManyBody().strength(-300))
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force('collision', d3.forceCollide().radius(40));
+    
+    // Store simulation reference
+    simulationRef.current = simulation;
+    
+    // Store nodes data ref for external access to node positions
+    nodesDataRef.current = filteredNodes as SimulationNode[];
 
     // Create arrow marker
     svg
@@ -323,6 +474,7 @@ export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNode
     // Cleanup
     return () => {
       simulation.stop();
+      simulationRef.current = null;
     };
   }, [filteredNodes, filteredLinks]); // Re-run only when filtered data changes, not on callback changes
 
@@ -418,6 +570,16 @@ export function NetworkGraph({ nodes, links, onNodeClick, onLinkClick, focusNode
       </div>
 
       <svg ref={svgRef} className="w-full" />
+      
+      {/* Toast notification for entity not found */}
+      {notFoundMessage && (
+        <div className="absolute top-16 left-1/2 transform -translate-x-1/2 bg-amber-100 border border-amber-400 text-amber-800 px-4 py-2 rounded-lg shadow-lg z-20 animate-fade-in">
+          <div className="flex items-center gap-2">
+            <span className="text-lg">⚠️</span>
+            <span className="text-sm">{notFoundMessage}</span>
+          </div>
+        </div>
+      )}
       
       {tooltip && (
         <div

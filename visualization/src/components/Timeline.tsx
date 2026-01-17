@@ -74,7 +74,7 @@ export function Timeline({ events, onEventClick }: TimelineProps) {
     const clusters: EventCluster[] = [];
     let currentCluster: TimelineEventUnified[] = [];
 
-    sorted.forEach((event, i) => {
+    sorted.forEach((event) => {
       if (currentCluster.length === 0) {
         currentCluster.push(event);
       } else {
@@ -113,7 +113,6 @@ export function Timeline({ events, onEventClick }: TimelineProps) {
   useEffect(() => {
     if (!svgRef.current || !containerRef.current || containerWidth === 0 || filteredEvents.length === 0 || clusters.length === 0) return;
 
-    const container = containerRef.current;
     const width = containerWidth;
 
     // Clear previous content
@@ -241,7 +240,7 @@ export function Timeline({ events, onEventClick }: TimelineProps) {
             .style('filter', 'drop-shadow(0 2px 4px rgba(0,0,0,0.2))');
 
           // Event label (show on hover or if expanded)
-          const label = eventGroup.append('text')
+          eventGroup.append('text')
             .attr('x', 15)
             .attr('y', 4)
             .text(event.name.length > 12 ? event.name.slice(0, 12) + '...' : event.name)
