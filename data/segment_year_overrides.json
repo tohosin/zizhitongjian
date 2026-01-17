@@ -1,0 +1,18 @@
+{
+  "version": "v1",
+  "notes": "Manual fixes for known typos/mis-parsed years in adapted_book.json segment_start_time.",
+  "overrides": {
+    "252-2": {
+      "year": 871,
+      "reason": "segment_start_time shows '817' but should be '871' to be monotonic with 870"
+    },
+    "256-4": {
+      "year": 887,
+      "reason": "segment_start_time shows '87' but should be '887'"
+    },
+    "257-2": {
+      "year": 888,
+      "reason": "segment_start_time shows '808' but should be '888' to follow 887"
+    }
+  }
+}
