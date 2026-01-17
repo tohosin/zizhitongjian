@@ -143,19 +143,23 @@
   - `visualization/src/components/FilterControls.tsx`
   - timeline interactions: `visualization/src/components/Timeline.tsx`
 
-- [ ] 14) **Apply `yearRange` filtering to network tab**
+- [x] 14) **Apply `yearRange` filtering to network tab**
 - Output: edges filtered by relation numeric years; nodes derived from remaining edges.
 - Success criteria: network view matches global context constraints.
 - Touchpoints:
   - `visualization/src/components/NetworkGraph.tsx`
   - `visualization/src/utils/unifiedDataProcessing.ts`
 
-- [ ] 15) **Add juan↔year sync policy UI**
+  Verified: `cd visualization && npm run build`
+
+- [x] 15) **Add juan↔year sync policy UI**
 - Output: when changing one range, offer/default update of the other (per `design.md`).
 - Success criteria: user can navigate by juan or year without confusion.
 - Touchpoints:
   - `visualization/src/components/FilterControls.tsx`
   - new read of `data/juan_year_index.json` (or embedded in unified KB)
+
+  Verified: `cd visualization && npm run build`
 
 ## Phase 5 — Frontend: locations list mode → map mode → trajectory
 
