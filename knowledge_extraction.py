@@ -73,46 +73,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from tqdm import tqdm
 from model.extraction import ExtractionResult, EntityRelationExtraction
 from knowledge_store import KnowledgeStore, ChunkExtraction
+from zztj_pipeline.llm_json import extract_json_from_response
 
 # Initialize Knowledge Store
 store = KnowledgeStore()
 print(store.summary())
 
-# Helper function to extract JSON
-def extract_json_from_response(content: str) -> dict:
-    if not content:
-        raise ValueError("Content is empty")
 
-    # 1. Try to find a JSON block enclosed in ```
-    match = re.search(r"```(?:json)?", content)
-    if match:
-        start_pos = match.end()
-        # Find end of code block
-        end_pos = content.find("```", start_pos)
-        if end_pos != -1:
-            json_str = content[start_pos:end_pos].strip()
-        else:
-            # No closing backticks, take the rest of the string
-            json_str = content[start_pos:].strip()
-            
-        try:
-            return json.loads(json_str)
-        except json.JSONDecodeError as e:
-            # If we found a code block but it's invalid, it's likely the intended output.
-            # Don't fall back to other methods that will just give confusing errors.
-            raise ValueError(f"Found code block but failed to parse JSON: {e}") from e
-
-    # 2. Try finding the first { and last }
-    start_idx = content.find('{')
-    end_idx = content.rfind('}')
-    if start_idx != -1 and end_idx != -1:
-        try:
-            return json.loads(content[start_idx:end_idx+1])
-        except json.JSONDecodeError:
-            pass
-            
-    # 3. Last resort: try parsing the whole content
-    return json.loads(content)
 
 # Chunking configuration
 CHUNK_SIZE = 1
