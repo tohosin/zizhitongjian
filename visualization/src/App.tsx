@@ -9,14 +9,15 @@ import {
   FilterControls,
   EventDetail,
   RoleDetail,
-  LocationList,
+  LocationsView,
   LocationDetail,
   RelationDetail,
+  MapView,
 } from './components';
 import type { TimelineEventUnified, RoleNodeUnified, UnifiedLocation, RoleLinkUnified } from './types/unified';
 import { parseUrlGlobalContext, writeUrlGlobalContext } from './state';
 
-type TabType = 'timeline' | 'network' | 'power' | 'locations';
+type TabType = 'timeline' | 'network' | 'power' | 'locations' | 'map';
 
 // Interface for showing all relations between two nodes
 interface SelectedRelationPair {
@@ -280,6 +281,8 @@ function App() {
     [searchParams, setSearchParams, activeTab, juanRange, timeRange, focusNodeId, selectionForUrl]
   );
 
+  const mapFocusLocationId = useMemo(() => searchParams.get('mapLoc') ?? null, [searchParams]);
+
   // Handler for focusing on a node in the graph (from detail panels)
   const handleFocusNode = useCallback((entityName: string) => {
     // Switch to network tab and focus on the node
@@ -295,6 +298,26 @@ function App() {
     });
     setSearchParams(next, { replace: false });
   }, [searchParams, setSearchParams, juanRange, timeRange]);
+
+  // Handler for navigating to map (optionally focusing a specific location)
+  const handleNavigateToMap = useCallback((focusLocationId?: string) => {
+    // Ensure we don't carry an open modal selection into the map view.
+    setSelectedEvent(null);
+    setSelectedRole(null);
+    setSelectedLocation(null);
+    setSelectedRelationPair(null);
+    setActiveTab('map');
+    const next = writeUrlGlobalContext(searchParams, {
+      tab: 'map',
+      juanRange,
+      yearRange: timeRange,
+      focusRoleId: focusNodeId ?? undefined,
+      selection: undefined,
+    });
+    if (focusLocationId) next.set('mapLoc', focusLocationId);
+    else next.delete('mapLoc');
+    setSearchParams(next, { replace: false });
+  }, [searchParams, setSearchParams, juanRange, timeRange, focusNodeId]);
 
   // Handler for link click - find all relations between two nodes
   const handleLinkClick = useCallback((sourceId: string, targetId: string) => {
@@ -352,6 +375,26 @@ function App() {
     return locations.filter((loc) => namesInRange.has(loc.canonical_name));
   }, [locations, filteredEvents, timeRange]);
 
+  // Handler for clicking a location name (from detail panels) - opens location detail
+  const handleLocationNameClick = useCallback((locationName: string) => {
+    // Find the location by name
+    const loc = filteredLocations.find(
+      (l) => l.canonical_name === locationName || l.all_names?.includes(locationName)
+    );
+    if (loc) {
+      setSelectedLocation(loc);
+      // Also update URL so the selection persists and doesn't get cleared by URL sync effect
+      const next = writeUrlGlobalContext(searchParams, {
+        tab: activeTab,
+        juanRange,
+        yearRange: timeRange,
+        focusRoleId: focusNodeId ?? undefined,
+        selection: { type: 'location', id: loc.id },
+      });
+      setSearchParams(next, { replace: false });
+    }
+  }, [filteredLocations, searchParams, setSearchParams, activeTab, juanRange, timeRange, focusNodeId]);
+
   const availableRoleIds = useMemo(() => new Set(roles.map((r) => r.id)), [roles]);
 
   const powerDistributionInRange = useMemo(() => {
@@ -400,6 +443,7 @@ function App() {
     { id: 'network', label: '关系网络', icon: '🔗' },
     { id: 'power', label: '势力分布', icon: '📊' },
     { id: 'locations', label: '地点', icon: '📍' },
+    { id: 'map', label: '地图', icon: '🗺️' },
   ];
 
   return (
@@ -530,6 +574,8 @@ function App() {
                         focusRoleId: focusNodeId ?? undefined,
                         selection: undefined,
                       });
+                      // Clear map focus on generic tab switches.
+                      next.delete('mapLoc');
                       setSearchParams(next, { replace: false });
                     }}
                     className={`flex-1 px-4 py-3 text-sm font-medium transition-colors ${
@@ -590,7 +636,7 @@ function App() {
               )}
 
               {activeTab === 'locations' && (
-                <LocationList
+                <LocationsView
                   locations={filteredLocations}
                   onLocationClick={(loc) => {
                     setSelectedLocation(loc);
@@ -602,6 +648,20 @@ function App() {
                       selection: { type: 'location', id: loc.id },
                     });
                     setSearchParams(next, { replace: false });
+                  }}
+                  onNavigateToMap={(loc) => handleNavigateToMap(loc.id)}
+                />
+              )}
+
+              {activeTab === 'map' && (
+                <MapView
+                  locations={filteredLocations}
+                  eventsInRange={filteredEvents}
+                  selectedRole={selectedRole}
+                  selectedEvent={selectedEvent}
+                  focusLocationId={mapFocusLocationId}
+                  onLocationClick={(loc) => {
+                    setSelectedLocation(loc);
                   }}
                 />
               )}
@@ -632,6 +692,7 @@ function App() {
           setSearchParams(next, { replace: false });
         }}
         onEntityClick={handleFocusNode}
+        onLocationClick={handleLocationNameClick}
         kb={kb}
         availableRoleIds={availableRoleIds}
       />
@@ -670,6 +731,7 @@ function App() {
             setSearchParams(next, { replace: false });
           }}
           onEntityClick={handleFocusNode}
+          onNavigateToMap={selectedLocation.coordinates ? () => handleNavigateToMap(selectedLocation.id) : undefined}
           kb={kb}
           availableRoleIds={availableRoleIds}
         />

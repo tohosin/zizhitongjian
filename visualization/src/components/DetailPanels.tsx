@@ -72,11 +72,12 @@ interface EventDetailProps {
   event: TimelineEventUnified | null;
   onClose: () => void;
   onEntityClick?: (entityName: string) => void;
+  onLocationClick?: (locationName: string) => void;
   kb: UnifiedKnowledgeBase | null;
   availableRoleIds: Set<string>;
 }
 
-export function EventDetail({ event, onClose, onEntityClick, kb, availableRoleIds }: EventDetailProps) {
+export function EventDetail({ event, onClose, onEntityClick, onLocationClick, kb, availableRoleIds }: EventDetailProps) {
   if (!event) return null;
 
   const handleEntityClick = (name: string) => {
@@ -84,8 +85,13 @@ export function EventDetail({ event, onClose, onEntityClick, kb, availableRoleId
     onEntityClick?.(name);
   };
 
+  const handleLocationClick = (name: string) => {
+    onClose();
+    onLocationClick?.(name);
+  };
+
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999]" onClick={onClose}>
       <div
         className="bg-white rounded-lg shadow-xl max-w-lg w-full mx-4 p-6"
         onClick={(e) => e.stopPropagation()}
@@ -111,7 +117,16 @@ export function EventDetail({ event, onClose, onEntityClick, kb, availableRoleId
           {event.location && (
             <div>
               <span className="font-semibold text-[#2c1810]">地点：</span>
-              <span className="text-gray-700">{event.location}</span>
+              {onLocationClick ? (
+                <button
+                  onClick={() => handleLocationClick(event.location!)}
+                  className="text-[#8b4513] hover:underline cursor-pointer"
+                >
+                  {event.location}
+                </button>
+              ) : (
+                <span className="text-gray-700">{event.location}</span>
+              )}
             </div>
           )}
 
@@ -171,7 +186,7 @@ export function RoleDetail({ role, onClose, onEntityClick, kb, availableRoleIds 
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999]" onClick={onClose}>
       <div
         className="bg-white rounded-lg shadow-xl max-w-lg w-full mx-4 p-6 max-h-[80vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
@@ -308,6 +323,7 @@ interface LocationDetailProps {
   relatedActions: UnifiedRelation[];
   onClose: () => void;
   onEntityClick?: (entityName: string) => void;
+  onNavigateToMap?: () => void;
   kb: UnifiedKnowledgeBase | null;
   availableRoleIds: Set<string>;
 }
@@ -318,6 +334,7 @@ export function LocationDetail({
   relatedRoles,
   onClose,
   onEntityClick,
+  onNavigateToMap,
   kb,
   availableRoleIds,
 }: LocationDetailProps) {
@@ -329,7 +346,7 @@ export function LocationDetail({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999]" onClick={onClose}>
       <div
         className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 p-6 max-h-[80vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
@@ -382,11 +399,25 @@ export function LocationDetail({
           )}
 
           {location.coordinates && (
-            <div>
-              <span className="font-semibold text-[#2c1810]">坐标：</span>
-              <span className="text-gray-700 ml-2">
-                {location.coordinates[0].toFixed(4)}, {location.coordinates[1].toFixed(4)}
-              </span>
+            <div className="flex items-center gap-4">
+              <div>
+                <span className="font-semibold text-[#2c1810]">坐标：</span>
+                <span className="text-gray-700 ml-2">
+                  {location.coordinates[0].toFixed(4)}, {location.coordinates[1].toFixed(4)}
+                </span>
+              </div>
+              {onNavigateToMap && (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    onNavigateToMap();
+                  }}
+                  className="inline-flex items-center px-3 py-1.5 text-sm bg-[#faf8f5] border border-[#d4c5b5] text-[#8b4513] rounded hover:bg-white transition-colors"
+                >
+                  在地图中查看
+                </button>
+              )}
             </div>
           )}
 
@@ -473,7 +504,7 @@ export function RelationDetail({
   const targetJuanSpan = targetId && kb?.roles?.[targetId] ? formatJuanSpan(kb.roles[targetId].juans_appeared) : '未知卷';
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={onClose}>
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[9999]" onClick={onClose}>
       <div
         className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 p-6 max-h-[80vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}

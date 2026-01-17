@@ -1,4 +1,4 @@
-export type TabType = 'timeline' | 'network' | 'power' | 'locations';
+export type TabType = 'timeline' | 'network' | 'power' | 'locations' | 'map';
 
 export type SelectionType = 'event' | 'role' | 'location' | 'relationPair';
 
@@ -32,7 +32,7 @@ function clampJuan(n: number, maxJuan: number): number {
 }
 
 function parseTab(value: string | null): TabType {
-  if (value === 'timeline' || value === 'network' || value === 'power' || value === 'locations') return value;
+  if (value === 'timeline' || value === 'network' || value === 'power' || value === 'locations' || value === 'map') return value;
   return DEFAULT_CONTEXT.tab;
 }
 
