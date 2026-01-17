@@ -13,7 +13,7 @@
 
 ## Phase 0 — Freeze contracts (so work composes)
 
-- [ ] 1) **Finalize canonical schemas (doc + types)**
+- [x] 1) **Finalize canonical schemas (doc + types)**
 - Output: agreed fields + JSON shape for:
   - `data/segment_year_index.json`
   - `data/juan_year_index.json`
@@ -25,7 +25,7 @@
   - Frontend types: `visualization/src/types/unified.ts`
   - Backend models (if any): `model/*`
 
-- [ ] 2) **Decide global time policy knobs**
+- [x] 2) **Decide global time policy knobs**
 - Output: explicit config values (even if hard-coded for V1):
   - `cutoff_year` for BCE/CE handling
   - accepted regex formats for `segment_start_time`
@@ -102,13 +102,13 @@
 
 ## Phase 3 — Location geocoding cache (enables map mode)
 
-- [ ] 9) **Define Amap geocoding configuration + secrets handling**
+- [x] 9) **Define Amap geocoding configuration + secrets handling**
 - Output: documented env vars (e.g. `AMAP_KEY`) + rate-limit strategy.
 - Success criteria: runs locally without committing secrets.
 - Touchpoints:
   - Docs: `README.md` (or a short section in `data_pipeline.md`)
 
-- [ ] 10) **Implement unified-location geocoding stage (cached)**
+- [x] 10) **Implement unified-location geocoding stage (cached)**
 - Output: script generates/updates `data/location_geocoding.json` keyed by unified location id.
 - Success criteria:
   - does not erase existing entries
@@ -118,7 +118,7 @@
   - New script (suggested): `geocode_locations_amap.py`
   - Input: `data/unified_knowledge.json`
 
-- [ ] 11) **Merge geocoding results back into unified KB**
+- [x] 11) **Merge geocoding results back into unified KB**
 - Output: `locations[*].coordinates` filled in `data/unified_knowledge.json`.
 - Success criteria: frontend reads coordinates only from unified KB.
 - Touchpoints:
@@ -126,7 +126,7 @@
 
 ## Phase 4 — Frontend: global context + navigation semantics
 
-- [ ] 12) **Make Global Context URL-addressable**
+- [x] 12) **Make Global Context URL-addressable**
 - Output: `tab`, `juanRange`, `yearRange`, and focus/selection encoded in URL.
 - Success criteria:
   - refresh restores context
@@ -134,7 +134,7 @@
 - Touchpoints:
   - Frontend router/state: `visualization/src/App.tsx`
 
-- [ ] 13) **Implement push/replace history policy (commit semantics)**
+- [x] 13) **Implement push/replace history policy (commit semantics)**
 - Output:
   - replace for high-frequency intermediate updates
   - push on commit (blur/enter/mouseup)
