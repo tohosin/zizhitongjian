@@ -13,6 +13,7 @@ import {
   LocationDetail,
   RelationDetail,
   MapView,
+  GitHubRepoBadge,
 } from './components';
 import type { TimelineEventUnified, RoleNodeUnified, UnifiedLocation, RoleLinkUnified } from './types/unified';
 import { parseUrlGlobalContext, writeUrlGlobalContext } from './state';
@@ -450,11 +451,18 @@ function App() {
     <div className="min-h-screen bg-[#faf8f5]">
       {/* Header */}
       <header className="bg-gradient-to-r from-[#8b4513] to-[#5d2e0c] text-white shadow-lg">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold">资治通鉴可视化系统</h1>
-          <p className="text-[#d4a574] mt-1">
-            基于统一知识库
-          </p>
+        <div className="max-w-7xl mx-auto px-4 py-6 flex items-start justify-between gap-4">
+          <div>
+            <h1 className="text-3xl font-bold">资治通鉴可视化系统</h1>
+            <p className="text-[#d4a574] mt-1">基于统一知识库</p>
+          </div>
+
+          <div className="pt-1">
+            <GitHubRepoBadge
+              repoFullName="JY0284/zizhitongjian"
+              repoUrl="https://github.com/JY0284/zizhitongjian"
+            />
+          </div>
         </div>
       </header>
 
