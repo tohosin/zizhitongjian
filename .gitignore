@@ -6,6 +6,12 @@ inter/
 debug_logs/
 .python-version
 *.db
+*.bak
+data/
+settings.json
+
+# Local editor settings
+.vscode/
 
 # Local env files (secrets)
 .env
