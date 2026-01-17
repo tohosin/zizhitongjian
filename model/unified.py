@@ -106,6 +106,69 @@ class UnifiedRole(BaseModel):
         }
 
 
+class UnifiedPolity(BaseModel):
+    """Canonical non-human entity (state/dynasty/polity) merged across occurrences."""
+
+    id: str
+    canonical_name: str
+    all_names: Set[str] = Field(default_factory=set)
+
+    description: str = Field(default="")
+    original_descriptions: List[str] = Field(default_factory=list)
+
+    occurrences: List[EntityOccurrence] = Field(default_factory=list)
+    total_mentions: int = Field(default=0)
+    juans_appeared: Set[int] = Field(default_factory=set)
+
+    created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    updated_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+    class Config:
+        json_encoders = {set: list}
+
+
+class UnifiedSchool(BaseModel):
+    """Canonical school/ideology entity (e.g. 儒家/法家) merged across occurrences."""
+
+    id: str
+    canonical_name: str
+    all_names: Set[str] = Field(default_factory=set)
+
+    description: str = Field(default="")
+    original_descriptions: List[str] = Field(default_factory=list)
+
+    occurrences: List[EntityOccurrence] = Field(default_factory=list)
+    total_mentions: int = Field(default=0)
+    juans_appeared: Set[int] = Field(default_factory=set)
+
+    created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    updated_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+    class Config:
+        json_encoders = {set: list}
+
+
+class UnifiedOrganization(BaseModel):
+    """Canonical organization/official-title/group entity merged across occurrences."""
+
+    id: str
+    canonical_name: str
+    all_names: Set[str] = Field(default_factory=set)
+
+    description: str = Field(default="")
+    original_descriptions: List[str] = Field(default_factory=list)
+
+    occurrences: List[EntityOccurrence] = Field(default_factory=list)
+    total_mentions: int = Field(default=0)
+    juans_appeared: Set[int] = Field(default_factory=set)
+
+    created_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+    updated_at: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+    class Config:
+        json_encoders = {set: list}
+
+
 class UnifiedLocation(BaseModel):
     """
     Canonical location that merges all occurrences of the same place.
@@ -148,6 +211,16 @@ class UnifiedEvent(BaseModel):
     time: Optional[str] = None
     time_start: Optional[int] = Field(default=None, description="Numeric year, negative for BC")
     time_end: Optional[int] = Field(default=None, description="Numeric year, negative for BC")
+
+    # Derived from reading context / segment-year index when time_start is missing
+    imputed_time_start: Optional[int] = Field(
+        default=None,
+        description="Imputed numeric year (earliest), derived from segment-year index"
+    )
+    imputed_time_end: Optional[int] = Field(
+        default=None,
+        description="Imputed numeric year (latest), derived from segment-year index"
+    )
     
     location: Optional[str] = None
     
@@ -197,6 +270,16 @@ class UnifiedRelation(BaseModel):
     # Time span of interactions
     first_interaction_time: Optional[str] = None
     last_interaction_time: Optional[str] = None
+
+    # Numeric year span of interactions (year-based; negative for BCE)
+    first_interaction_year: Optional[int] = Field(
+        default=None,
+        description="Earliest interaction year (numeric), negative for BCE"
+    )
+    last_interaction_year: Optional[int] = Field(
+        default=None,
+        description="Latest interaction year (numeric), negative for BCE"
+    )
     
     # Contexts from each interaction
     contexts: List[str] = Field(default_factory=list)
@@ -221,12 +304,18 @@ class UnifiedKnowledgeBase(BaseModel):
     
     # Entity registries
     roles: Dict[str, UnifiedRole] = Field(default_factory=dict)
+    polities: Dict[str, UnifiedPolity] = Field(default_factory=dict)
+    schools: Dict[str, UnifiedSchool] = Field(default_factory=dict)
+    organizations: Dict[str, UnifiedOrganization] = Field(default_factory=dict)
     locations: Dict[str, UnifiedLocation] = Field(default_factory=dict)
     events: Dict[str, UnifiedEvent] = Field(default_factory=dict)
     relations: Dict[str, UnifiedRelation] = Field(default_factory=dict)
     
     # Name resolution index: maps any name/alias to canonical ID
     name_to_role_id: Dict[str, str] = Field(default_factory=dict)
+    name_to_polity_id: Dict[str, str] = Field(default_factory=dict)
+    name_to_school_id: Dict[str, str] = Field(default_factory=dict)
+    name_to_organization_id: Dict[str, str] = Field(default_factory=dict)
     name_to_location_id: Dict[str, str] = Field(default_factory=dict)
     
     # Power/faction index
@@ -234,10 +323,16 @@ class UnifiedKnowledgeBase(BaseModel):
     
     # Temporal index (juan -> entities active in that juan)
     juan_to_roles: Dict[int, List[str]] = Field(default_factory=dict)
+    juan_to_polities: Dict[int, List[str]] = Field(default_factory=dict)
+    juan_to_schools: Dict[int, List[str]] = Field(default_factory=dict)
+    juan_to_organizations: Dict[int, List[str]] = Field(default_factory=dict)
     juan_to_events: Dict[int, List[str]] = Field(default_factory=dict)
     
     # Statistics
     total_roles: int = Field(default=0)
+    total_polities: int = Field(default=0)
+    total_schools: int = Field(default=0)
+    total_organizations: int = Field(default=0)
     total_locations: int = Field(default=0)
     total_events: int = Field(default=0)
     total_relations: int = Field(default=0)

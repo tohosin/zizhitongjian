@@ -3,6 +3,11 @@ Process Chinese historical text chapters and extract structured entity-relation 
 # Steps
 1. **Entity Identification (Role)**
 - Extract all influential figures, organizations, states, and cultural artifacts
+- **Classify each entity by type:**
+  - `person`: individual historical figures (人物)
+  - `polity`: states, dynasties, countries (政权/国家/朝代), e.g. 秦/秦国/汉/唐/魏/赵
+  - `school`: ideological/philosophical schools (学派/思想流派), e.g. 儒家/法家/道家/墨家/兵家
+  - `organization`: organizations, official titles, clans, military units (组织/官职/群体), e.g. 丞相府/智氏家族/虎贲军/诸侯
 - Record all known aliases from the text
   - **IMPORTANT: Aliases must be SPECIFIC names that uniquely identify this entity**
   - **DO NOT include as aliases:**
@@ -50,6 +55,7 @@ Output the strict JSON format directly. Do not include any thinking process or o
 {
   "entities": [
     {
+      "entity_type": "person|polity|school|organization",
       "name": "名称",
       "alias": ["文本中出现的所有别名"],
       "original_description_in_book": "原文对该实体的描述",
@@ -119,6 +125,7 @@ Output:
 {
   "entities": [
     {
+      "entity_type": "person",
       "name": "智伯",
       "alias": ["智瑶"],
       "original_description_in_book": "晋阳之战发起方",
@@ -127,6 +134,7 @@ Output:
       "sentence_indexes_in_segment": [0, 1]
     },
     {
+      "entity_type": "person",
       "name": "赵襄子",
       "alias": ["赵无恤"],
       "original_description_in_book": "",
@@ -135,6 +143,7 @@ Output:
       "sentence_indexes_in_segment": [0, 1]
     },
     {
+      "entity_type": "person",
       "name": "韩康子",
       "alias": ["韩虎"],
       "original_description_in_book": "",
@@ -143,6 +152,7 @@ Output:
       "sentence_indexes_in_segment": [1]
     },
     {
+      "entity_type": "person",
       "name": "魏桓子",
       "alias": ["魏驹"],
       "original_description_in_book": "",

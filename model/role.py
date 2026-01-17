@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Literal, Optional
 from pydantic import BaseModel, Field, field_validator
 
 
@@ -9,6 +9,11 @@ class Role(BaseModel):
     Entity model representing influential figures, organizations, states, 
     and cultural artifacts in historical texts.
     """
+
+    entity_type: Optional[Literal["person", "polity", "school", "organization"]] = Field(
+        default=None,
+        description="实体类型: person(人物), polity(政权/国家), school(学派), organization(组织/官职/群体). 若为None则由后处理推断."
+    )
     
     name: str = Field(
         description="实体名称，使用最常见或官方的称呼"

@@ -15,11 +15,15 @@ from pathlib import Path
 from datetime import datetime
 
 from model.role import Role
+from model.polity import Polity
+from model.school import School
+from model.organization import Organization
 from model.location import Location
 from model.event import Event
 from model.action import Action
 from model.unified import (
-    UnifiedRole, UnifiedLocation, UnifiedEvent, UnifiedRelation,
+    UnifiedRole, UnifiedPolity, UnifiedSchool, UnifiedOrganization,
+    UnifiedLocation, UnifiedEvent, UnifiedRelation,
     UnifiedKnowledgeBase, EntityOccurrence
 )
 
@@ -84,27 +88,65 @@ class EntityResolver:
         # Other political entities
         "匈奴", "义渠", "中山", "中山国",
     }
+
+    # Common dynasty/state names not covered above (appears later than Warring States)
+    POLITY_EXTRA_NAMES: Set[str] = {
+        "汉", "唐", "宋", "元", "明", "清",
+        "魏", "蜀", "吴", "晋", "隋",
+    }
+
+    # School/ideology names (philosophical schools)
+    SCHOOL_NAMES: Set[str] = {
+        "儒家", "法家", "道家", "墨家", "兵家", "名家", "阴阳家",
+        "纵横家", "杂家", "农家", "小说家", "黄老之学", "儒学",
+        "儒", "法", "道", "墨", "兵", "名", "阴阳", "纵横",
+    }
+
+    # Organization / official-title patterns
+    ORGANIZATION_NAMES: Set[str] = {
+        "丞相府", "太尉", "太尉府", "御史大夫", "廷尉", "少府",
+        "诸侯", "三公", "九卿", "郎中令", "卫尉", "光禄勋",
+        "三家",
+    }
     
     # Maximum number of names allowed in a single merged group
     # If exceeded, the group is likely incorrectly merged
     MAX_GROUP_SIZE: int = 15
     
     def __init__(self):
+        self.segment_year_index: Dict[str, int] = {}
         # Union-Find structure for entity grouping
         self.parent: Dict[str, str] = {}
+
+        # Separate Union-Find for polities
+        self.polity_parent: Dict[str, str] = {}
+        self.polity_group_size: Dict[str, int] = defaultdict(lambda: 1)
         
         # Track group sizes to prevent runaway merging
         self.group_size: Dict[str, int] = defaultdict(lambda: 1)
         
         # Name -> all occurrences of entities with that name
         self.role_occurrences: Dict[str, List[Tuple[Role, EntityOccurrence]]] = defaultdict(list)
+        self.polity_occurrences: Dict[str, List[Tuple[Polity, EntityOccurrence]]] = defaultdict(list)
+        self.school_occurrences: Dict[str, List[Tuple[School, EntityOccurrence]]] = defaultdict(list)
+        self.organization_occurrences: Dict[str, List[Tuple[Organization, EntityOccurrence]]] = defaultdict(list)
         self.location_occurrences: Dict[str, List[Tuple[Location, EntityOccurrence]]] = defaultdict(list)
+        
+        # Union-Find for schools and organizations
+        self.school_parent: Dict[str, str] = {}
+        self.school_group_size: Dict[str, int] = defaultdict(lambda: 1)
+        self.organization_parent: Dict[str, str] = {}
+        self.organization_group_size: Dict[str, int] = defaultdict(lambda: 1)
         
         # Event merging by name
         self.event_occurrences: Dict[str, List[Tuple[Event, int, int]]] = defaultdict(list)
         
         # Relation aggregation
         self.relation_pairs: Dict[str, List[Action]] = defaultdict(list)
+
+    def set_segment_year_index(self, segment_year_index: Dict[str, int]) -> None:
+        """Provide a mapping like {'juan-seg': year} for numeric-year derivation."""
+        self.segment_year_index = dict(segment_year_index)
     
     def _find(self, x: str) -> str:
         """Union-Find: find root with path compression."""
@@ -113,6 +155,131 @@ class EntityResolver:
         if self.parent[x] != x:
             self.parent[x] = self._find(self.parent[x])
         return self.parent[x]
+
+    def _polity_find(self, x: str) -> str:
+        if x not in self.polity_parent:
+            self.polity_parent[x] = x
+        if self.polity_parent[x] != x:
+            self.polity_parent[x] = self._polity_find(self.polity_parent[x])
+        return self.polity_parent[x]
+
+    def _polity_union(self, x: str, y: str) -> bool:
+        px, py = self._polity_find(x), self._polity_find(y)
+        if px != py:
+            new_size = self.polity_group_size[px] + self.polity_group_size[py]
+            if new_size > self.MAX_GROUP_SIZE:
+                return False
+            if len(px) <= len(py):
+                self.polity_parent[py] = px
+                self.polity_group_size[px] = new_size
+            else:
+                self.polity_parent[px] = py
+                self.polity_group_size[py] = new_size
+        return True
+
+    def _school_find(self, x: str) -> str:
+        if x not in self.school_parent:
+            self.school_parent[x] = x
+        if self.school_parent[x] != x:
+            self.school_parent[x] = self._school_find(self.school_parent[x])
+        return self.school_parent[x]
+
+    def _school_union(self, x: str, y: str) -> bool:
+        px, py = self._school_find(x), self._school_find(y)
+        if px != py:
+            new_size = self.school_group_size[px] + self.school_group_size[py]
+            if new_size > self.MAX_GROUP_SIZE:
+                return False
+            if len(px) <= len(py):
+                self.school_parent[py] = px
+                self.school_group_size[px] = new_size
+            else:
+                self.school_parent[px] = py
+                self.school_group_size[py] = new_size
+        return True
+
+    def _organization_find(self, x: str) -> str:
+        if x not in self.organization_parent:
+            self.organization_parent[x] = x
+        if self.organization_parent[x] != x:
+            self.organization_parent[x] = self._organization_find(self.organization_parent[x])
+        return self.organization_parent[x]
+
+    def _organization_union(self, x: str, y: str) -> bool:
+        px, py = self._organization_find(x), self._organization_find(y)
+        if px != py:
+            new_size = self.organization_group_size[px] + self.organization_group_size[py]
+            if new_size > self.MAX_GROUP_SIZE:
+                return False
+            if len(px) <= len(py):
+                self.organization_parent[py] = px
+                self.organization_group_size[px] = new_size
+            else:
+                self.organization_parent[px] = py
+                self.organization_group_size[py] = new_size
+        return True
+
+    def _is_polity_name(self, name: str) -> bool:
+        name_norm = name.strip()
+        if not name_norm:
+            return False
+
+        if name_norm in self.COUNTRY_NAMES or name_norm in self.POLITY_EXTRA_NAMES:
+            return True
+
+        # Strong suffix signals
+        if name_norm.endswith("国") and len(name_norm) <= 4:
+            return True
+        if name_norm.endswith("朝") and len(name_norm) <= 4:
+            return True
+        if name_norm.endswith("王朝") and len(name_norm) <= 6:
+            return True
+
+        return False
+
+    def _is_school_name(self, name: str) -> bool:
+        """Check if name represents a school/ideology (e.g. 儒家, 法家)."""
+        name_norm = name.strip()
+        if not name_norm:
+            return False
+
+        if name_norm in self.SCHOOL_NAMES:
+            return True
+
+        # Exclude numeric-clan patterns like "晋国三家" / "魏三家" / "三家" etc.
+        if re.search(r"[一二三四五六七八九十百千两]家$", name_norm):
+            return False
+
+        # Suffix pattern: X家 where X is 1-2 chars (儒家/法家/阴阳家)
+        if name_norm.endswith("家") and 2 <= len(name_norm) <= 4:
+            return True
+
+        # Suffix pattern: X学 (儒学/黄老之学)
+        if name_norm.endswith("学") and len(name_norm) <= 6:
+            return True
+
+        return False
+
+    def _is_organization_name(self, name: str) -> bool:
+        """Check if name represents an organization/official-title/group."""
+        name_norm = name.strip()
+        if not name_norm:
+            return False
+
+        if name_norm in self.ORGANIZATION_NAMES:
+            return True
+
+        # Suffix patterns for organizations
+        if name_norm.endswith("府") and len(name_norm) <= 5:
+            return True
+        if name_norm.endswith("军") and len(name_norm) <= 4:
+            return True
+
+        # Numeric-clan patterns like "晋国三家" / "三家"
+        if re.search(r"[一二三四五六七八九十百千两]家$", name_norm):
+            return True
+
+        return False
     
     def _union(self, x: str, y: str) -> bool:
         """
@@ -175,7 +342,12 @@ class EntityResolver:
     
     def add_role(self, role: Role, juan_index: int, segment_index: int, 
                  chunk_index: int, source_sentence: str = "") -> None:
-        """Add a role occurrence for later resolution."""
+        """Add a role occurrence for later resolution.
+        
+        Entity type routing priority:
+        1. If role.entity_type is explicitly set (by LLM), use that
+        2. Otherwise, apply heuristic classification based on name patterns
+        """
         occurrence = EntityOccurrence(
             juan_index=juan_index,
             segment_index=segment_index,
@@ -186,6 +358,89 @@ class EntityResolver:
         )
         
         name = self._normalize_name(role.name)
+
+        # Check entity_type field first (LLM-provided classification)
+        entity_type = getattr(role, 'entity_type', 'person')
+        
+        if entity_type == 'polity':
+            polity = Polity(
+                name=role.name,
+                alias=list(role.alias),
+                original_description_in_book=role.original_description_in_book,
+                description=role.description,
+                sentence_indexes_in_segment=role.sentence_indexes_in_segment,
+                juan_index=role.juan_index,
+                segment_index=role.segment_index,
+            )
+            self.add_polity(polity, juan_index, segment_index, chunk_index, source_sentence)
+            return
+        elif entity_type == 'school':
+            school = School(
+                name=role.name,
+                alias=list(role.alias),
+                original_description_in_book=role.original_description_in_book,
+                description=role.description,
+                sentence_indexes_in_segment=role.sentence_indexes_in_segment,
+                juan_index=role.juan_index,
+                segment_index=role.segment_index,
+            )
+            self.add_school(school, juan_index, segment_index, chunk_index, source_sentence)
+            return
+        elif entity_type == 'organization':
+            organization = Organization(
+                name=role.name,
+                alias=list(role.alias),
+                original_description_in_book=role.original_description_in_book,
+                description=role.description,
+                sentence_indexes_in_segment=role.sentence_indexes_in_segment,
+                juan_index=role.juan_index,
+                segment_index=role.segment_index,
+            )
+            self.add_organization(organization, juan_index, segment_index, chunk_index, source_sentence)
+            return
+
+        # Fallback heuristics for backward compatibility (when entity_type='person' or unset)
+        # Reclassify polity-like extractions (e.g. 秦/秦国/汉/唐) into separate model
+        if self._is_polity_name(name):
+            polity = Polity(
+                name=role.name,
+                alias=list(role.alias),
+                original_description_in_book=role.original_description_in_book,
+                description=role.description,
+                sentence_indexes_in_segment=role.sentence_indexes_in_segment,
+                juan_index=role.juan_index,
+                segment_index=role.segment_index,
+            )
+            self.add_polity(polity, juan_index, segment_index, chunk_index, source_sentence)
+            return
+
+        # Reclassify school-like extractions (e.g. 儒家/法家)
+        if self._is_school_name(name):
+            school = School(
+                name=role.name,
+                alias=list(role.alias),
+                original_description_in_book=role.original_description_in_book,
+                description=role.description,
+                sentence_indexes_in_segment=role.sentence_indexes_in_segment,
+                juan_index=role.juan_index,
+                segment_index=role.segment_index,
+            )
+            self.add_school(school, juan_index, segment_index, chunk_index, source_sentence)
+            return
+
+        # Reclassify organization-like extractions (e.g. 丞相府)
+        if self._is_organization_name(name):
+            organization = Organization(
+                name=role.name,
+                alias=list(role.alias),
+                original_description_in_book=role.original_description_in_book,
+                description=role.description,
+                sentence_indexes_in_segment=role.sentence_indexes_in_segment,
+                juan_index=role.juan_index,
+                segment_index=role.segment_index,
+            )
+            self.add_organization(organization, juan_index, segment_index, chunk_index, source_sentence)
+            return
         
         # Skip if the primary name itself is a blocked/generic term
         # These entities should not participate in merging at all
@@ -202,6 +457,77 @@ class EntityResolver:
             if alias_norm and self._is_valid_alias_for_person(name, alias_norm):
                 self._union(name, alias_norm)
                 self.role_occurrences[alias_norm].append((role, occurrence))
+
+    def add_polity(self, polity: Polity, juan_index: int, segment_index: int,
+                   chunk_index: int, source_sentence: str = "") -> None:
+        occurrence = EntityOccurrence(
+            juan_index=juan_index,
+            segment_index=segment_index,
+            chunk_index=chunk_index,
+            sentence_indexes=polity.sentence_indexes_in_segment,
+            original_description=polity.original_description_in_book,
+            source_sentence=source_sentence,
+        )
+
+        name = self._normalize_name(polity.name)
+        self.polity_occurrences[name].append((polity, occurrence))
+        for alias in polity.alias:
+            alias_norm = self._normalize_name(alias)
+            if alias_norm:
+                self._polity_union(name, alias_norm)
+                self.polity_occurrences[alias_norm].append((polity, occurrence))
+
+        # Also unify common "X国" -> "X" form
+        if name.endswith("国") and len(name) <= 4:
+            base = name[:-1]
+            if base:
+                self._polity_union(name, base)
+
+    def add_school(self, school: School, juan_index: int, segment_index: int,
+                   chunk_index: int, source_sentence: str = "") -> None:
+        """Add a school/ideology occurrence for later resolution."""
+        occurrence = EntityOccurrence(
+            juan_index=juan_index,
+            segment_index=segment_index,
+            chunk_index=chunk_index,
+            sentence_indexes=school.sentence_indexes_in_segment,
+            original_description=school.original_description_in_book,
+            source_sentence=source_sentence,
+        )
+
+        name = self._normalize_name(school.name)
+        self.school_occurrences[name].append((school, occurrence))
+        for alias in school.alias:
+            alias_norm = self._normalize_name(alias)
+            if alias_norm:
+                self._school_union(name, alias_norm)
+                self.school_occurrences[alias_norm].append((school, occurrence))
+
+        # Unify "X家" -> "X" form (e.g. 儒家 -> 儒)
+        if name.endswith("家") and len(name) <= 4:
+            base = name[:-1]
+            if base:
+                self._school_union(name, base)
+
+    def add_organization(self, organization: Organization, juan_index: int, segment_index: int,
+                         chunk_index: int, source_sentence: str = "") -> None:
+        """Add an organization/official-title occurrence for later resolution."""
+        occurrence = EntityOccurrence(
+            juan_index=juan_index,
+            segment_index=segment_index,
+            chunk_index=chunk_index,
+            sentence_indexes=organization.sentence_indexes_in_segment,
+            original_description=organization.original_description_in_book,
+            source_sentence=source_sentence,
+        )
+
+        name = self._normalize_name(organization.name)
+        self.organization_occurrences[name].append((organization, occurrence))
+        for alias in organization.alias:
+            alias_norm = self._normalize_name(alias)
+            if alias_norm:
+                self._organization_union(name, alias_norm)
+                self.organization_occurrences[alias_norm].append((organization, occurrence))
     
     def add_location(self, location: Location, juan_index: int, 
                      segment_index: int, chunk_index: int) -> None:
@@ -378,6 +704,134 @@ class EntityResolver:
             unified_locations[canonical_name] = unified
         
         return unified_locations
+
+    def resolve_polities(self) -> Dict[str, UnifiedPolity]:
+        unified_polities: Dict[str, UnifiedPolity] = {}
+
+        # Group occurrences by union-find root
+        groups: Dict[str, List[Tuple[Polity, EntityOccurrence]]] = defaultdict(list)
+        for name, occurrences in self.polity_occurrences.items():
+            root = self._polity_find(name)
+            groups[root].extend(occurrences)
+
+        for root_name, occurrences in groups.items():
+            all_names: Set[str] = set()
+            descriptions: List[str] = []
+            original_descriptions: List[str] = []
+            juans: Set[int] = set()
+            occs: List[EntityOccurrence] = []
+
+            for polity, occ in occurrences:
+                all_names.add(self._normalize_name(polity.name))
+                for a in polity.alias:
+                    if a:
+                        all_names.add(self._normalize_name(a))
+                if polity.description:
+                    descriptions.append(polity.description)
+                if polity.original_description_in_book:
+                    original_descriptions.append(polity.original_description_in_book)
+                juans.add(occ.juan_index)
+                occs.append(occ)
+
+            canonical = min(all_names, key=len) if all_names else root_name
+            unified_polities[canonical] = UnifiedPolity(
+                id=canonical,
+                canonical_name=canonical,
+                all_names=all_names,
+                description=self._select_best_description(descriptions),
+                original_descriptions=list(dict.fromkeys(original_descriptions)),
+                occurrences=occs,
+                total_mentions=len(occs),
+                juans_appeared=juans,
+            )
+
+        return unified_polities
+
+    def resolve_schools(self) -> Dict[str, UnifiedSchool]:
+        """Resolve all schools/ideologies into unified entities."""
+        unified_schools: Dict[str, UnifiedSchool] = {}
+
+        # Group occurrences by union-find root
+        groups: Dict[str, List[Tuple[School, EntityOccurrence]]] = defaultdict(list)
+        for name, occurrences in self.school_occurrences.items():
+            root = self._school_find(name)
+            groups[root].extend(occurrences)
+
+        for root_name, occurrences in groups.items():
+            all_names: Set[str] = set()
+            descriptions: List[str] = []
+            original_descriptions: List[str] = []
+            juans: Set[int] = set()
+            occs: List[EntityOccurrence] = []
+
+            for school, occ in occurrences:
+                all_names.add(self._normalize_name(school.name))
+                for a in school.alias:
+                    if a:
+                        all_names.add(self._normalize_name(a))
+                if school.description:
+                    descriptions.append(school.description)
+                if school.original_description_in_book:
+                    original_descriptions.append(school.original_description_in_book)
+                juans.add(occ.juan_index)
+                occs.append(occ)
+
+            canonical = min(all_names, key=len) if all_names else root_name
+            unified_schools[canonical] = UnifiedSchool(
+                id=canonical,
+                canonical_name=canonical,
+                all_names=all_names,
+                description=self._select_best_description(descriptions),
+                original_descriptions=list(dict.fromkeys(original_descriptions)),
+                occurrences=occs,
+                total_mentions=len(occs),
+                juans_appeared=juans,
+            )
+
+        return unified_schools
+
+    def resolve_organizations(self) -> Dict[str, UnifiedOrganization]:
+        """Resolve all organizations/official-titles into unified entities."""
+        unified_organizations: Dict[str, UnifiedOrganization] = {}
+
+        # Group occurrences by union-find root
+        groups: Dict[str, List[Tuple[Organization, EntityOccurrence]]] = defaultdict(list)
+        for name, occurrences in self.organization_occurrences.items():
+            root = self._organization_find(name)
+            groups[root].extend(occurrences)
+
+        for root_name, occurrences in groups.items():
+            all_names: Set[str] = set()
+            descriptions: List[str] = []
+            original_descriptions: List[str] = []
+            juans: Set[int] = set()
+            occs: List[EntityOccurrence] = []
+
+            for organization, occ in occurrences:
+                all_names.add(self._normalize_name(organization.name))
+                for a in organization.alias:
+                    if a:
+                        all_names.add(self._normalize_name(a))
+                if organization.description:
+                    descriptions.append(organization.description)
+                if organization.original_description_in_book:
+                    original_descriptions.append(organization.original_description_in_book)
+                juans.add(occ.juan_index)
+                occs.append(occ)
+
+            canonical = min(all_names, key=len) if all_names else root_name
+            unified_organizations[canonical] = UnifiedOrganization(
+                id=canonical,
+                canonical_name=canonical,
+                all_names=all_names,
+                description=self._select_best_description(descriptions),
+                original_descriptions=list(dict.fromkeys(original_descriptions)),
+                occurrences=occs,
+                total_mentions=len(occs),
+                juans_appeared=juans,
+            )
+
+        return unified_organizations
     
     def resolve_events(self) -> Dict[str, UnifiedEvent]:
         """Resolve events with the same name."""
@@ -411,6 +865,15 @@ class EntityResolver:
             # Parse numeric time
             time_str = times[0] if times else None
             time_numeric = self._parse_year(time_str)
+
+            # Impute numeric year from segment_year_index when missing
+            imputed_years: List[int] = []
+            if time_numeric is None:
+                for _, juan_idx, seg_idx in occurrences:
+                    seg_key = f"{juan_idx}-{seg_idx}"
+                    year = self.segment_year_index.get(seg_key)
+                    if year is not None:
+                        imputed_years.append(int(year))
             
             unified = UnifiedEvent(
                 id=event_name,
@@ -418,6 +881,8 @@ class EntityResolver:
                 time=time_str,
                 time_start=time_numeric,
                 time_end=time_numeric,
+                imputed_time_start=min(imputed_years) if imputed_years else None,
+                imputed_time_end=max(imputed_years) if imputed_years else None,
                 location=locations[0] if locations else None,
                 participants=all_participants,
                 description=self._select_best_description(descriptions),
@@ -443,6 +908,7 @@ class EntityResolver:
             contexts: List[str] = []
             source_juans: Set[int] = set()
             times: List[str] = []
+            years: List[int] = []
             
             for action in actions:
                 if action.action:
@@ -452,6 +918,13 @@ class EntityResolver:
                 source_juans.add(action.juan_index)
                 if action.time:
                     times.append(action.time)
+
+                year = self._parse_year(action.time)
+                if year is None:
+                    seg_key = f"{action.juan_index}-{action.segment_index}"
+                    year = self.segment_year_index.get(seg_key)
+                if year is not None:
+                    years.append(int(year))
             
             # Find most common action type
             action_counts = defaultdict(int)
@@ -468,6 +941,8 @@ class EntityResolver:
                 interaction_count=len(actions),
                 first_interaction_time=times[0] if times else None,
                 last_interaction_time=times[-1] if len(times) > 1 else None,
+                first_interaction_year=min(years) if years else None,
+                last_interaction_year=max(years) if years else None,
                 contexts=contexts[:5],  # Keep top 5 contexts
                 source_juans=source_juans
             )
@@ -480,17 +955,34 @@ class EntityResolver:
         """Parse Chinese year format to numeric value."""
         if not time_str:
             return None
-        
-        # Match patterns like "前403年", "前453", "威烈王二十三年（前403）"
-        bc_match = re.search(r'前(\d+)', time_str)
+
+        # BCE: "公元前403" or "前403" (including inside parentheses)
+        bc_match = re.search(r'公元前\s*(\d+)', time_str)
         if bc_match:
             return -int(bc_match.group(1))
-        
+
+        bc_match = re.search(r'前\s*(\d+)', time_str)
+        if bc_match:
+            return -int(bc_match.group(1))
+
+        # CE explicit: "公元655年"
+        ad_match = re.search(r'公元\s*(\d+)', time_str)
+        if ad_match:
+            return int(ad_match.group(1))
+
+        # Common dataset format: "（...、3）", "（...、116）" etc
+        paren_match = re.search(r'[（(][^）)]*?[、，,]\s*(\d{1,4})\s*(?:年)?\s*[）)]', time_str)
+        if paren_match:
+            return int(paren_match.group(1))
+
         return None
     
     def build_knowledge_base(self) -> UnifiedKnowledgeBase:
         """Build the complete unified knowledge base."""
         roles = self.resolve_roles()
+        polities = self.resolve_polities()
+        schools = self.resolve_schools()
+        organizations = self.resolve_organizations()
         locations = self.resolve_locations()
         events = self.resolve_events()
         relations = self.resolve_relations()
@@ -505,6 +997,21 @@ class EntityResolver:
         for loc_id, loc in locations.items():
             for name in loc.all_names:
                 name_to_location_id[name] = loc_id
+
+        name_to_polity_id: Dict[str, str] = {}
+        for polity_id, polity in polities.items():
+            for name in polity.all_names:
+                name_to_polity_id[name] = polity_id
+
+        name_to_school_id: Dict[str, str] = {}
+        for school_id, school in schools.items():
+            for name in school.all_names:
+                name_to_school_id[name] = school_id
+
+        name_to_organization_id: Dict[str, str] = {}
+        for org_id, org in organizations.items():
+            for name in org.all_names:
+                name_to_organization_id[name] = org_id
         
         # Power index
         power_to_roles: Dict[str, List[str]] = defaultdict(list)
@@ -522,6 +1029,21 @@ class EntityResolver:
         for event_id, event in events.items():
             for juan in event.source_juans:
                 juan_to_events[juan].append(event_id)
+
+        juan_to_polities: Dict[int, List[str]] = defaultdict(list)
+        for polity_id, polity in polities.items():
+            for juan in polity.juans_appeared:
+                juan_to_polities[juan].append(polity_id)
+
+        juan_to_schools: Dict[int, List[str]] = defaultdict(list)
+        for school_id, school in schools.items():
+            for juan in school.juans_appeared:
+                juan_to_schools[juan].append(school_id)
+
+        juan_to_organizations: Dict[int, List[str]] = defaultdict(list)
+        for org_id, org in organizations.items():
+            for juan in org.juans_appeared:
+                juan_to_organizations[juan].append(org_id)
         
         # Update related entities based on relations
         for rel in relations.values():
@@ -539,15 +1061,27 @@ class EntityResolver:
         
         return UnifiedKnowledgeBase(
             roles=roles,
+            polities=polities,
+            schools=schools,
+            organizations=organizations,
             locations=locations,
             events=events,
             relations=relations,
             name_to_role_id=dict(name_to_role_id),
+            name_to_polity_id=dict(name_to_polity_id),
+            name_to_school_id=dict(name_to_school_id),
+            name_to_organization_id=dict(name_to_organization_id),
             name_to_location_id=dict(name_to_location_id),
             power_to_roles=dict(power_to_roles),
             juan_to_roles=dict(juan_to_roles),
+            juan_to_polities=dict(juan_to_polities),
+            juan_to_schools=dict(juan_to_schools),
+            juan_to_organizations=dict(juan_to_organizations),
             juan_to_events=dict(juan_to_events),
             total_roles=len(roles),
+            total_polities=len(polities),
+            total_schools=len(schools),
+            total_organizations=len(organizations),
             total_locations=len(locations),
             total_events=len(events),
             total_relations=len(relations),
@@ -555,7 +1089,7 @@ class EntityResolver:
         )
 
 
-def load_and_resolve(store_dir: str) -> UnifiedKnowledgeBase:
+def load_and_resolve(store_dir: str, segment_year_index_path: Optional[str] = None) -> UnifiedKnowledgeBase:
     """
     Load all juan data files and resolve into unified knowledge base.
     
@@ -567,6 +1101,20 @@ def load_and_resolve(store_dir: str) -> UnifiedKnowledgeBase:
     """
     store_path = Path(store_dir)
     resolver = EntityResolver()
+
+    if segment_year_index_path:
+        try:
+            with open(segment_year_index_path, 'r', encoding='utf-8') as f:
+                payload = json.load(f)
+            seg_map: Dict[str, int] = {}
+            for key, seg in payload.get('segments', {}).items():
+                year = seg.get('year')
+                if year is not None:
+                    seg_map[key] = int(year)
+            resolver.set_segment_year_index(seg_map)
+            print(f"Loaded segment year index: {segment_year_index_path} (entries={len(seg_map)})")
+        except FileNotFoundError:
+            print(f"Segment year index not found: {segment_year_index_path} (skipping)")
     
     # Load all juan files
     for juan_file in sorted(store_path.glob("juan_*.json")):
@@ -620,7 +1168,10 @@ def save_unified_knowledge_base(kb: UnifiedKnowledgeBase, output_path: str) -> N
         json.dump(kb.model_dump(), f, ensure_ascii=False, indent=2, default=serialize)
     
     print(f"Saved unified knowledge base to {output_path}")
-    print(f"  - {kb.total_roles} unique roles")
+    print(f"  - {kb.total_roles} unique roles (persons)")
+    print(f"  - {kb.total_polities} unique polities (states/dynasties)")
+    print(f"  - {kb.total_schools} unique schools (ideologies)")
+    print(f"  - {kb.total_organizations} unique organizations")
     print(f"  - {kb.total_locations} unique locations")
     print(f"  - {kb.total_events} unique events")
     print(f"  - {kb.total_relations} unique relations")
@@ -632,8 +1183,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Build unified knowledge base from extractions")
     parser.add_argument("--store-dir", default="data/store", help="Directory containing juan_*.json files")
     parser.add_argument("--output", default="data/unified_knowledge.json", help="Output file path")
+    parser.add_argument(
+        "--segment-year-index",
+        default="data/segment_year_index.json",
+        help="Optional segment-year index JSON for deriving numeric years",
+    )
     
     args = parser.parse_args()
     
-    kb = load_and_resolve(args.store_dir)
+    seg_path = args.segment_year_index if args.segment_year_index else None
+    kb = load_and_resolve(args.store_dir, segment_year_index_path=seg_path)
     save_unified_knowledge_base(kb, args.output)

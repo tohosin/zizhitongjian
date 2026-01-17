@@ -52,6 +52,8 @@ export interface UnifiedEvent {
   time: string | null;
   time_start: number | null;
   time_end: number | null;
+  imputed_time_start?: number | null;
+  imputed_time_end?: number | null;
   location: string | null;
   participants: string[];
   description: string;
@@ -73,6 +75,8 @@ export interface UnifiedRelation {
   interaction_count: number;
   first_interaction_time: string | null;
   last_interaction_time: string | null;
+  first_interaction_year?: number | null;
+  last_interaction_year?: number | null;
   contexts: string[];
   source_juans: number[];
   created_at: string;
