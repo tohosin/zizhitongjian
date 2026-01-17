@@ -5,6 +5,9 @@ from dataclasses import dataclass
 from typing import Optional
 
 
+DEFAULT_CUTOFF_YEAR = -1
+
+
 @dataclass(frozen=True)
 class ParsedYear:
     year: int
@@ -18,7 +21,7 @@ _RE_GONGYUAN = re.compile(r"公元\s*(\d+)")
 _RE_PAREN_NUMERIC_YEAR = re.compile(r"[（(][^）)]*?[、，,]\s*(\d{1,4})\s*(?:年)?\s*[）)]")
 
 
-def parse_year_from_segment_start_time(raw: str, *, cutoff_year: int = -1) -> Optional[ParsedYear]:
+def parse_year_from_segment_start_time(raw: str, *, cutoff_year: int = DEFAULT_CUTOFF_YEAR) -> Optional[ParsedYear]:
     """Parse a numeric year from a segment_start_time string.
 
     V1 policy:

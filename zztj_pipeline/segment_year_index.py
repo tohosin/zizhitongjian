@@ -6,6 +6,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
+from .artifacts import SegmentYearIndexPayload
 from .time_parsing import parse_year_from_segment_start_time
 
 
@@ -24,7 +25,7 @@ def build_segment_year_index(
     cutoff_year: int = -1,
     overrides: Optional[Dict[str, Any]] = None,
     version: str = "v1",
-) -> Dict[str, Any]:
+) -> SegmentYearIndexPayload:
     segments: Dict[str, Any] = {}
 
     overrides_map: Dict[str, Any] = {}
@@ -69,12 +70,14 @@ def build_segment_year_index(
                 "confidence": parsed.confidence,
             }
 
-    return {
+    payload: SegmentYearIndexPayload = {
         "version": version,
         "cutoff_year": cutoff_year,
         "generated_at": datetime.now().isoformat(timespec="seconds"),
         "segments": segments,
     }
+
+    return payload
 
 
 def load_book(path: Path) -> List[Dict[str, Any]]:

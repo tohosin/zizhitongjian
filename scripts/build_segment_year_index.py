@@ -18,7 +18,15 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Build data/segment_year_index.json from adapted_book.json")
     parser.add_argument("--input", default="adapted_book.json", help="Path to adapted_book.json")
     parser.add_argument("--output", default="data/segment_year_index.json", help="Output JSON path")
-    parser.add_argument("--cutoff-year", type=int, default=-1, help="Reserved for BCE/CE policy (default: -1)")
+    parser.add_argument(
+        "--cutoff-year",
+        type=int,
+        default=-1,
+        help=(
+            "Ambiguous-year policy knob for parenthesized numeric years: "
+            "if parsed year N <= cutoff_year, treat as BCE (-N). (default: -1, i.e. keep as CE)"
+        ),
+    )
     parser.add_argument("--version", default="v1", help="Artifact version string")
     parser.add_argument(
         "--overrides",
