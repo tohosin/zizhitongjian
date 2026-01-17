@@ -109,6 +109,11 @@ npm run dev
 3.  **统一知识库 (Unified Knowledge Base)**
     *   将分散在各卷的碎片化信息重组为时空连贯的结构化数据，支持跨卷检索与分析。
 
+4.  **地点地理编码 (Geocoding)**
+    *   使用高德(Amap)为 `data/unified_knowledge.json` 的地点补全 WGS84 坐标（`coordinates: [lng, lat]`）。
+    *   配置：复制 `.env.example` 为 `.env`，填入 `AMAP_KEY`。
+    *   运行：`python scripts/geocode_locations_amap.py` 生成缓存，然后 `python scripts/merge_geocoding_into_unified_kb.py` 回填坐标。
+
 ## 项目进展
 
 项目在持续更新，目前任务列表完成情况如下：

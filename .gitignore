@@ -6,3 +6,8 @@ inter/
 debug_logs/
 .python-version
 *.db
+
+# Local env files (secrets)
+.env
+.env.*
+!.env.example

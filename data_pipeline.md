@@ -1,0 +1,236 @@
+# Data Pipeline Design (V1)
+
+> Foundation for UX v1 (global context, time filtering, map mode).
+> Created at: 2026/01/17
+
+## Goals
+
+- Produce a **deterministic, versioned** knowledge base for visualization/search.
+- Guarantee **global time navigation** by providing numeric years (year-based) even when extraction text is incomplete.
+- Enable geography/map view by enriching unified locations with **WGS84 coordinates** stored as **`[lng, lat]`**.
+- Support **incremental builds** (re-run only what changed) with caching and manual overrides.
+
+## Scope (V1)
+
+- Time is **year-based only**.
+- Treat years as **BCE (negative)** until a configured cutoff year (see Time Canonicalization).
+- Geocoding runs **on unified locations** (stable IDs), using **Amap** as the primary provider.
+
+## Inputs
+
+- `adapted_book.json`
+  - Canonical segmented text.
+  - Each segment includes `segment_start_time` string (often includes an explicit year like `（…、前295）`).
+- `data/store/juan_*.json`
+  - Per-chunk extraction outputs (via `KnowledgeStore`).
+
+## Core Outputs (Artifacts)
+
+### 1) Segment Year Index (first-class)
+
+- File: `data/segment_year_index.json`
+- Key: `(juan_index, segment_index)`
+- Purpose:
+  - Canonical numeric year per segment for time filtering and imputation.
+  - Derive `juan_start_year` reliably.
+
+Schema (suggested):
+
+```json
+{
+  "version": "v1",
+  "cutoff_year": -1,
+  "generated_at": "...",
+  "segments": {
+    "1-1": {
+      "juan_index": 1,
+      "segment_index": 1,
+      "segment_start_time_raw": "威烈王二十三年（戊寅、前403）",
+      "year": -403,
+      "parse_method": "regex:前(\\d+)",
+      "confidence": 1.0
+    }
+  }
+}
+```
+
+### 2) Juan Year Index
+
+- File: `data/juan_year_index.json`
+- Purpose:
+  - Quick mapping for UX global context syncing between `juanRange` and `yearRange`.
+
+Schema (suggested):
+
+```json
+{
+  "version": "v1",
+  "generated_at": "...",
+  "juan_start_year": {
+    "1": -403,
+    "2": -402
+  }
+}
+```
+
+### 3) Unified Knowledge Base (enriched)
+
+- File: `data/unified_knowledge.json`
+- Additions required for UX v1:
+  - Relations numeric years:
+    - `first_interaction_year: number | null`
+    - `last_interaction_year: number | null`
+  - (Optional but recommended) Events imputed year fields if `time_start` is null:
+    - `imputed_time_start: number | null`
+    - `imputed_time_end: number | null`
+
+### 4) Geocoding Cache (unified locations)
+
+- File: `data/location_geocoding.json`
+- Key: `location_id` (use unified location `id` / `canonical_name`)
+- Coordinates standard:
+  - WGS84
+  - JSON representation: **`[lng, lat]`**
+
+Schema (suggested):
+
+```json
+{
+  "version": "v1",
+  "provider": "amap",
+  "generated_at": "...",
+  "locations": {
+    "晋阳": {
+      "location_id": "晋阳",
+      "canonical_name": "晋阳",
+      "modern_name": "太原",
+      "query": "太原",
+      "coordinates": [112.5489, 37.8706],
+      "confidence": 0.9,
+      "source": "amap",
+      "evidence": "amap geocode match",
+      "needs_review": false,
+      "updated_at": "..."
+    }
+  },
+  "overrides": {
+    "晋阳": {
+      "coordinates": [112.5489, 37.8706],
+      "notes": "manual override"
+    }
+  }
+}
+```
+
+## Pipeline Stages
+
+### Stage A — Extract (LLM)
+
+- Script: `knowledge_extraction.py`
+- Reads: `adapted_book.json`
+- Writes: `data/store/juan_*.json`
+
+Notes:
+
+- Extraction prompt currently does **not** output coordinates. Coordinates must be handled by a dedicated geocoding stage.
+
+### Stage B — Build Segment Year Index (deterministic)
+
+- Input: `adapted_book.json` (preferred) and/or `data/store/juan_*.json` (`segment_start_time` copy)
+- Output: `data/segment_year_index.json`
+
+Parsing to numeric year:
+
+- Extract numeric year from `segment_start_time_raw` using regex.
+- V1 rule: treat extracted years as **BCE** until a cutoff.
+  - Default cutoff can be `-1` (i.e. BCE only) and later extended.
+
+Suggested parsing order:
+
+1. `公元前(\d+)` → `year = -N`
+2. `前(\d+)` → `year = -N`
+3. (Optional) if segment explicitly contains `公元(\d+)` → `year = +N`
+
+Quality constraints:
+
+- Within a juan: `year` should be non-decreasing by `segment_index`.
+- Across juans: `juan_start_year` must follow the known sequential-on-year invariant.
+- Violations are flagged for manual correction (in a small overrides file).
+
+### Stage C — Build Juan Year Index
+
+- Input: `data/segment_year_index.json`
+- Output: `data/juan_year_index.json`
+
+Rule:
+
+- `juan_start_year[juan] = year of (juan, segment=1)` if present.
+- Fallback: minimum year among segments in the juan.
+
+### Stage D — Resolve & Unify
+
+- Script: `entity_resolution.py`
+- Reads: `data/store/juan_*.json`
+- Writes: `data/unified_knowledge.json`
+
+V1 enrichment during/after unification:
+
+- **Events**:
+  - Keep `time_start` parsed from `event.time` when available.
+  - If missing, impute from segment year index:
+    - For each unified event occurrence (juan/segment), derive candidate year from `segment_year_index`.
+    - Set `imputed_time_start = min(candidate_years)`.
+- **Relations**:
+  - Prefer parsing `action.time` (string) when available.
+  - Otherwise derive numeric years from the segment year index via each action’s `(juan_index, segment_index)`.
+  - Aggregate into unified relation numeric span:
+    - `first_interaction_year = min(years)`
+    - `last_interaction_year = max(years)`
+
+### Stage E — Geocode Unified Locations (Amap)
+
+- Input: `data/unified_knowledge.json` locations
+- Output: `data/location_geocoding.json`
+
+Config:
+
+- Create `.env` from `.env.example` and set `AMAP_KEY`.
+
+Scripts:
+
+- Generate/update cache: `python scripts/geocode_locations_amap.py`
+- Merge into unified KB: `python scripts/merge_geocoding_into_unified_kb.py`
+
+Process:
+
+- For each unified location:
+  - Generate a query string, prefer `modern_name` if present, else `canonical_name`.
+  - Call Amap geocoding API.
+  - Normalize and store result as `[lng, lat]`.
+  - Record `confidence` and `needs_review` when:
+    - multiple candidates returned
+    - result is far from expected region (if available)
+    - low match score
+- Apply manual overrides as the final step.
+
+Integration:
+
+- Merge geocoding cache back into `data/unified_knowledge.json` by filling `locations[*].coordinates`.
+- Frontend consumes only the enriched unified KB; it never calls geocoding/LLM.
+
+## Versioning & Incremental Builds
+
+- Every artifact includes:
+  - `version`
+  - `generated_at`
+  - input hashes (optional V1)
+- Incremental strategy:
+  - Extraction is already incremental by chunk key in `KnowledgeStore`.
+  - Segment year index is deterministic and can be recomputed cheaply.
+  - Geocoding cache is append/update-only; it should never wipe existing manual overrides.
+
+## Open Issues / Decisions (for V2)
+
+- BCE/CE cutoff policy: handling `公元` years and mixed notation robustly.
+- Disambiguation for historical toponyms: region constraints, dynasty context, and multi-candidate selection heuristics.
+- Coordinates precision vs historical accuracy (ancient vs modern location).
