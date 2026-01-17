@@ -173,16 +173,23 @@ interface RoleDetailProps {
   role: RoleNodeUnified | null;
   onClose: () => void;
   onEntityClick?: (entityName: string) => void;
+  onEventClick?: (event: TimelineEventUnified) => void;
+  relatedEvents?: TimelineEventUnified[];
   kb: UnifiedKnowledgeBase | null;
   availableRoleIds: Set<string>;
 }
 
-export function RoleDetail({ role, onClose, onEntityClick, kb, availableRoleIds }: RoleDetailProps) {
+export function RoleDetail({ role, onClose, onEntityClick, onEventClick, relatedEvents, kb, availableRoleIds }: RoleDetailProps) {
   if (!role) return null;
 
   const handleEntityClick = (name: string) => {
     onClose();
     onEntityClick?.(name);
+  };
+
+  const handleEventClick = (event: TimelineEventUnified) => {
+    onClose();
+    onEventClick?.(event);
   };
 
   return (
@@ -250,6 +257,28 @@ export function RoleDetail({ role, onClose, onEntityClick, kb, availableRoleIds 
                   <span className="text-sm text-gray-500 self-center">
                     +{role.relatedEntities.length - 15}
                   </span>
+                )}
+              </div>
+            </div>
+          )}
+
+          {relatedEvents && relatedEvents.length > 0 && (
+            <div>
+              <span className="font-semibold text-[#2c1810]">相关事件：</span>
+              <p className="text-xs text-gray-500 mt-0.5">点击可查看详情</p>
+              <div className="mt-2 space-y-2 max-h-48 overflow-y-auto">
+                {relatedEvents.slice(0, 10).map((event) => (
+                  <button
+                    key={event.id}
+                    onClick={() => handleEventClick(event)}
+                    className="w-full text-left p-2 bg-[#faf8f5] border border-[#d4c5b5] rounded hover:bg-[#8b4513] hover:text-white hover:border-[#8b4513] transition-colors"
+                  >
+                    <div className="font-medium text-sm">{event.name}</div>
+                    {event.time && <div className="text-xs opacity-70">{event.time}</div>}
+                  </button>
+                ))}
+                {relatedEvents.length > 10 && (
+                  <span className="text-sm text-gray-500 block text-center">+{relatedEvents.length - 10} 更多事件</span>
                 )}
               </div>
             </div>
@@ -468,6 +497,8 @@ interface RelationDetailProps {
   targetName: string;
   onClose: () => void;
   onEntityClick?: (entityName: string) => void;
+  onEventClick?: (event: TimelineEventUnified) => void;
+  relatedEvents?: TimelineEventUnified[];
   kb: UnifiedKnowledgeBase | null;
   availableRoleIds: Set<string>;
 }
@@ -478,6 +509,8 @@ export function RelationDetail({
   targetName,
   onClose,
   onEntityClick,
+  onEventClick,
+  relatedEvents,
   kb,
   availableRoleIds,
 }: RelationDetailProps) {
@@ -486,6 +519,11 @@ export function RelationDetail({
   const handleEntityClick = (name: string) => {
     onClose();
     onEntityClick?.(name);
+  };
+
+  const handleEventClick = (event: TimelineEventUnified) => {
+    onClose();
+    onEventClick?.(event);
   };
 
   // Aggregate stats from all relations
@@ -647,6 +685,29 @@ export function RelationDetail({
               </div>
             )}
           </div>
+
+          {/* Related Events */}
+          {relatedEvents && relatedEvents.length > 0 && (
+            <div>
+              <span className="font-semibold text-[#2c1810] text-sm">相关事件：</span>
+              <p className="text-xs text-gray-500 mt-0.5">点击可查看详情</p>
+              <div className="mt-2 space-y-2 max-h-48 overflow-y-auto">
+                {relatedEvents.slice(0, 8).map((event) => (
+                  <button
+                    key={event.id}
+                    onClick={() => handleEventClick(event)}
+                    className="w-full text-left p-2 bg-[#faf8f5] border border-[#d4c5b5] rounded hover:bg-[#8b4513] hover:text-white hover:border-[#8b4513] transition-colors"
+                  >
+                    <div className="font-medium text-sm">{event.name}</div>
+                    {event.time && <div className="text-xs opacity-70">{event.time}</div>}
+                  </button>
+                ))}
+                {relatedEvents.length > 8 && (
+                  <span className="text-sm text-gray-500 block text-center">+{relatedEvents.length - 8} 更多事件</span>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Source Juans */}
           {allSourceJuans.length > 0 && (

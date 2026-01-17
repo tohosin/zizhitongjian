@@ -396,6 +396,19 @@ function App() {
     }
   }, [filteredLocations, searchParams, setSearchParams, activeTab, juanRange, timeRange, focusNodeId]);
 
+  // Handler for clicking an event (from RoleDetail/RelationDetail) - opens event detail
+  const handleEventDetailClick = useCallback((event: TimelineEventUnified) => {
+    setSelectedEvent(event);
+    const next = writeUrlGlobalContext(searchParams, {
+      tab: activeTab,
+      juanRange,
+      yearRange: timeRange,
+      focusRoleId: focusNodeId ?? undefined,
+      selection: { type: 'event', id: event.id },
+    });
+    setSearchParams(next, { replace: false });
+  }, [searchParams, setSearchParams, activeTab, juanRange, timeRange, focusNodeId]);
+
   const availableRoleIds = useMemo(() => new Set(roles.map((r) => r.id)), [roles]);
 
   const powerDistributionInRange = useMemo(() => {
@@ -718,6 +731,8 @@ function App() {
           setSearchParams(next, { replace: false });
         }}
         onEntityClick={handleFocusNode}
+        onEventClick={handleEventDetailClick}
+        relatedEvents={selectedRole ? filteredEvents.filter(e => e.participants.some(p => p === selectedRole.name || selectedRole.aliases?.includes(p))) : []}
         kb={kb}
         availableRoleIds={availableRoleIds}
       />
@@ -761,6 +776,25 @@ function App() {
             setSearchParams(next, { replace: false });
           }}
           onEntityClick={handleFocusNode}
+          onEventClick={handleEventDetailClick}
+          relatedEvents={(() => {
+            // Get all names (canonical + aliases) for both entities
+            const sourceRole = kb?.roles?.[selectedRelationPair.sourceId];
+            const targetRole = kb?.roles?.[selectedRelationPair.targetId];
+            const sourceNames = new Set<string>([
+              selectedRelationPair.sourceName,
+              ...(sourceRole?.all_names || []),
+            ]);
+            const targetNames = new Set<string>([
+              selectedRelationPair.targetName,
+              ...(targetRole?.all_names || []),
+            ]);
+            // Find events where both entities participate (checking all aliases)
+            return filteredEvents.filter(e =>
+              e.participants.some(p => sourceNames.has(p)) &&
+              e.participants.some(p => targetNames.has(p))
+            );
+          })()}
           kb={kb}
           availableRoleIds={availableRoleIds}
         />
