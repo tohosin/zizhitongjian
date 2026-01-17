@@ -1,6 +1,22 @@
-# 资治通鉴-文白对照数据-人工智能辅助理解
+# 资治通鉴-文白对照数据-人工智能辅助理解-交互式史书
 
 > 🚀 **在线体验：<https://zztj.wawuyu.cn>**
+
+## 更新记录
+
+- **2026.1.17**
+    - **前端可视化（visualization）**
+        - URL 全局状态同步与历史语义（更稳定的跳转/回退体验）
+        - 范围驱动视图（按卷/年份范围过滤事件、地点等），详情交互增强
+        - 新增“地图”Tab（Leaflet + OpenStreetMap），地点可一键在地图中查看并高亮定位；地点列表支持搜索
+        - 时间轴重构为“时间点列表 + 右侧事件列表”，更适配事件密集年份
+        - 构建验证步骤补充（任务完成后可复现验证）
+    - **数据与流水线**
+        - 统一知识库与类型定义完善（canonical artifact / unified KB types）
+        - 地点地理编码：高德(Amap)缓存与回填坐标流程
+    - **工程化与文档**
+        - 多处结构/可读性重构与健壮 JSON 解析复用
+        - 任务地图与 UX 规范补充与更新；README 增加地图 Demo 截图
 
 ## 效果预览（阶段性成果）
 
@@ -82,6 +98,8 @@ chapters
 ![地点列表](https://github.com/JY0284/zizhitongjian/blob/main/demo/location_list.png)
 - **地点详情**：
 ![地点详情](https://github.com/JY0284/zizhitongjian/blob/main/demo/location_list_node_detail.png)
+- **地图模式（OpenStreetMap）**：
+![地图模式](https://github.com/JY0284/zizhitongjian/blob/main/demo/map_view.png)
 
 ### 本地启动方法
 
