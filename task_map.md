@@ -188,12 +188,19 @@
   
   Verified: `cd visualization && npm run build`
 
-- [ ] 18) **Derive and render entity trajectory**
+- [x] 18) **Derive and render entity trajectory**
 - Output: for selected role/event/power, show ordered event-location path when both year + coords exist.
 - Success criteria: trajectory only appears when data supports it; otherwise explain why absent.
 - Touchpoints:
   - timeline/event detail + locations view
   - `visualization/src/utils/unifiedDataProcessing.ts`
+
+  Implementation: MapView.tsx trajectory fully implemented with:
+  - Location matching via canonical_name + all_names (robust alias resolution)
+  - Trajectory polyline with dashed styling + numbered waypoint markers
+  - Diagnostic panel: explains why trajectory is absent (no events / no coords / only 1 point)
+  - Scrollable trajectory list with year, event name, and location
+  - Verified: `cd visualization && npx tsc -b && npx vite build`
 
 ## Phase 6 — Build orchestration & repeatability
 

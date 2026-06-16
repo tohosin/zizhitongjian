@@ -64,9 +64,15 @@ export function MapView({
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<UnifiedLocation | null>(null);
 
-  const byName = useMemo(() => {
+  // Build location lookup by canonical_name AND all_names for robust matching
+  const byNameOrAlias = useMemo(() => {
     const m = new Map<string, UnifiedLocation>();
-    for (const loc of locations) m.set(loc.canonical_name, loc);
+    for (const loc of locations) {
+      m.set(loc.canonical_name, loc);
+      for (const alias of loc.all_names ?? []) {
+        if (!m.has(alias)) m.set(alias, loc);
+      }
+    }
     return m;
   }, [locations]);
 
@@ -94,7 +100,7 @@ export function MapView({
     for (const ev of candidates) {
       if (ev.timeNumeric === null) continue;
       if (!ev.location) continue;
-      const loc = byName.get(ev.location);
+      const loc = byNameOrAlias.get(ev.location);
       if (!loc?.coordinates) continue;
       points.push({
         id: `${ev.id}:${loc.id}`,
@@ -109,7 +115,34 @@ export function MapView({
 
     points.sort((a, b) => (a.year ?? 0) - (b.year ?? 0));
     return points;
-  }, [selectedRole, selectedEvent, eventsInRange, byName]);
+  }, [selectedRole, selectedEvent, eventsInRange, byNameOrAlias]);
+
+  // Diagnose why trajectory might be empty
+  const trajectoryDiagnosis = useMemo(() => {
+    if (!selectedRole && !selectedEvent) return null;
+    if (trajectory.length >= 2) return null;
+
+    const candidates = selectedEvent
+      ? [selectedEvent]
+      : eventsInRange.filter((e) => e.participants?.includes(selectedRole!.name));
+
+    if (candidates.length === 0) return '该人物在当前范围内无关联事件';
+    const noYear = candidates.filter((e) => e.timeNumeric === null).length;
+    const noLocation = candidates.filter((e) => !e.location).length;
+    const noCoords = candidates.filter((e) => {
+      if (!e.location) return false;
+      const loc = byNameOrAlias.get(e.location);
+      return !loc?.coordinates;
+    }).length;
+
+    const reasons: string[] = [];
+    if (noYear === candidates.length) reasons.push('事件缺少年份信息');
+    if (noLocation === candidates.length) reasons.push('事件缺少地点信息');
+    else if (noCoords > 0) reasons.push(`${noCoords}个地点缺少坐标`);
+    if (trajectory.length === 1) reasons.push('仅有1个事件节点，无法绘制轨迹（需≥2）');
+
+    return reasons.length > 0 ? reasons.join('；') : '暂无足够数据';
+  }, [selectedRole, selectedEvent, trajectory, eventsInRange, byNameOrAlias]);
 
   const trajectoryLine = useMemo(() => {
     if (trajectory.length < 2) return null;
@@ -273,12 +306,37 @@ export function MapView({
         )}
       </div>
 
-      {/* Trajectory indicator */}
-      {trajectory.length >= 2 && (
-        <div className="mt-3 p-2 bg-[#faf8f5] rounded text-sm text-[#8b4513] flex-shrink-0">
-          <span className="font-semibold">轨迹：</span>
-          {selectedRole ? selectedRole.name : selectedEvent ? selectedEvent.name : ''}{' '}
-          ({trajectory.length} 个事件节点)
+      {/* Trajectory indicator / list */}
+      {(selectedRole || selectedEvent) && (
+        <div className="mt-3 p-3 bg-[#faf8f5] rounded border border-[#d4c5b5] flex-shrink-0 max-h-40 overflow-y-auto">
+          <div className="flex items-center justify-between mb-1">
+            <span className="font-semibold text-[#8b4513] text-sm">
+              轨迹：{selectedRole ? selectedRole.name : selectedEvent ? selectedEvent.name : ''}
+            </span>
+            {trajectory.length >= 2 && (
+              <span className="text-xs text-gray-500">{trajectory.length} 个事件节点</span>
+            )}
+          </div>
+
+          {trajectory.length >= 2 ? (
+            <ol className="text-xs text-[#5d2e0c] space-y-1">
+              {trajectory.map((pt, idx) => (
+                <li key={pt.id} className="flex items-start gap-1.5">
+                  <span className="text-[#8b4513] font-bold shrink-0">{idx + 1}.</span>
+                  <span>
+                    {pt.year !== null ? (
+                      <span className="font-medium">{pt.year < 0 ? `前${Math.abs(pt.year)}` : pt.year}年</span>
+                    ) : '未知年'}
+                    {' — '}
+                    <span className="text-gray-700">{pt.eventName}</span>
+                    <span className="text-gray-400"> @ {pt.name}</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          ) : trajectoryDiagnosis ? (
+            <p className="text-xs text-gray-500">{trajectoryDiagnosis}</p>
+          ) : null}
         </div>
       )}
     </div>
