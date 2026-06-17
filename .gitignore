@@ -17,3 +17,8 @@ settings.json
 .env
 .env.*
 !.env.example
+
+# Extraction debug files
+extraction_log.txt
+run_extraction.py
+test_api.py
